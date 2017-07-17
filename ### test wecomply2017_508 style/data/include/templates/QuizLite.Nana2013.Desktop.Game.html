@@ -1,0 +1,59 @@
+﻿<!--ELEMENT_START:Quiz_Wrapper-->
+<div id="Quiz_Wrapper_Element">
+	<div id="Quiz_GameContent">{$Content:quizContent}</div>
+</div>
+<!--ELEMENT_END:Quiz_Wrapper-->
+
+<!--ELEMENT_START:Quiz-->
+		
+<div id="Quiz_Element" class="quizLayoutFinalQuiz">
+	<div id="quizLeftPage" class="quizLeftPage">
+		<div class="finaQuizBodyWrapper">
+			<div id="Quiz_Illustration_Content" class="quizIllustration" style="display:none;">
+				{$Content:Quiz_Illustration}
+			</div>
+			<div id="Quiz_Body_Content" class="questionBody courseContent">{$Content:Quiz_Body}</div>
+			<ul id="Quiz_Choices_Content" class="quizChoices">
+				{$Content:Quiz_Choices}
+			</ul>
+		</div>
+		<div class="buttonsContainer">
+			<div id="Button_Continue" class="continueButton disabled" onclick="wc.interface.actionHandler.game_answerQuestion();" >{$Content:ContinueResource}</div>	
+		</div>
+		</div>
+
+	<div class="quizRightPage" >
+		<div id="Quiz_Body_Feedback_Container" class="quizFeedback" style="display:none;">
+			<div id="Quiz_Body_Feedback_AgreeText" class="agreeText" style="display:none;"></div>
+			<div id="Quiz_Body_Feedback">
+				<div id="Quiz_Body_Feedback_Text" class="courseContent"></div>
+				
+				
+				<div id="Quiz_Body_Feedback_TryAgain" class="continueButton"  onclick="wc.interface.actionHandler.game_closeFeedbackElement();">{$Resource:PleaseTryAgain}</div>				
+				
+			</div>
+			<div id="Quiz_Body_Feedback_ContinueButton" class="buttonsContainer">
+				<div id="continueBtn" class="continueButton" onclick="wc.interface.actionHandler.game_gotoNextQuestion()">{$Content:ContinueResource}</div>				
+			</div>
+		</div>
+	</div>
+</div>
+<!--ELEMENT_END:Quiz-->
+
+<!--ELEMENT_START:Quiz_ChoiceItem-->
+<li id="mediaBullet_{$Content:Quiz_ChoiceItem_Id}" class="active hidden" onclick="wc.interface.elements.quiz.selectAnswer({$Content:Quiz_ChoiceItem_Id}, {$Content:gameIndex});" > 
+	<p class="listVerticalAlign">
+		.</p>
+	<p class="bulletContent">{$Content:Quiz_ChoiceItem_Body}</p>
+	<div></div>
+</li>
+<!--ELEMENT_END:Quiz_ChoiceItem-->
+<!--ELEMENT_START:Quiz_Intro-->
+<div class="gameIntroWrapper">
+	<h3 class="gameTitle">{$Content:Game_Intro_Name}</h3>
+	<div class="gameIntroText courseContent">{$Content:Game_Intro_WelcomeText}</div>			
+	<div class="buttonsContainer">
+		<div id="startQuizButton" onclick="wc.interface.actionHandler.displayGame({$Content:gameIndex});" class="continueButton">{$Content:Game_Intro_StartQuizText}</div>
+	</div>
+</div>
+<!--ELEMENT_END:Quiz_Intro-->

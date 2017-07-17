@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Board Game</title>
+<script type="text/javascript" src="BoardEngine.js"></script>
+<script type="text/javascript">
+var master = typeof(top.master) == "object" ? top.master : window.opener;
+var game = "boardGame";
+function start()
+{
+	startAnswer();
+}
+
+function startQuestion()
+{
+	if (typeof(question.loaded) != "undefined" && question.loaded && (typeof(question.start) == "object" || typeof(question.start) == "function"))
+	{
+		master.bNeedIntro = true;
+		question.start(master);
+	}
+	else
+		setTimeout("startQuestion()", 10);
+}
+function startAnswer()
+{
+	if (typeof(answer.loaded) != "undefined" && answer.loaded && (typeof(answer.start) == "object" || typeof(answer.start) == "function"))
+	{
+		answer.start(master);
+		startQuestion();
+	}
+	else
+		setTimeout("startAnswer()", 10);
+}
+</script>
+</head>
+
+<frameset rows="34,*,68" border="0" framespacing="0" onLoad="start()">
+<frame name="top_row" src="top.htm" scrolling="no" marginheight="1" marginwidth="1" frameborder="no" noresize>
+<frameset cols="32,*,32" border="0" framespacing="0">
+<frame name="left" src="left.htm" scrolling="no" marginheight="0" marginwidth="0" frameborder="no" noresize>
+<frameset cols="298,278" border="0" framespacing="0">
+<frame name="question" src="Question.htm" scrolling="auto" marginheight="6" marginwidth="6" frameborder="no" noresize>
+<frame name="answer" src="Answer.htm" scrolling="auto" marginheight="10" marginwidth="10" frameborder="no" noresize>
+</frameset>
+<frame name="right" src="right.htm" scrolling="no" marginheight="0" marginwidth="0" frameborder="no" noresize>
+</frameset>
+<frame name="bottom" src="bottom.htm" scrolling="no" marginheight="1" marginwidth="1" frameborder="no" noresize>
+</frameset>
+</html>

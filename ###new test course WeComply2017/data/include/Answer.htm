@@ -1,0 +1,110 @@
+<html>
+	<head>
+		<LINK REL="StyleSheet" TYPE="text/css" HREF="nav.css">
+		<nolayer>
+		<link rel="StyleSheet" type="text/css" href="ie.css">
+		<link rel="stylesheet" type="text/css" id="linkID"/>
+		<link rel="stylesheet" type="text/css" id="customlinkID"/>
+		</nolayer>
+		<style type="text/css">
+		.rollButton
+		{
+			font-weight: bolder;
+			padding: 3px;
+			background-color: #bbbbbb;
+			margin-top: 75px;
+			margin-bottom: 16px;
+		}
+		.continueButton
+		{
+			margin: 12px;
+		}
+		</style>
+		<script type="text/javascript">
+		var master = null;
+		var loaded = false;
+
+		function start(handle)
+		{
+			master = handle;
+//			if (master.bPop)
+//			{
+//				answerBody.bgColor = "#EEEEAA";
+//				master.displayPopAnswer();
+//			}
+			
+			document.getElementById("linkID").href = master.getStylesheetPath();
+			document.getElementById("customlinkID").href = master.getCustomStylesheetPath();
+			if (master.isRtlLanguage())
+				document.dir = "rtl";
+
+			if (document.all)	// IE
+			{
+				continueBtn.value = master.getButtonName("continue");
+				if (top.game == "boardGame")
+					startGame.value = master.getButtonName("rollDice");
+			}
+			else	// NS 7
+			{
+				document.getElementById("continueBtn").value = master.getButtonName("continue");
+				if (top.game == "boardGame")
+					document.getElementById("startGame").value = master.getButtonName("rollDice");
+			}
+		}
+		
+		function goNext()
+		{
+			if (!master.bPop)
+				master.goNext();
+			else
+				master.closePopQuestion();
+		}
+		</script>
+	</head>
+
+	<body id="answerBody" bgcolor="#ffffff" onload="loaded=true">
+		<div id="answerDiv">
+			<div id="Feedback" style="display:none"></div>
+			<div align="center" id="Continue" style="display:none">
+				<input type="button" id="continueBtn" class="continueButton" value="Continue" onClick="goNext()" NAME="continueBtn">
+			</div>
+		</div>
+		<div id="riskyDiv" style="display:none">
+			<div align="center">
+				<input type="button" class="rollButton" id="startGame" value="Roll Dice" onClick="goNext()" onMouseOver="window.status='Click here to begin the game.';return true" onMouseOut="window.status=''; return true" width="102" border="0" height="121" alt="Click here to begin the game.">
+				<img src="images/d0.gif" id="dice" width="102" border="0" height="121" style="display:none">
+				<table width="240" cellspacing="1" cellpadding="2" border="1" bordercolor="navy" bgcolor="#eeeeee" ID="Table1">
+					<tr><td>
+						<table cellspacing="2" border="0" bgcolor="#eeeeee" ID="Table2">
+							<tr>
+								<td><img src="images/square1.gif" width="10" height="10"></td>
+								<td class="Smalllist"><span id="Category1"></span></td>
+							</tr><tr>
+								<td><img src="images/square2.gif" width="10" height="10"></td>
+								<td class="Smalllist"><span id="Category2"></span></td>
+							</tr><tr>
+								<td><img src="images/square3.gif" width="10" height="10"></td>
+								<td class="Smalllist"><span id="Category3"></span></td>
+							</tr><tr>
+								<td><img src="images/square8.gif" width="10" height="10"></td>
+								<td class="Smalllist"><span id="Category4"></span></td>
+							</tr><tr>
+								<td><img src="images/square4.gif" width="10" height="10"></td>
+								<td class="Smalllist"><span id="Category5"></span></td>
+							</tr><tr>
+								<td><img src="images/square6.gif" width="10" height="10"></td>
+								<td class="Smalllist"><span id="Category6"></span></td>
+							</tr><tr>
+								<td><img src="images/square5.gif" width="10" height="10"></td>
+								<td class="Smalllist"><span id="Category7"></span></td>
+							</tr><tr>
+								<td><img src="images/square7.gif" width="10" height="10"></td>
+								<td class="Smalllist"><span id="Category8"></span></td>
+							</tr>
+						</table>
+					</td></tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

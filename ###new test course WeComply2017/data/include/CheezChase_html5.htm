@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<title>Quiz Lite Mobile</title>
+<meta name = "viewport" content = "height = device-height">
+	<meta content="2008-07-15 17:38:07Z" name="LastModified">
+		<link rel="stylesheet" type="text/css" id="linkID"/>
+		<link rel="stylesheet" type="text/css" id="customlinkID"/>
+		<style type="text/css">
+		.continueButton
+		{
+			margin: 12px;
+		}
+		</style>		<script type="text/javascript">
+var master = typeof(top.master) == "object" ? top.master : window.opener;	// this == top ? this.opener : top.master;
+var game = "QuizLiteForJaws";
+var bNoSelection = false;
+//var question;
+//var answer;
+
+function start()
+{
+	document.getElementById("linkID").href = master.getStylesheetPath();
+	document.getElementById("customlinkID").href = master.getCustomStylesheetPath();
+	document.getElementById("continueBtn").value = master.getButtonName("continue");
+
+	var str = master.getQuizName(this);
+
+	if (str != "")
+		document.title = str;
+
+//	question = document.getElementById("questionDiv");
+//	answer = document.getElementById("answerDiv");
+	
+	goNext();
+}
+
+function pickedAnswer(which)
+{
+	HighlitePick(which);
+	master.pickedAnswerNoFrames(which);
+}
+function goNext()
+{
+	master.goNextNoFrames();
+}
+function gameClosing()
+{
+	master.gameClosing();
+}
+function HighlitePick(which)
+{
+	if (bNoSelection)
+	{
+		bNoSelection = false;
+		
+		document.getElementById("Answer" + which).className = "firstSelectedAnswer";
+	}
+}
+
+
+		</script>
+	</head>
+	<body onLoad="start()" style="MARGIN-TOP:8px;MARGIN-BOTTOM:8px;MARGIN-LEFT:12px">
+		<div id="questionDiv" style="overflow-y:auto;height:100%;float:left;background-color:white;width:45%;margin:6px">
+			<form id="form1">
+				<table ID="Table1" border="0" cellPadding="2" width="100%" style="display:none;">
+					<tr>
+						<td>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<div id="answerDiv" style="margin:10px;overflow-y:auto;height:100%">
+			<div id="Feedback" style="DISPLAY:none"></div>
+			<div align="center" id="Continue" style="DISPLAY:none">
+				<input type="button" id="continueBtn" class="continueButton" value="Continue" onClick="goNext()"
+					NAME="continueBtn">
+			</div>
+		</div>
+	</body>
+</html>

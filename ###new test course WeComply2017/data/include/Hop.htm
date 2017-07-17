@@ -1,0 +1,41 @@
+<html>
+<head>
+<script type="text/javascript" src="HopEngine.js"></script>
+<script type="text/javascript">
+var loaded = false;
+var master = null;
+function start(handle)
+{
+	master = handle;
+	document.getElementById("spanLoading").innerHTML = master.GetLoadingText();
+	init();
+}
+</script>
+</head>
+<body id="idBody" onload="loaded=true">
+<div id="loadingDIV" style="position:absolute; left:210; top:200; width:300; height:10; z-index:1; visibility:visible">
+<font face="arial" size="3" color="#999999"><b><span id="spanLoading"></span></b></font>
+</div> 
+
+<div id="preloadDIV" style="position:absolute; left:0; top:0; width:10; height:10; z-index:1; visibility:hidden">
+<img src="hopImages/background.gif" width=530 height=160 border=0 alt="">
+<img src="hopImages/controls.gif" width=70 height=160 border=0 alt="">
+<img src="hopImages/controls_icon.gif" width=26 height=20 border=0 alt="">
+<img src="hopImages/game_inactive.gif" width=600 height=160 border=0 alt="">
+<img src="hopImages/ladder_hide.gif" width=12 height=28 border=0 alt="">
+<img src="hopImages/ladder1_show.gif" width=12 height=6 border=0 alt="">
+<img src="hopImages/ladder2_show.gif" width=12 height=6 border=0 alt="">
+<img src="hopImages/ladder3_show.gif" width=12 height=6 border=0 alt="">
+<img src="hopImages/obstacle_l.gif" width=13 height=19 border=0 alt="">
+<img src="hopImages/obstacle_r.gif" width=13 height=19 border=0 alt="">
+<img src="hopImages/qmark.gif" width=12 height=12 border=0 alt="">
+<img src="hopImages/reactivate.gif" width=69 height=55 border=0 alt="">
+<img src="hopImages/sprite_l.gif" width=10 height=20 border=0 alt="">
+<img src="hopImages/sprite_r.gif" width=10 height=20 border=0 alt="">
+<img src="hopImages/scene.jpg" width=600 height=300 border=0 alt="">
+<img src="hopImages/head1.gif" width=60 height=56 border=0>
+<img src="hopImages/legs1.gif" width=66 height=52 border=0>
+</div>
+
+</body>
+</html>

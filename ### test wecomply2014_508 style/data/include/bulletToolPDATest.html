@@ -1,0 +1,644 @@
+<!-- saved from url=(0013)about:internet -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WeComply</title>
+
+<script language="JavaScript" src="XML/bulletToolXML.js"></script>
+
+<script  language="JavaScript" type="text/javascript">
+<!--
+
+var chapterIndex=0;
+var didImport = false;
+
+function ExportToAuthoringSystem(xmlStr) {
+	//alert("DEBUG: ExportToAuthoringSystem called with XML: " + xmlStr);  // remove this
+	window.opener.AdminForm.ChapterEdit_PithyQuoteEdit.value = xmlStr;
+}
+
+function ImportFromAuthoringSystem() {
+
+var bullethtml = window.opener.AdminForm.ChapterEdit_PithyQuoteEdit.value;
+//alert("got bullet html " + bullethtml);
+
+return bullethtml;
+
+}
+
+function doNoAudioClose() {
+	alert("This chapter does not contain an Audio element, which is required. Please close this window if it does not close itself.");
+	//window.close();
+}
+
+function doRefresh() {
+	location.reload(true);
+}
+
+
+function getScrollBarPosition() {
+	if (window.innerWidth) posX = window.pageXOffset;
+	else if (document.documentElement && doument.documentElement.scrollLeft) posX = document.documentElement.scrollLeft;
+	else if (document.body) posX = document.body.scrollLeft;
+
+	if (window.innerHeight) posY = window.pageYOffset;
+	else if (document.documentElement && document.documentElement.scrollTop) posY = document.documentElement.scrollTop;
+	else if (document.body) posY = document.body.scrollTop;
+
+	return [posX, posY];
+}
+
+function pageScroll(amount) {
+	window.scrollBy(0, amount);
+}
+
+
+
+function getNumChapters() {
+	return 1; //xmlInputStrArray.length;
+}
+function getChapterNum() {
+	return 1; //chapterIndex + 1;  // one-based
+}
+function doStart() {
+	if (chapterIndex == 0) param = true; //0;
+	else param = false; //1;
+	thisMovie("xmlplayer943615").StartChapter(param);
+}
+function FlashReady() {
+	doStart();
+}
+
+function fixStaticPath(aPath) {
+	return aPath;
+}
+
+function GetGameSelection() {
+	//return "FlashRaceCar";
+	//return "elevator";
+	return "FlashBaxterCode";
+}
+
+function NavigateChapter(direction) {
+	thisMovie("xmlplayer943615").StopChapter();
+	chapterIndex = chapterIndex + direction;
+	if (chapterIndex < 0) chapterIndex = 0;
+	else if (chapterIndex > xmlInputStrArray.length - 1) chapterIndex = xmlInputStrArray.length - 1;
+	doStart();
+}
+
+function getHighestPage()
+{
+ return xmlInputStrArray.length ;
+}
+
+
+function GetChapterXML() {
+	if (didImport == false) {
+		importXML = ImportFromAuthoringSystem();
+		didImport = true;
+		if (importXML != "") {
+			prefix = "<Chapter id=\"R66248\" status=\"Published\" variety=\"Standard\" pagination=\"true\" continuation=\"false\" autoplay=\"true\" minimumTimeSec=\"0\"><Heading>heading</Heading><Illustration id=\"R307\" status=\"Published\" src=\"media-190.gif\" variety=\"image/gif\" height=\"176\" width=\"220\"></Illustration><Audio id=\"R66149\" status=\"Published\" src=\"" + mediaURL + "\" variety=\"audio/x-flv\"></Audio><PithyQuote>";
+		
+			suffix = "</PithyQuote></Chapter>";
+			return prefix + importXML + suffix;
+		} else return xmlInputStrArray[chapterIndex];
+	}
+	cookieXML = thisMovie("xmlplayer943615"). btGetXMLCookie();
+
+	if ((cookieXML!=null) && (cookieXML!="") && (cookieXML!="null")) {
+		srcofst = cookieXML. lastIndexOf("src=\"");
+		if (srcofst == -1) return xmlInputStrArray[chapterIndex];
+		fNameStart = srcofst + 5;
+		fNameEnd = cookieXML. indexOf("\"", fNameStart) - 1;
+		cookieFlvFileName = cookieXML.substr(fNameStart, (fNameEnd - fNameStart) + 1);
+		if (cookieFlvFileName != mediaURL) return xmlInputStrArray[chapterIndex];
+		else return cookieXML;
+	} else return xmlInputStrArray[chapterIndex];
+}
+
+
+function GetChapterFooter() {
+	return ""; // "this is a footer";
+	
+}
+function pausecomp(millis) {
+	var date = new Date();
+	var curDate = null;
+
+	do { curDate = new Date(); }
+	while(curDate-date < millis);
+} 
+function NavigateGameSelection(variety) {
+	//alert("Selected game:" + variety);
+}
+function NavigateRefuseAck() {
+	//alert ("Got refuse ack.");
+}
+function SendWrongAnswer(id, index) {
+	//alert("gameSendWrongAnswer: id = " + id + " index:" + index);
+	//alert("gameSendWrongAnswer");
+	//alert ("In SendWrongAnswer, returning true.");
+	return(true);
+}
+
+function GetLocalizedString(which) {
+	if (which == "Copyright") return ""; //"this is a copyright string";
+
+	else if (which == "CodeExcerpt") return "Code"; 
+	else if (which == "InTheNews") return "News"; 
+	else if (which == "Policy") return "Policy"; 
+	else if (which == "DosandDonts") return "Dos and Don'ts"; 
+	else if (which == "CodeCompanion") return "Code Companion"; 
+	else if (which == "FAQs") return "FAQs"; 
+
+	else if (which == "Yes") return "Yes"; 
+	else if (which == "No") return "No"; 
+
+else if (which == "Begin") return "Begin"; 
+
+	
+	else if (which == "IntroAnimation") return ""; //"eliableIntro.swf";
+	else if (which == "WeAgree") return "We agree."; 
+	else if (which == "WeDisagree") return "We disagree."; 
+	else if (which == "Memorandum") return "M E M O R A N D U M"; 
+	else if (which == "Re") return "Re:"; 
+	else if (which == "To") return "To:"; 
+	else if (which == "Continue") return "Continue"; 
+	else if (which == "Date") return "Date:"; 
+	else if (which == "CloseWindow") return "Close Window"; 
+	else if (which == "Pleasetryagain") return "Please Try Again"; 
+	else if (which == "PopQuiz") return "Pop Quiz!"; 
+	else if (which == "CurDate") return "a fake date";
+	else if (which == "CompanyLogo") return ""; //logo-30.gif";
+	else if (which == "PageOf") return ("Page " + (getChapterNum()) + " of " + getNumChapters());
+	else if (which == "FirstName") return "Sue";
+	else if (which == "LastName") return "Pervizer";
+	else if (which == "Transcript") return "Transcript";
+	else if (which == "AckAgree") return "I agree";
+	else if (which == "AckNotAgree") return "I do not agree";
+	else if (which == "Exit") return "Exit";
+	else if (which == "NextPage") return "Next";
+	else if (which == "PreviousPage") return "Previous";
+	else if (which == "BetterAnswer") return "There's a better answer...";
+	else if (which == "ProgramName") return "fake course name";
+		else if (which == "Continued") return "(Cont'd)";
+else if (which == "Quiz") return "Quiz";
+	else if (which == "contd") return "(Cont'd)";
+else if (which == "gameChoice") return "Game Selection";
+else if (which == "battery") return "BATTERY";
+else if (which == "sustainabilityScore") return "Your sustainability score:";
+else if (which == "batteryRecharging") return "Your battery needs recharging!";
+else if (which == "rejoinRace") return  "Answer the following question correctly on your first try to charge your battery and re-join the race.";
+else if (which == "clickBelow") return  "Click below to continue.";
+else if (which == "chargedAndReady") return  "Your car is charged up<br />and ready to go!";
+else if (which == "go") return "Go!";
+else if (which == "Congratulations") return "Congratulations!";
+else if (which == "rallyFinished") return  "You finished the rally with a sustainability score of";
+else if (which == "NowAnswer") return "Now answer the following question correctly to complete the game.";
+else if (which == "ClickContinueForCertificate") return "Click Continue to receive a Certificate of Completion.";
+else if (which == "AnotherChance") return "Here's another chance."
+else if (which == "raceCarInstruction1") return  "Buckle up -- the road to Ethics Valley has plenty of potholes, lots of litter, and tours some tough towns.  To earn an \"eco-friendly\" win:";
+else if (which == "raceCarInstruction2") return    "Steer your electric car with the left/right arrow keys on your keyboard.";
+else if (which == "raceCarInstruction3") return    "Pick up sustainability points by driving over cans and bottles on the road; lose points by hitting potholes.";
+else if (which == "raceCarInstruction4") return    "When your battery dies, recharge it by answering the questions that appear.  To recharge, you must answer correctly on your first try.";
+else if (which == "Clicktobegin") return      "Click to begin";
+else if (which == "GoodLuck") return          "Good luck!";
+else if (which == "IntegrityWorksHere") return        "Integrity Works Here";
+else if (which == "CodeOfConductIinstructions") return         "Help us perform and grow positively and responsibly by demonstrating your understanding of our Code of Conduct.\n\nAnswer correctly on your first attempt to stimulate the tree's growth. When the tree is fully developed, you will receive a Certificate of Completion.";
+else if (which == "OurSuccess") return        "Our success is based on our personal accountability for results and integrity.";
+else if (which == "IntegrityWorkplace") return         	"Integrity in our workplace.";
+else if (which == "IntegrityRnD") return         "Integrity in research and development.";
+else if (which == "IntegrityManufacturing") return         "Integrity in manufacturing.";
+else if (which == "IntegrityProducts") return         	"Integrity in our products.";
+else if (which == "IntegritySales") return         "Integrity in sales and marketing.";
+else if (which == "IntegrityCommunity") return         	"Integrity in community relations.";
+else if (which == "IntegrityWorksWins") return         	"Integrity works here. Integrity wins here.";
+else if (which == "NextQuestion") return         	"Next Question";
+else if (which == "NowAnswer") return         	"Now answer the following question correctly to complete the game.";
+else if (which == "Cancel") return         	"Cancel";  // add to TPMS - used in TOC
+else if (which == "Done") return         	"Done";  // add to TPMS - used in TOC
+else if (which == "GotoPage") return         	"Go to Page";  // add to TPMS - used in TOC
+else if (which == "Notes") return         	"Notes";  // add to TPMS - used in Notes printout
+else if (which == "HelpText") return         	"Click this button for the Table of Contents.  Hilite a chapter of the course and click the \"Go to Page\" button to skip to a different chapter.  Note, however that you cannot advance to a chapter that you have not already completed.<br><br>Click this button to enlarge or reduce the size of the text.<br><br>Click this button to jot down notes about the course.  Click the \"E-mail\" button to send the notes to yourself at any point in the course.<br><br>Click this button to go to the previous or next chapter.<br><br>Click this button to start or pause the audio.<br><br>Click this button to change modes.  Available modes are (a) audio with bullets, (b) audio with full text and (c) full text without audio.<br><br>Click this button to view any policy or policies that pertain to this course.<br><br>When a yellow \"sticky note\" appears on the bulletin board, click the note for related content &#8212; news clippings, FAQs, etc.<br><br>";  // add to TPMS
+else if (which == "Help") return         	"Help";  // add to TPMS
+else if (which == "Email") return         	"Email";  // add to TPMS
+else if (which == "InTheNews") return         	"In the News";  // add to TPMS
+else if (which == "WeComplyReport") return         	"WeComply Report";  // add to TPMS
+else if (which == "TableOfContents") return         	"Table Of Contents";  // add to TPMS
+else if (which == "PreparedFor") return         	"Prepared for";  // add to TPMS
+else if (which == "Skip") return         	"Skip";  // add to TPMS
+
+else if (which == "Back") return         	"Back";  // add to TPMS - tooltip
+else if (which == "EnlargeShrinkText") return         	"Enlarge/Shrink Text";  // add to TPMS - tooltip
+else if (which == "PausePlayAudio") return         	"Pause/Play Audio";  // add to TPMS - tooltip
+else if (which == "TextAudioMode") return         	"Text/Audio Mode";  // add to TPMS - tooltip
+else if (which == "MinimumScoreWarning") return "You scored %2% on the quiz, which is not a passing score. You may re-take the quiz now or at another time. You must earn a score of %1% or higher to complete your training assignment and receive a Certificate of Completion.";
+
+
+	//else if (which == "ProgramName") return "a very long fake course name which should be long enough to force downsizing of the font";
+	else return "Unsupported string " + which +  " passed to GetLocalizedString";
+}
+function GetCourseDescription() {
+	return "this is a descrpiton";
+}
+function NavigateExitChapters() {
+	alert("NavigateExitChapters available only under TPMS.");
+}
+function NavigateForward(numChapters) {
+	alert("NavigateForward available only under TPMS. Called with value" + numChapters);
+}
+function NavigateBackward(numChapters) {
+	alert("NavigateBackward available only under TPMS. Called with value" + numChapters);
+}
+
+
+function doHyperlink(hrefStr) {
+	thisMovie("xmlplayer943615").doHyperlink(hrefStr);  
+}
+function thisMovie(movieName) {
+    if (navigator.appName.indexOf("Microsoft") != -1) {
+        return window[movieName]
+    }
+    else {
+        return document[movieName]
+    }
+}
+
+function sizeFlashHeight(newsize) {
+	document.getElementById("container").style.height = newsize + "px";
+	document.getElementById("xmlplayer943615").style.height = newsize + "px";
+ }
+function getFlashWidth() {
+//alert(String(document.getElementById("container").clientWidth));
+
+	return document.getElementById("container").clientWidth;
+}
+function getFlashHeight() {
+	return document.getElementById("container").clientHeight;
+}
+
+
+// this function is for testing purposes only, within wecomply.html
+function sizeFlashWidth(newsize) {
+	document.getElementById("container").style.width = newsize + "px";
+	document.getElementById("xmlplayer943615").style.width = newsize + "px";
+}
+
+function SendChapterSurvey(chapNumber, theArr) {
+	//alert("Survey Chapter:" + chapNumber);
+var i;
+for (i=0;i< theArr.length;i++) {	
+	//alert("Survey Values:" + theArr[i]);
+//alert("EMPTY STRING:" + (theArr[i] == ""));
+//alert("STRING NULL:" + (theArr[i] == "null"));
+//alert("NULL:" + (theArr[i] == null));
+}
+}
+
+function justatest(theArr) {
+for (i=0;i< theArr.length;i++) {	
+	alert("Survey Values:" + theArr[i]);
+alert("EMPTY STRING:" + (theArr[i] == ""));
+alert("STRING NULL:" + (theArr[i] == "null"));
+alert("NULL:" + (theArr[i] == null));
+}
+}
+
+
+/* NOT USED
+function setBackgroundImage(fName) {
+	document.body.background = fName;
+}
+function setBackgroundColor(theColor) {
+	document.bgColor = theColor;
+}
+*/
+
+// -->
+ </script> 
+
+
+
+
+<script language="JavaScript" type="text/javascript">
+<!--
+// -----------------------------------------------------------------------------
+// Globals
+// Major version of Flash required
+var requiredMajorVersion = 8;
+// Minor version of Flash required
+var requiredMinorVersion = 0;
+// Revision of Flash required
+var requiredRevision = 0;
+// the version of javascript supported
+var jsVersion = 1.0;
+// -----------------------------------------------------------------------------
+// -->
+</script>
+<script language="VBScript" type="text/vbscript">
+<!-- // Visual basic helper required to detect Flash Player ActiveX control version information
+Function VBGetSwfVer(i)
+  on error resume next
+  Dim swControl, swVersion
+  swVersion = 0
+  
+  set swControl = CreateObject("ShockwaveFlash.ShockwaveFlash." + CStr(i))
+  if (IsObject(swControl)) then
+    swVersion = swControl.GetVariable("$version")
+  end if
+  VBGetSwfVer = swVersion
+End Function
+// -->
+</script>
+<script language="JavaScript1.1" type="text/javascript">
+<!-- // Detect Client Browser type
+var isIE  = (navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
+var isWin = (navigator.appVersion.toLowerCase().indexOf("win") != -1) ? true : false;
+var isOpera = (navigator.userAgent.indexOf("Opera") != -1) ? true : false;
+jsVersion = 1.1;
+// JavaScript helper required to detect Flash Player PlugIn version information
+function JSGetSwfVer(i){
+	// NS/Opera version >= 3 check for Flash plugin in plugin array
+	if (navigator.plugins != null && navigator.plugins.length > 0) {
+		if (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]) {
+			var swVer2 = navigator.plugins["Shockwave Flash 2.0"] ? " 2.0" : "";
+      		var flashDescription = navigator.plugins["Shockwave Flash" + swVer2].description;
+			descArray = flashDescription.split(" ");
+			tempArrayMajor = descArray[2].split(".");
+			versionMajor = tempArrayMajor[0];
+			versionMinor = tempArrayMajor[1];
+			if ( descArray[3] != "" ) {
+				tempArrayMinor = descArray[3].split("r");
+			} else {
+				tempArrayMinor = descArray[4].split("r");
+			}
+      		versionRevision = tempArrayMinor[1] > 0 ? tempArrayMinor[1] : 0;
+            flashVer = versionMajor + "." + versionMinor + "." + versionRevision;
+      	} else {
+			flashVer = -1;
+		}
+	}
+	// MSN/WebTV 2.6 supports Flash 4
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.6") != -1) flashVer = 4;
+	// WebTV 2.5 supports Flash 3
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.5") != -1) flashVer = 3;
+	// older WebTV supports Flash 2
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv") != -1) flashVer = 2;
+	// Can't detect in all other cases
+	else {
+		
+		flashVer = -1;
+	}
+	return flashVer;
+} 
+// If called with no parameters this function returns a floating point value 
+// which should be the version of the Flash Player or 0.0 
+// ex: Flash Player 7r14 returns 7.14
+// If called with reqMajorVer, reqMinorVer, reqRevision returns true if that version or greater is available
+function DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision) 
+{
+ 	reqVer = parseFloat(reqMajorVer + "." + reqRevision);
+   	// loop backwards through the versions until we find the newest version	
+	for (i=25;i>0;i--) {	
+		if (isIE && isWin && !isOpera) {
+			versionStr = VBGetSwfVer(i);
+		} else {
+			versionStr = JSGetSwfVer(i);		
+		}
+		if (versionStr == -1 ) { 
+			return false;
+		} else if (versionStr != 0) {
+			if(isIE && isWin && !isOpera) {
+				tempArray         = versionStr.split(" ");
+				tempString        = tempArray[1];
+				versionArray      = tempString .split(",");				
+			} else {
+				versionArray      = versionStr.split(".");
+			}
+			versionMajor      = versionArray[0];
+			versionMinor      = versionArray[1];
+			versionRevision   = versionArray[2];
+			
+			versionString     = versionMajor + "." + versionRevision;   // 7.0r24 == 7.24
+			versionNum        = parseFloat(versionString);
+        	// is the major.revision >= requested major.revision AND the minor version >= requested minor
+			if ( (versionMajor > reqMajorVer) && (versionNum >= reqVer) ) {
+				return true;
+			} else {
+				return ((versionNum >= reqVer && versionMinor >= reqMinorVer) ? true : false );	
+			}
+		}
+	}	
+	return (reqVer ? false : 0.0);
+}
+// -->
+</script>
+</head>
+<body  topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" bgcolor="#CCCCCC">
+
+<!--url's used in the movie-->
+<!--text used in the movie-->
+<!--
+<p align="right"><font face="Times" size="24" color="#990000" letterSpacing="0.000000" kerning="1">Heading</font></p>
+<p align="left"><font face="Verdana" size="14" color="#000000" letterSpacing="0.000000" kerning="1"><b>Discussion</b></font></p>
+-->
+<script language="JavaScript" type="text/javascript">
+<!-- 
+
+document.write('<div id="container" style="text-align:center;">');
+document.write('</div>');
+
+
+var hasRightVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+if(hasRightVersion == false) {  // if we have not detected an acceptable version
+    // flash is too old or we can't detect the plugin
+    var alternateContent = 'Alternate HTML content should be placed here.'
+  	+ 'This content requires the Macromedia Flash Player.'
+   	+ '<a href=http://www.macromedia.com/go/getflash/>Get Flash</a>';
+    document.write(alternateContent);  // insert non-flash content
+} else {
+	instantiateFlash();
+	//self.setTimeout('doStart()', 2000);
+}
+
+
+function getImageFolder() {
+	if (location.href.indexOf("file:") ==-1) return "../../images/training/";
+	else return "images/";
+}
+function getMediaFolder() {
+	if (location.href.indexOf("file:") ==-1) return "/datafiles/";
+	else return "images/";
+}
+
+
+function instantiateFlash() {
+
+// <param name="scale" value="noscale" />
+//     + 'scale="noscale"'
+
+if(hasRightVersion) { 
+
+    var oeTags = '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"'
+    + 'width="100%" height="100%"'
+    + 'codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab" id="xmlplayer943615">'
+    + '<param name="movie" value="xmlplayer943615.swf" /><param name="align" value="t" /><param name="scale" value="showAll" /><param name="loop" value="false" /><param name="menu" value="false" /><param name="quality" value="high" /><param name="salign" value="t" /><param name="bgcolor" value="#999999" /><param name="allowScriptAccess" value="always" /><param name="FlashVars" value="SkinName=bulletToolPDATest&ImageFolder=' + getImageFolder() + '&MediaFolder=' + getMediaFolder() + '&showDebugInfo=true&Alphabet=latin' + '"/>'
+    + '<embed src="xmlplayer943615.swf" loop="false" menu="false" quality="high" salign="t" bgcolor="#999999"'
+    + 'width="100%" height="100%" name="xmlplayer943615" align="t"'
+    + 'play="true"'
+    + 'loop="false"'
+    + 'name="xmlplayer943615"'
+    + 'quality="high"'
+    + 'scale="showAll"'
+   + 'type="application/x-shockwave-flash"'
+    + 'allowScriptAccess="always"'
+    + 'FlashVars="MinimumPassingScore=100&SkinName=bulletToolPDATest&ImageFolder=' + getImageFolder() + '&MediaFolder=' + getMediaFolder() + '&showDebugInfo=true&Alphabet=latin' + '"'
+    + 'pluginspage="http://www.macromedia.com/go/getflashplayer">'
+    + '<\/embed>'
+    + '<\/object>';
+
+
+    document.getElementById('container').innerHTML = oeTags;
+    document.all['container'].innerHTML = oeTags;
+}
+}
+
+function getBrowserWindowSize() {
+  var myHeight = 0;
+  var myWidth = 0;
+  if( typeof( window.innerWidth ) == 'number' ) {
+    //Non-IE
+    myWidth = window.innerWidth;
+    myHeight = window.innerHeight;
+  } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+    //IE 6+ in 'standards compliant mode'
+    myWidth = document.documentElement.clientWidth;
+    myHeight = document.documentElement.clientHeight;
+  } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+    //IE 4 compatible
+    myWidth = document.body.clientWidth;
+    myHeight = document.body.clientHeight;
+  }
+  return [myWidth, myHeight];
+}
+
+function tellFlashOfBrowserResize() {
+	thisMovie("xmlplayer943615").browserHasResized();
+}
+window.onresize = tellFlashOfBrowserResize;
+
+
+
+// The only browser the WeComply authoring system works on is IE.
+// The cookie limit for IE6 and older IE7 is 20.  IE Security Update 937143 to IE, released in Aug. 07, increased the max to 50.
+// For now we'll take only 20, which includes one for the preview cookie. This should be plenty, especially since
+// BulletTool filters out PopQuestions and QuizQuestions
+var maxCookieSize = 4000;
+var maxNumCookies = 15;  // doesn't include preview cookie
+
+function setXMLCookie(value) {
+	value = escape(value);
+	for (i = 0; i < maxNumCookies; i++) {
+		newStr = "";
+		if (value.length >= (i * maxCookieSize)) {
+			start = i* maxCookieSize;
+			end = ((i + 1) * maxCookieSize) - 1;
+			if (end > (value.length - 1)) end = value.length - 1;
+			newStr = value.substring( start, end + 1);
+		}
+		setEscapedCookie("xmlStr" + i, newStr , 365);
+	}
+}
+function getXMLCookie() {
+	value = "";
+	for (i = 0; i < maxNumCookies; i++) {
+		value += getEscapedCookie("xmlStr" + i);
+	}
+	return unescape(value);
+}
+
+
+function getEscapedCookie(c_name) {
+	if (document.cookie.length>0)  {
+  		c_start=document.cookie.indexOf(c_name + "=");
+ 		if (c_start!=-1) {
+    			c_start=c_start + c_name.length+1;
+   			c_end=document.cookie.indexOf(";",c_start);
+   			 if (c_end==-1) c_end=document.cookie.length;
+			//alert("Returning cookie " + c_name + " with value: " + document.cookie.substring(c_start,c_end));
+   			return document.cookie.substring(c_start,c_end);
+   		 }
+  	}
+	//alert("Returning cookie " + c_name + " with value: "); 
+	return "";
+}
+
+function setEscapedCookie(c_name,value,expiredays) {
+
+	if (expiredays == -1) expStr = "Thu, 01-Jan-70 00:00:01 GMT";
+	else {
+		var exdate=new Date();
+		exdate.setDate(exdate.getDate()+expiredays);
+		expStr = exdate.toGMTString();
+	}
+	//document.cookie=c_name+ "=" + value + ((expiredays==null) ? "" : "; expires="+expStr) + "; path=/";
+	document.cookie=c_name+ "=" + value + ((expiredays==null) ? "" : "; expires="+expStr) + "; path=/";
+}
+
+function deleteXMLCookie( ) {
+	for (i = 0; i < maxNumCookies; i++) {
+		setEscapedCookie("xmlStr" + i, "" , -1);
+	}
+	setEscapedCookie("doingPreview", "" , -1);
+}
+
+function setPreviewCookie(val) {
+	setEscapedCookie("doingPreview", escape(val), 365);
+}
+function getPreviewCookie() {
+
+	val = getEscapedCookie("doingPreview");
+	return unescape(val);
+}
+
+function getClipboard() {
+	var text = window.clipboardData.getData("Text");  // Firefox probably doesn't allow access to the clipboard
+	return text;
+}
+
+
+function hide() {
+    //document.getElementById('container').style.visibility = "hidden";
+
+    //document.all['container'].style.visibility = "hidden";
+
+    document.getElementById('container').style.display = "none";
+
+    document.all['container'].style.display = "none"; 
+
+
+}
+
+function show() {
+   //document.getElementById('container').style.visibility = "visible";
+
+    //document.all['container'].style.visibility = "visible";
+
+    document.getElementById('container').style.display = "block";
+
+    document.all['container'].style.display = "block"; 
+
+}
+
+// -->
+</script>
+<noscript>
+	// Provide alternate content for browsers that do not support scripting
+	// or for those that have scripting disabled.
+  	Alternate HTML content should be placed here. This content requires the Macromedia Flash Player.
+  	<a href="http://www.macromedia.com/go/getflash/">Get Flash</a>  	
+</noscript>
+
+</body>
+</html>

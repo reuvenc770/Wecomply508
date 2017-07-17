@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>Matching Game</title>
+<script type="text/javascript" src="MatchingEngine.js"></script>
+<script type="text/javascript">
+
+////////////////// General Game variables /////////////////
+var introText, introStartPos, problemsStartPos, problemNum, rowNum;
+
+////////////////// Variables for the Problems //////////////////
+var problemtextcolour, problembgcolour;
+var problemtext1, problemtext2, problemtext3, problemtext4, problemtext5, problemtext6, problemtext7, problemtext8;
+var problem1, problem2, problem3, problem4, problem5, problem6, problem7, problem8;
+
+////////////////// Variables for the Section headers /////////////////
+var sectiontextcolor;
+var sectiontext1, sectiontext2, sectiontext3, sectiontext4, sectiontext5, sectiontext6, sectiontext7, sectiontext8;
+
+////////////////// Variables for correct sections for problem texts /////////////////
+var correctsectioncolour;
+var problemsection1, problemsection2, problemsection3, problemsection4, problemsection5, problemsection6, problemsection7, problemsection8;
+var completeMessage, completeURL, closeText;
+
+var master = typeof(top.master) == "object" ? top.master : window.opener;
+var loaded = false;
+var game = "matchGame";
+function start()
+{
+	var obj = master.getMatchGameInfo();
+
+	document.title = obj.title;
+
+	////////////////// General Game values /////////////////
+	introText = obj.Introduction;
+	introStartPos = 330;	// number of pixels the introduction from the top of window
+	problemsStartPos = 20;	// number of pixels the problems start from the top of window
+	problemNum = 8;			// Set number of problems/sections
+	rowNum = 4;				// Number of squares in each row
+
+	////////////////// Set value for the Problems //////////////////
+	problemtextcolour = '#000000';
+	problembgcolour = '#eeeeee';
+
+	problemtext1 = obj.Text[obj.CorrectIndex[obj.StartIndex[0]]];
+	problemtext2 = obj.Text[obj.CorrectIndex[obj.StartIndex[1]]];
+	problemtext3 = obj.Text[obj.CorrectIndex[obj.StartIndex[2]]];
+	problemtext4 = obj.Text[obj.CorrectIndex[obj.StartIndex[3]]];
+	problemtext5 = obj.Text[obj.CorrectIndex[obj.StartIndex[4]]];
+	problemtext6 = obj.Text[obj.CorrectIndex[obj.StartIndex[5]]];
+	problemtext7 = obj.Text[obj.CorrectIndex[obj.StartIndex[6]]];
+	problemtext8 = obj.Text[obj.CorrectIndex[obj.StartIndex[7]]];
+
+	////////////////// Set value for the Section headers /////////////////
+	sectiontextcolor = '000000';
+
+	sectiontext1 = obj.Label[obj.CorrectIndex[0]];
+	sectiontext2 = obj.Label[obj.CorrectIndex[1]];
+	sectiontext3 = obj.Label[obj.CorrectIndex[2]];
+	sectiontext4 = obj.Label[obj.CorrectIndex[3]];
+	sectiontext5 = obj.Label[obj.CorrectIndex[4]];
+	sectiontext6 = obj.Label[obj.CorrectIndex[5]];
+	sectiontext7 = obj.Label[obj.CorrectIndex[6]];
+	sectiontext8 = obj.Label[obj.CorrectIndex[7]];
+
+	////////////////// Set correct sections for problem texts /////////////////
+	correctsectioncolour = 'green';
+	
+	problemsection1 = obj.StartIndex[0]+1;
+	problemsection2 = obj.StartIndex[1]+1;
+	problemsection3 = obj.StartIndex[2]+1;
+	problemsection4 = obj.StartIndex[3]+1;
+	problemsection5 = obj.StartIndex[4]+1;
+	problemsection6 = obj.StartIndex[5]+1;
+	problemsection7 = obj.StartIndex[6]+1;
+	problemsection8 = obj.StartIndex[7]+1;
+	
+	completeMessage = obj.Closing;
+	closeText = obj.CloseText;
+	if (obj.curDiv == null)
+		completeURL='top.close()';
+	else
+		completeURL='javascript:master.NavigateDiv(' + obj.curDiv + ',' + obj.nextDiv + ');window.close()';
+
+	initMatchingEngine();
+}
+</script>
+</head>
+
+<body id="idBody" vlink="white" alink="white" link="white" onLoad="start()">
+</body>
+</html>
+
+
+
+
+
+

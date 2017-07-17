@@ -1,0 +1,721 @@
+﻿<!--ELEMENT_START:Intro_Animation-->
+<div id="Intro_Element" class="standardChapter">
+	<div class="chapterHeading">{$Value:CourseName}</div>
+	<div class="canvas_container">
+		<canvas height="400" width="700" id="tagcanvas" style="background-image: none;">
+		</canvas>
+	</div>
+	<div id="taglist" style="display:none;">
+		<ul style="display: block; width: 200px; float: left">
+			{$Content:First_List}
+		</ul>
+		<ul style="display: block; width: 200px; float: left">
+			{$Content:Second_List}
+		</ul>
+	</div>
+</div>
+<!--ELEMENT_END:Intro_Animation-->
+
+<!--ELEMENT_START:Intro_Animation_Element-->
+	<li><a onclick="return false" href="#fake6">{$Content:Chapter_Description}</a></li>
+<!--ELEMENT_END:Intro_Animation_Element-->
+
+<!--ELEMENT_START:MemorandumChapter-->
+<div id="MemorandumChapter_Element" class="memorandumChapter">	
+	<div class="contentarea">
+		<div class="chalkboard">
+			<div id="Chapter_Header_Content" class="chapterHeading">{$Content:Chapter_Header}</div>
+			<ul class="studentDetails chapterLeftPadding">
+				<li><span class="label">{$Resource:To}</span><span class="fieldContent">{$Content:firstName} {$Content:lastName}</span></li>
+				<li><span class="label">{$Resource:Date}</span><span class="fieldContent">{$Content:currentDate}</span></li>
+				<li><span class="label">{$Resource:Re}</span><span class="fieldContent">{$Value:CourseName}</span></li>
+				</ul>
+			<div id="Chapter_Video_Container" class="memorandumVideoContainer chapterLeftPadding">
+			</div>
+			<div id="Chapter_Illustration_Content" class="chapterIllustrationLayout chapterLeftPadding">
+				{$Content:Chapter_Illustration}
+			</div>
+		</div>
+		<div class="corkboard">
+			<div class="chapterHeading"></div>
+			<div id="memorandumDiscutionContainer" class="chapterDiscussionText courseContent">
+		
+					{$Content:MemorandumChapter_Discussion}					
+				
+			</div>
+		</div>
+	</div>
+</div>
+			<p id="Chapter_PageInfo_Content" class="courseProgress">
+				$1 of $2</p>
+<!--ELEMENT_END:MemorandumChapter-->
+
+<!--ELEMENT_START:Bookmark-->
+<div id="bookmarkSelectionLayout" class="fixCollapsingMargins">
+	<div class="smallFrame ">
+		<form name="LMSForm">
+			<div id="bookmark_Container" class="container">
+				<p class="text">
+					{$Content:Bookmark_Question}</p>
+				<div class="choices">
+					<ul class="quizChoices">
+						<li id="mediaBullet_0" class="active hidden" onclick="wc.interface.elements.quiz.selectAnswer(0,0);"
+						    style="">
+							<p class="bulletContent" style="">
+								<span id="spanAnswer1">{$Content:Bookmark_Answer1}</span></p>
+							<div class="">
+							</div>
+						</li>
+						<li id="mediaBullet_1" class="active hidden" onclick="wc.interface.elements.quiz.selectAnswer(1,1);"
+						    style="">
+							<p class="bulletContent" style="display: block; float: left; padding-left: 0.6em;
+	                                                                                                                                                                                                                              width: 490px; padding-top: 20px;">
+								<span id="spanAnswer2">{$Content:Bookmark_Answer2}</span></p>
+							<div class="">
+							</div>
+						</li>
+					</ul>
+					<div class="buttoncontainer">
+						<div id="BookmarkBeginButton" onclick="wc.interface.actionHandler.bookmarkGoto();"
+						     class="continueButton disabled">
+							{$Resource:Continue}</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<!--ELEMENT_END:Bookmark-->
+
+
+<!--ELEMENT_START:wideChapter-->
+<div id="WideChapter_Element" class="wideChapter">
+	<div id="wideChapterContainer">
+		<div class="widechapterIllustration">			
+			<div id="Chapter_Illustration_Content" class="chapterIllustrationLayout">
+				{$Content:Chapter_Illustration}
+			</div>
+		</div>
+		<div class="chapterFooter">
+			{$Content:Chapter_Footer}
+		</div>
+	</div>
+</div>
+			<p id="Chapter_PageInfo_Content" class="courseProgress">
+				$1 of $2</p>
+<!--ELEMENT_END:wideChapter-->
+
+<!--ELEMENT_START:wideChapter_withVideo-->
+<div id="Chapter_Element" class="wideChapterWithVideo">
+	<div class="contentarea">
+		<div class="chalkboard">
+			<div id="Chapter_Header_Content" class="chapterHeading">
+				{$Content:Chapter_Header}</div>
+			<div id="Chapter_Video_Container">
+			</div>
+		</div>
+		<div class="corkboard">
+			<div class="chapterHeading"></div>
+			<div id="Chapter_Illustration_Content" class="chapterIllustrationLayout">
+				{$Content:Chapter_Illustration}
+			</div>
+			<div id="Chapter_Discussion_Content" class="videoTranscript courseContent">
+					{$Content:Chapter_Discussion} {$Content:Chapter_Survey}
+					<div id="Chapter_Video_Container">
+				</div>
+			</div>
+			<div id="Chapter_Discussion_MediaBulletins" class="courseContent">
+				{$Content:Chapter_MediaBulletsList}
+			</div>
+		</div>
+	</div>
+</div>
+			<p id="Chapter_PageInfo_Content" class="courseProgress">
+				$1 of $2</p>
+<!--ELEMENT_END:wideChapter_withVideo-->
+
+
+<!--ELEMENT_START:Chapter-->
+<div id="Chapter_Element" class="standardChapter">	
+	<div class="contentarea">
+		<div class="chalkboard">
+			<div id="Chapter_Header_Content" class="chapterHeading">
+				{$Content:Chapter_Header}</div>
+			<div id="Chapter_Discussion_Content" class="chapterDiscussionText courseContent">
+					{$Content:Chapter_Discussion} {$Content:Chapter_Survey}
+					<div id="Chapter_Video_Container">
+					</div>
+			</div>
+			<div id="Chapter_Discussion_MediaBulletins" class="chapterMediaBulletins">
+				{$Content:Chapter_MediaBulletsList}
+			</div>
+		</div>
+		<div class="corkboard backgroundIllustrationContainer">
+			<div class="chapterHeading"></div>			
+			<!--
+				<div id="Chapter_Illustration_Content" class="chapterIllustrationLayout">
+					{$Content:Chapter_Illustration}
+				</div>
+				-->
+			<div id="Chapter_Footer" class="footerText courseContent">
+				{$Content:Chapter_Footer}
+			</div>
+			<div class="chapterLinkBulletinLayout">
+				{$Content:LinkBulletin_Buttons}
+			</div>
+		</div>
+	</div>
+</div>
+			<p id="Chapter_PageInfo_Content" class="courseProgress">
+				$1 of $2</p>
+<!--ELEMENT_END:Chapter-->
+<!--ELEMENT_START:PopQuiz-->
+<div id="PopQuiz_Element" class="fixCollapsingMargins">
+	<div id="whiteboard">
+		<h2 id="popQuiz_Heading" class="" style="display: none;">
+			{$Resource:PopQuiz}</h2>
+		<h2 id="popQuiz_AlternateHeading" class="chapterTitle" style="">{$Content:PopQuiz_AlternateHeading}</h2> 
+		<div id="popQuiz_IntroFrame" class="smallFrame">
+			<div id="popQuiz_quizQuestionHeaderLayout" class="">
+				<!--<img src="{$Value:ImagePath}pop_quiz_header_button.png" class="quizIcon" /> -->
+				<div id="popHeadingQuiz" class="chapterHeading">
+					<!--<span id="popHeadingQuiz_Text">{$Resource:PopQuiz}</span>-->
+					<!--<span id="popHeadingQuiz_SecondText" style="display:none;"></span>-->
+				</div>
+			</div>
+			<div id="PopQuiz_Introduction">
+					<div class="text">{$Content:PopQuiz_Introduction}</div>
+					<div id="PopQuiz_ContinueFromIntroduction" onclick="wc.interface.actionHandler.popQuiz_ContinueFromIntroduction({$Content:quizHasVideo});" class="continueButton">{$Resource:Continue}</div>
+					<p class="dummy-spacer">&nbsp;</p>
+			</div>
+		</div>
+		<div id="PopQuiz_Content_Container" class="standardChapter" style="display: none">
+			<div id="PopQuiz_Left_Container" class="chalkboard">
+				<div class="chapterHeading">
+					<!--<span>{$Resource:PopQuiz}</span>-->
+				</div>
+				<div id="PopQuiz_Video_Container" class="popQuizVideoContainer">
+				</div>
+				<!--
+				<div class="popQuizIntro courseContent">
+						{$Content:PopQuiz_Introduction}
+				</div>
+				-->
+				<div id="PopQuiz_ContinueBtton" class="continueButton" onclick="wc.interface.actionHandler.popQuiz_nextQuestion();">
+					{$Resource:Continue}</div>
+			</div>
+			<div id="PopQuiz_Video_Transcript" class="corkboard">
+				<div class="videoTranscript courseContent">
+						<h3>Transcript</h3>
+						{$Content:PopQuiz_Video_Transcript}
+				</div>
+			</div>
+		</div>
+		<div id="PopQuiz_Question_Container_Body_Questions" class="standardChapter" style="display: none;">
+			<div id="" class="chapterHeading">
+				<!--<span id="">{$Resource:PopQuiz}</span>-->
+			</div>
+			<div class="popQuizContentWrapper">
+					<div class="popQuizQuestionBodyWrapper">
+						<div id="PopQuiz_Question_Body" class="text courseContent" style="display: none;">
+						</div>
+						<ul id="PopQuiz_Question_Container" class="quizChoices" style="display: none;">
+						</ul>
+					</div>
+					<div id="PopQuiz_Answer_Button" style="display: none;" class="buttonsContainer">
+						<div id="Button_Continue" class="continueButton" onclick="wc.interface.actionHandler.popQuiz_answerSelected(wc.interface.elements.quiz.selectedChoiceIndex, wc.interface.elements.quiz.selectedElementType);">
+							{$Resource:Continue}</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="popQuiz_Body_Feedback_Container" class="standardChapter" style="display: none;">
+	<div id="" class="chapterHeading">
+		<!--<span id="">{$Resource:PopQuiz}</span>-->
+	</div>
+	<!--<h2 class="chapterTitle">
+		{$Resource:PopQuiz}</h2> -->
+	<div id="popQuiz_quizQuestionHeaderLayout_Agree" class="">
+		<!-- <img src="{$Value:ImagePath}pop_quiz_header_button.png" class="quizIcon" />-->
+		<div id="popQuiz_Body_Feedback_AgreeText" class="text">
+		</div>
+	</div>
+	<div id="popQuiz_Body_Feedback" class="">
+		<p id="popQuiz_Body_Feedback_Text" class="">
+		</p>
+		<div id="popQuiz_Body_Feedback_TryAgain" class="continueButton" onclick="wc.interface.actionHandler.popQuiz_closeFeedbackElement();">
+			{$Resource:PleaseTryAgain}</div>
+		<div id="popQuiz_Body_Feedback_ContinueButton" style="display: none;">
+			<div id="popQuizContinueBtn" class="continueButton" onclick="wc.interface.actionHandler.popQuiz_nextQuestion(0)">
+				{$Content:ContinueResource}</div>
+		</div>
+	</div>
+</div>
+<!--ELEMENT_END:PopQuiz-->
+<!--ELEMENT_START:PopQuiz_Question-->
+<li style="" id="mediaBullet_{$Content:answerIndex}" class="active hidden" onclick="wc.interface.elements.quiz.selectAnswer({$Content:answerIndex},{$Content:questionIndex});">
+	<p class="listVerticalAlign">
+		.</p>
+	<p class="bulletContent">
+		{$Content:popQuiz_questionBody}</p>
+	<div>
+	</div>
+</li>
+<!--ELEMENT_END:PopQuiz_Question-->
+<!--ELEMENT_START:MediaBulletinsList-->
+<ul id="Chapter_MediaBulletinsList">
+</ul>
+<!--ELEMENT_END:MediaBulletinsList-->
+<!--ELEMENT_START:MediaBulletinsWrapper-->
+<div id="Chapter_Discussion_Content_MediaBulletsWrapper" class="mediaBulletsWrapper"
+	style="margin-left: {$Content:MarginLeft}em; margin-top: {$Content:MarginTop}em;">
+	{$Content:BulletListContent}</div>
+<!--ELEMENT_END:MediaBulletinsWrapper-->
+<!--ELEMENT_START:MediaBulletinsOrderedList-->
+<ol class="bulletsList" style="line-height: {$Content:VertSpace}em;">
+	{$Content:BulletListItems}</ol>
+<!--ELEMENT_END:MediaBulletinsOrderedList-->
+<!--ELEMENT_START:MediaBulletinsUnorderedList-->
+<ul class="bulletsList" style="line-height: {$Content:VertSpace}em;">
+	{$Content:BulletListItems}</ul>
+<!--ELEMENT_END:MediaBulletinsUnorderedList-->
+<!--ELEMENT_START:MediaBulletinsListItem-->
+<li class="mediaBullet active hidden" id="mediaBullet{$Content:BulletIndex}" style="line-height: {$Content:VertSpace}em;
+	margin-left: {$Content:Level}em;">
+	<p class="bulletContent">{$Content:BulletContent}</p>
+</li>
+<!--ELEMENT_END:MediaBulletinsListItem-->
+<!--ELEMENT_START:MediaBulletinsSublistWrapper-->
+<li class="sublist">{$Content:BulletListContent}</li>
+<!--ELEMENT_END:MediaBulletinsSublistWrapper-->
+
+<!--ELEMENT_START:LinkBulletin-->
+<div id="LinkBulletin_Element" class="popupContainer">
+	<div id="whiteboardContainer" class="whiteboardContainer">
+		<div class="whiteboard">
+			<div class="chalkboard">
+				<div id="LinkBulletin_Header">
+					<div id="LinkBulletin_TypeName" class="chapterHeading"></div>			
+				</div>			
+				<div id="whiteboardLinkBulletin" class="buletinBodyContent">
+<div id="PopupBuletin_Header" class="popupBulletinHeader verticalBlueGradient newsLayout">
+		    		<h3>
+		    			{$Content:LinkBulletin_Headline}</h3>
+		    		<h4>
+		    			{$Content:LinkBulletin_Subhead}</h4>
+		    	</div>
+						<div id="Chapter_Header" class="text">
+							{$Content:LinkBulletin_Name}</div>
+						<div id="linkBulletinContent" class="buletinBodyContentWrapper">
+						
+							<div id="LinkBulletin_Body_Content" class="bulletinText courseContent">
+								{$Content:LinkBulletin_Body}
+							</div>
+							<div class="buttonsContainer">
+								<a href="javascript:void(0);" style="text-decoration: none;">
+									<div id="Button_Close" class="continueButton">
+										{$Resource:Continue}</div>
+								</a>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+		<div class="corkboard backgroundIllustrationContainer">
+			<div class="chapterHeading"></div>
+		</div>
+	</div>
+</div>
+<!--ELEMENT_END:LinkBulletin-->
+<!--ELEMENT_START:LinkBulletin_Button-->
+<div id="LinkBulletinCode_Button_Element" class="linkBulletinLayout">
+	<img class="docLinkImage" id="LinkBulletin{$Content:LinkBulletin_Variety}_Button"
+		onclick="wc.interface.actionHandler.displayLinkBulletin(wc.interface.linkBulletinTypes.{$Content:LinkBulletin_Variety});"
+		src="{$Value:ImagePath}{$Content:LinkBulletin_Variety}.png" border="0" />
+</div>
+<!--ELEMENT_END:LinkBulletin_Button-->
+
+<!--ELEMENT_START:QuizQuestion-->
+<div id="QuizQuestion_Element" class="standardChapter">
+	<div id="whiteboard">
+		<div class="quizHeader">
+			<!--<img src="{$Value:ImagePath}pop_quiz_header_button.png" class="quizIcon" />-->
+			<div id="popHeadingQuiz" class="chapterHeading">
+				<span id="">{$Resource:PopQuiz}</span>
+				<!--<span id="popHeadingQuiz_SecondText"
+					style="display: none;"></span>-->
+					</div>
+		</div>
+		<div class="quizLayout">
+			<!---->
+			<div id="QuizQuestion_Body_Content" class="canHide">			
+					<div class="courseContent text chapterLeftPadding">{$Content:QuizQuestion_Body}</div>
+					<div class="quizLeftPanel">
+						<ul id="QuizQuestion_Choices_Content" class="quizChoices">
+							{$Content:QuizQuestion_Choices}
+						</ul>
+					</div>
+					<div class="quizRightPanel">
+						<div id="QuizQuestion_Illustration_Content" class="quizIllustration">{$Content:QuizQuestion_Illustration}</div>
+						<div class="buttonsContainer">
+							<div id="Button_Continue" class="continueButton disabled" onclick="wc.interface.actionHandler.quizQuestion_MultipleChoiceOneAnswerSelected();">{$Resource:Continue}</div>
+						</div>
+					</div>	
+			</div>
+			<div id="Quiz_Body_Feedback_Container" class="standardChapter hiddenElement canHide">
+				<div class="quizLeftPanel">					
+					<div id="popHeadingQuiz_Feedback_Container_WeAgree" class="agreeText">
+						<span id="popHeadingQuiz_Text"></span>
+						<span id="popHeadingQuiz_SecondText" style="display: none;"></span>
+					</div>
+					<div id="QuizQuestion_Body_Feedback_AgreeText" style="display: none;">
+					</div>
+					<div id="QuizQuestion_Body_Feedback" class="quizFeedback courseContent">
+					</div>
+				</div>
+				<div class="quizRightPanel">
+					<!--<div id="QuizQuestion_Feedback_Illustration_Content" class="quizIllustration">{$Content:QuizQuestion_Illustration}</div>-->
+					<div id="QuizQuestion_Body_Feedback_TryAgain" class="continueButton" onclick="wc.interface.actionHandler.quizQuestion_closeFeedbackElement();">
+						{$Resource:PleaseTryAgain}</div>
+					<div id="quizQuestionButtons">
+						{$Content:QuizQuestion_Buttons}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--ELEMENT_END:QuizQuestion-->
+<!--ELEMENT_START:QuizQuestion_MultiChoice-->
+<div id="QuizQuestion_MultiChoice_Element">
+	<input type="checkbox" onclick="wc.interface.actionHandler.quizQuestion_MultiChoiceSelected({$Content:QuizQuestion_MultiChoice_Id}, {$Content:elementType});"
+		name="{$Content:QuizQuestion_MultiChoice_Name}" id="QuizQuestion_MultiChoice_{$Content:QuizQuestion_MultiChoice_Id}" />
+	<label for="{$Content:QuizQuestion_MultiChoice_id}">
+		{$Content:QuizQuestion_MultiChoice_Label}</label>
+</div>
+<!--ELEMENT_END:QuizQuestion_MultiChoice-->
+<!--ELEMENT_START:QuizQuestion_MultipleChoiceOneAnswer-->
+<li style="" id="mediaBullet_{$Content:QuizQuestion_MultipleChoiceOneAnswer_Id}"
+	class="active hidden" onclick="wc.interface.elements.quiz.selectAnswer({$Content:QuizQuestion_MultipleChoiceOneAnswer_Id}, {$Content:elementType});">
+	<p class="listVerticalAlign">
+		    .</p>
+	
+	<p class="bulletContent">
+		{$Content:QuizQuestion_MultipleChoiceOneAnswer_Body}</p>
+<div></div>
+	
+</li>
+<!--ELEMENT_END:QuizQuestion_MultipleChoiceOneAnswer-->
+<!--ELEMENT_START:QuizQuestion_ContinueButton-->
+<div class="continueButtonContainer" style="width: 165px;">
+	<a href="javascript:void(0);" style="text-decoration: none;">
+		<div id="QuizQuestion_ContinueButton" class="continueButton" onClick="wc.interface.actionHandler.nextButton();" disabled="disabled">
+			{$Resource:Continue}</div>
+	</a>
+</div>
+<!--ELEMENT_END:QuizQuestion_ContinueButton-->
+
+<!--ELEMENT_START:Certificate-->
+<div id="Certificate_Element" class="standardChapter">
+	
+	<table align="center" class="" width="100%">
+		<tr>
+			<td align="center">
+				<div id="idPrintCertificate" class="">
+					<a id="SurveyAnswers" href="{$Content:SurveyUrl}" target="_new" style="display: inline;">{$Resource:ShowSurveyAnswers}</a>
+				</div>					
+				<table cellpadding="0" id="" width="100%" align="center" class="">
+					<tbody>
+						<tr>
+							<td valign="top" align="center">
+								<div id="Heading_CertificateofCompletion" class="text">{$Resource:CertificateofCompletion}</div>
+								<div class="certificateText">{$Resource:Thiswillcertify[$1:<span class="certificateTextBlue" id="FirstName"></span> <span class="certificateTextBlue" id="LastName"></span>][$2:<div class="certificateTextBlue" style="margin-top: 22px;">{$Content:Certificate_ProgramName}</div>][$3:<span id="CurDate"></span>]}</div>
+								<p class="certificateText">{$Resource:CustomCertificateClause}</p>
+								<p class="certificateText">{$Resource:Certifiedby}</p>
+								<div id="certLogo" class="certificateLogo"><img  class="logoImage roundedCorners8" src="{$Value:DataFiles}{$Value:CompanyLogo}" alt="{$Value:CompanyName}"></div>
+								<p id="certificateCompanyInfo">
+									<span id="certificateCompanyName">{$Value:CompanyName}</span><br>
+									{$Value:CompanyAddress}<br/>
+									{$Value:CompanyCity}<br/>
+								</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<div id="idCloseInstruction" class="certificateInstruction"><button onclick="wc.interface.actionHandler.printCertificate()" class="certificatePrintButton">{$Resource:Print}</button></div>		
+
+	<!-- 		<div id="idCloseInstruction" class="certificateInstruction">{$Resource:CertificateInstruction}</div> -->		
+	<div id="idOfflineForm" class="certificateOfflineForm" style="display: none">
+		<form>
+			<div class="certificateOfflineFormInstruction">{$Resource:TrackingInstruction}</div>
+			<div class="certificateOfflineFormUsername">
+				Username:
+				<input id="idUser" type="text" name="idUser" size="24" focus="true" style="vertical-align: middle">
+			</div>
+			<div class="certificateOfflineFormPassword">
+				Password:
+				<input id="idPassword" type="password" name="idPassword" size="26" style="vertical-align: middle">
+			</div>
+			<div class="certificateOfflineFormLink">
+				<a id="idMailLink" onclick="loadOfflineMailHref()" href="javascript:void(0)">Send Results</a>
+			</div>
+		</form>
+	</div>
+</div>
+<!--ELEMENT_END:Certificate-->
+
+<!--ELEMENT_START:TableOfContents-->
+<div id="TOC_Element" class="standardChapter">
+	<div class="chapterHeading">{$Resource:TableOfContents}</div>
+<div class="toctext">Sections that have been completed will appear in black, while sections that have not been accessed will appear in grey.  Previous sections may be accessed by clicking the box to the right of the section and selecting “Go To Page” at the bottom of the screen.  You can exit the Index by selecting “Cancel” at the bottom of the screen.
+</div>
+	<div class="tableOfContentsItems">
+			<div style="min-height:367px;">
+			<ul id="QuizQuestion_Choices_Content" class="quizChoices">
+				{$Content:TableOfContents_Items}
+			</ul>
+			</div>
+			<div id="tableOfContentsButtonsContainer" class="buttonsContainer">			
+				<!--<div id="tableOfContentsPrint" class="continueButton" onclick="window.print();">{$Resource:Print}</div>	-->
+				<div id="tableOfContentsEmail" class="continueButton" onclick="wc.interface.elements.tableOfContents.close();">{$Resource:Cancel}</div>			
+				<div id="tableOfContentsDone" class="continueButton disabled" onclick="wc.interface.elements.tableOfContents.executeSelectedOption();">{$Resource:GoToPage}</div>			
+			</div>
+	</div>
+</div>
+<!--ELEMENT_END:TableOfContents-->
+
+<!--ELEMENT_START:TableOfContents_Item-->
+<li id="mediaBullet_toc_{$Content:Item_Id}" class="active hidden" onclick="{$Content:Click_Function}"> 
+	<p class="bulletContent" style="color:{$Content:Item_Color};">
+		{$Content:TableOfContents_Item_Text}</p>
+	<div>
+	</div>
+</li>
+<!--ELEMENT_END:TableOfContents_Item-->
+
+<!--ELEMENT_START:Help-->
+<div id="Help_Element" class="standardChapter">
+	<div class="chapterHeading">Help</div>
+	<div class="helpContents">			
+			<ul class="helpList">
+ <li><div class="helpButton" id="Help_Resize"></div> <p>Click this button to enlarge or reduce the size of the text.</p><div class="clearboth"></div></li>  <li><div class="helpButton" id="Help_Previous"></div> <p>Click this button to go to the previous slide.</p><div class="clearboth"></div></li> <li><div class="helpButton" id="Help_Next"></div> <p>Click this button to go to the next slide.</p><div class="clearboth"></div></li> <li><div class="helpButton" id="Help_Play"></div> <p>Click this button to start the audio.</p><div class="clearboth"></div></li> <li><div class="helpButton" id="Help_Pause"></div> <p>Click this button to pause the audio.</p><div class="clearboth"></div></li>  
+			</ul>	
+			<div class="buttonsContainer">
+				<div id="helpDone" class="continueButton" onclick="wc.interface.elements.help.close();">{$Resource:Close}</div>					
+			</div>	
+	</div>
+</div>
+<!--ELEMENT_END:Help-->
+
+<!--ELEMENT_START:Policy-->
+<div id="Policy_Element" class="standardChapter">
+	<div id="whiteboard">
+		<div class="chapterHeading">{$Resource:Policy}</div>
+		<div id="policyContents" class="policyContents">
+				<div id="policyContents_Text" class="">{$Content:Policy_Text}</div>
+					<div class="buttonsContainer">
+						<div id="policyDone" class="continueButton" onclick="wc.interface.elements.policy.close();">{$Resource:Close}</div>
+					</div>
+				</div>
+								
+		</div>
+	</div>
+</div>
+<!--ELEMENT_END:Policy-->
+
+<!--ELEMENT_START:LayerWrapper-->
+<div class="whiteboard">
+	<div id="finalQuizContainer" class="standardChapter">					
+		<div id="popHeadingQuiz" class="chapterHeading"><span id="popHeadingQuiz_Text">Final Quiz</span><span id="popHeadingQuiz_SecondText" style="display:none;"></span></div>
+		
+		{$Content:LayerContent}
+	</div>
+</div>
+<!--ELEMENT_END:LayerWrapper-->
+
+<!--ELEMENT_START:MatchGame-->
+<div id="MatchGame_Element" class="standardChapter">			
+	<div class="whiteboard" id="whiteboard" style="position: relative;">
+		<div id="MatchGame_Heading" class="chapterHeading">
+			      {$Content:MatchGame_Heading}</div>			
+		<div id="MatchGame_GameContainer">
+			<div class="matchGameElementIntro">
+				
+				<div id="MatchGame_Introduction" class="courseContent">
+					{$Content:MatchGame_Introduction}</div>
+			</div>
+			{$Content:MatchGame_GameContent}				
+		</div>
+		<div id="MatchGame_OutroContainer" style="display: none;" class="matchGame_OutroContainer">				
+			<div id="MatchGame_Outro_Heading" class="matchGame_OutroText courseContent">
+				{$Content:MatchGame_Outro_Heading}</div>
+			<div class="continueButtonContainer" style="margin-left:50px;width:164px;">
+				<div id="MatchGame_Close" class="continueButton" onclick="wc.interface.navigateToElement(wc.interface.directions.next);">
+					{$Resource:Continue}</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--ELEMENT_END:MatchGame-->
+
+<!--ELEMENT_START:MatchGameItem-->
+		<div id="MatchGameItem_Element_{$Content:containerIndex}" class="matchGameItemElement">
+			<div id="MatchGameItem_Body_{$Content:bodyIndex}" class="matchGameProblemBody" data-draggable="true">{$Content:MatchGameItem_Body}</div>					
+			<div id="MatchGameItem_Section_{$Content:sectionIndex}" class="matchGameProblemHeader" data-droppable="true">{$Content:MatchGameItem_Section}</div>			
+		</div>
+<!--ELEMENT_END:MatchGameItem-->
+
+<!--ELEMENT_START:Term-->
+<div id="Term_Element" class="popupContainer">
+	
+	<div id="whiteboardContainer" class="whiteboardContainer">
+		<div id="whiteboard" class="whiteboard">			
+			<div class="termContents" id="termContents">
+					<div class="termText courseContent">
+						{$Content:Term_Definition}
+					</div>
+					
+					<div class="buttonsContainer">				
+					<div id="Button_Close" class="continueButton">
+						{$Resource:Continue}</div>
+					</div>
+					
+			</div>
+		</div>
+	</div>
+</div>
+<!--ELEMENT_END:Term-->
+
+<!--ELEMENT_START:Certificate_UserDefined-->
+<div id="Certificate_UserDefined_Element" class="wideChapter">
+				
+	<div id="Certificate_UserDefined_Illustration_Content" class="chapterIllustrationLayout">
+		{$Content:Certificate_Illustration}
+	</div>
+		
+	<div class="chapterFooter">
+		{$Content:Certificate_Footer}
+	</div>	
+</div>
+<!--ELEMENT_END:Certificate_UserDefined-->
+
+<!--ELEMENT_START:Acknowledgment-->
+<div id="Acknowledgment_Element" class="fixCollapsingMargins smallFrame">
+	<div class="chapterHeading">
+		<h3 id="Acknowledgment_Heading_Content" class="acknowledgeTitle">{$Content:Acknowledgment_Heading}</h3>
+	</div>				
+	<div class="acknowledgmentBody">
+		<div id="Acknowledgment_Body_Content" class="courseContent">{$Content:Acknowledgment_Body}</div>
+		<div id="Acknowledgment_Refusal_Content" style="display:none;" class=""></div>
+		<div class="acknowledgmentButtons">		
+			<div id="Acknowledgment_Agree" class="continueButton firstButton"  onclick="wc.interface.actionHandler.acknowledgmentAgreeButton();" >{$Resource:AckAgree}</div>			
+			<div id="Acknowledgment_Refusal" class="continueButton"  onclick="wc.interface.actionHandler.acknowledgmentRefusalButton();">{$Resource:AckNotAgree}</div>
+			<div id="Acknowledgment_Previous" class="continueButton firstButton" onclick="wc.interface.actionHandler.acknowledgmentPreviousButton();" style="display:none;">{$Resource:Previous}</div>
+			<div id="Acknowledgment_Confirm" class="continueButton" onclick="wc.interface.actionHandler.acknowledgmentConfirmButton();"  style="display:none;">{$Resource:Exit}</div>
+		</div>		
+	</div>
+</div>
+<!--ELEMENT_END:Acknowledgment-->
+
+<!--ELEMENT_START:Game_Choice-->
+<div id="Game_Choice_Element" class="fixCollapsingMargins smallFrame">
+	<div class="chapterHeading">
+		<h3 class="">{$Resource:Quiz}</h3>
+	</div>
+	<div id="gameChoiceBody" class="gameChoiceBody">
+			<div class="gameIntroduction">
+				{$Content:Game_Introduction}
+			</div>
+			<div>
+				<ul id="Quiz_Choices_Content" class="quizChoices">
+					{$Content:Game_ChoiceItem}
+				</ul>
+			</div>
+			<div id="ChooseGameButton"  class="continueButton disabledButton" onclick="wc.interface.elements.quiz.executeSelectedOption();">{$Resource:Continue}</div>				
+			
+	</div>	
+</div>
+<!--ELEMENT_END:Game_Choice-->
+
+<!--ELEMENT_START:Game_ChoiceItem-->
+<li id="mediaBullet_{$Content:GameItem_Id}" class="active hidden" onclick="wc.interface.elements.quiz.selectAnswer({$Content:GameItem_Id}, -1);"> 
+	<p class="bulletContent">
+		<span class="gameChoiceItemTitle">{$Content:GameItem_Title} :</span> 
+		<span class="gameChoiceItemDescription">{$Content:GameItem_Body}</span>
+	</p>
+	<div>
+	</div>
+</li>
+<!--ELEMENT_END:Game_ChoiceItem-->
+
+<!--ELEMENT_START:Survey-->
+<div id="Survey_Element{$Content:idSuffix}">	
+	<div id="Survey_Body_Content{$Content:idSuffix}" class="surveyBodyContent courseContent">
+		{$Content:Survey_Body}</div>	
+	<ul  id="Survey_Choices_Content{$Content:idSuffix}" class="quizChoices">
+		{$Content:Survey_Choices}
+	</ul>
+	<div id="Survey_Body_Feedback{$Content:idSuffix}" class="surveyBodyFeedback courseContent">
+	</div>	
+</div>
+<!--ELEMENT_END:Survey-->
+
+<!--ELEMENT_START:Survey_PivotQuestion-->
+<li id="survey_pivot_mediaBullet_{$Content:Survey_PivotQuestion_Id}" class="active hidden" onclick="document.getElementById('Survey_PivotQuestion_{$Content:Survey_PivotQuestion_Id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('survey_pivot_mediaBullet_', {$Content:Survey_PivotQuestion_Id});wc.interface.actionHandler.survey_PivotQuestionSelected({$Content:Survey_PivotQuestion_Id}, {$Content:elementType});"> 
+	<input type="radio" style="display:none;" id="Survey_PivotQuestion_{$Content:Survey_PivotQuestion_Id}" />
+	<p class="bulletContentSurveyPivot">{$Content:Survey_PivotQuestion_Body}</p>
+	<div></div>
+</li>
+<!--ELEMENT_END:Survey_PivotQuestion-->
+
+<!--ELEMENT_START:Survey_TextEssay-->
+<div id="Survey_TextEssay_Element">
+	<p>
+	{$Content:Survey_TextEssay_Label}</p>	
+	<textarea id="Survey_TextEssay_{$Content:questionIndex}" class="textAreaAnswerText" onkeyup="wc.interface.actionHandler.survey_TextInputKeyUp(this);" name="Survey_TextEssay"></textarea>
+</div>
+<!--ELEMENT_END:Survey_TextEssay-->
+
+<!--ELEMENT_START:Survey_Boolean-->
+<li id="survery_boolean_mediaBullet_0" class="active hidden" onclick="document.getElementById('Survey_Boolean_Yes_{$Content:questionIndex}').checked=true;wc.interface.generalDisplayMethods.selectListItem('survery_boolean_mediaBullet_', 0);wc.interface.actionHandler.survey_BooleanSelected(true, {$Content:questionIndex});"> 
+	<input type="radio" style="display:none;" id="Survey_Boolean_Yes_{$Content:questionIndex}" />
+	<p class="bulletContentSurveyPivot">{$Resource:Yes}</p>
+	<div></div>
+</li>
+<li id="survery_boolean_mediaBullet_1" class="active hidden" onclick="document.getElementById('Survey_Boolean_No_{$Content:questionIndex}').checked=true;wc.interface.generalDisplayMethods.selectListItem('survery_boolean_mediaBullet_', 1);wc.interface.actionHandler.survey_BooleanSelected(false, {$Content:questionIndex});"> 
+	<input type="radio" style="display:none;" id="Survey_Boolean_No_{$Content:questionIndex}" />
+	<p class="bulletContentSurveyPivot">{$Resource:No}</p>
+	<div></div>
+</li>
+<!--ELEMENT_END:Survey_Boolean-->
+
+<!--ELEMENT_START:Survey_TextInput-->
+<div id="Survey_TextInput_Element">
+	<div>
+		<label for="Survey_TextInput_{$Content:questionIndex}_{$Content:Survey_TextInput_Id}">
+			{$Content:Survey_TextInput_Label}</label>
+	</div>
+	<input id="Survey_TextInput_{$Content:questionIndex}_{$Content:Survey_TextInput_Id}" type="text" style="width: {$Content:Survey_TextInput_width}px;" onkeyup="wc.interface.actionHandler.survey_TextInputKeyUp(this);" name="Survey_TextInput" />
+</div>
+<!--ELEMENT_END:Survey_TextInput-->
+
+<!--ELEMENT_START:Survey_MultipleChoiceOneAnswer-->
+<li id="mediaBullet_{$Content:Survey_MultipleChoiceOneAnswer_Id}_{$Content:questionIndex}" class="active hidden" onclick="document.getElementById('Survey_MultipleChoiceOneAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceOneAnswer_id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('mediaBullet_{$Content:Survey_MultipleChoiceOneAnswer_Id}_', {$Content:questionIndex});wc.interface.actionHandler.survey_MultipleChoiceOneAnswerSelected({$Content:Survey_MultipleChoiceOneAnswer_Id}, {$Content:questionIndex});"> 
+	<input type="radio" style="display:none;" name="{$Content:Survey_MultipleChoiceOneAnswer_Name}" id="Survey_MultipleChoiceOneAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceOneAnswer_id}" />
+	<p class="bulletContentSurveyPivot">{$Content:Survey_MultipleChoiceOneAnswer_Body}</p>
+	<div></div>
+</li>
+<!--ELEMENT_END:Survey_MultipleChoiceOneAnswer-->
+
+<!--ELEMENT_START:Survey_MultipleChoiceMultipleAnswer-->
+<li id="multiple_mediaBullet_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceMultipleAnswer_id}" class="mediaBullet active hidden" onclick="document.getElementById('Survey_MultipleChoiceMultipleAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceMultipleAnswer_id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('multiple_mediaBullet_{$Content:questionIndex}_', {$Content:Survey_MultipleChoiceMultipleAnswer_id}, true);wc.interface.actionHandler.survey_MultipleChoiceMultipleAnswerSelected({$Content:Survey_MultipleChoiceMultipleAnswer_Id}, {$Content:questionIndex});"> 
+	<input type="checkbox" style="display:none;" id="Survey_MultipleChoiceMultipleAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceMultipleAnswer_id}" />
+	<p class="bulletContentSurveyPivot">{$Content:Survey_MultipleChoiceMultipleAnswer_Body}</p>
+	<div></div>
+</li>
+<!--ELEMENT_END:Survey_MultipleChoiceMultipleAnswer-->
+
+

@@ -1,0 +1,164 @@
+<html>
+<head>
+<title>Bulletin Window</title>
+<link rel="stylesheet" type="text/css" id="linkID"/>
+<link rel="stylesheet" type="text/css" id="customlinkID"/>
+<style type="text/css">
+.newsBg
+{
+  background-image: url(newsclipping.gif);
+  background-repeat: no-repeat;
+  text-align: center;
+  width: 360px;
+  height: 80px;
+  padding-top: 16px;
+}
+.newsHead
+{
+  font-family: times new roman;
+  font-size: 18pt;
+  font-weight: normal;
+  text-align: center;
+  width: 360px;
+}
+.newsSubhead
+{
+  font-family: times new roman;
+  font-size: 9pt;
+  font-weight: normal;
+  font-style: italic;
+  text-align: center;
+  width: 360px;
+}
+</style>
+<script type="text/javascript">
+
+var info;
+var bNav;
+var tries = 0;
+var master = typeof(top.master) == "object" ? top.master : window.opener;
+
+function start()
+{
+	if (typeof(master) != "object")
+		alert("Something is wrong -- this popup has no master!");
+
+	bNav = master.getArg(window, "n");
+	if (typeof(bNav) != "string" || bNav.length == 0)
+	{
+		alert("Something is wrong the location is empty!");
+	}
+
+	var ordinal = master.getArg(window, "o");
+	if (typeof(ordinal) != "string" || ordinal.length == 0)
+	{
+		alert("Something is wrong the location is empty!");
+	}
+
+	var typeBulletin = master.getArg(window, "t");
+	if (typeof(typeBulletin) != "string" || typeBulletin.length == 0)
+	{
+		alert("Something is wrong the location is empty!");
+	}
+
+	if (typeBulletin == "p")
+	{
+		if ((typeof(master.getPopBulletinInfo) != "function") &&
+			(typeof(master.getPopBulletinInfo) != "object"))
+			alert("Something is wrong opener has no getPopBulletinInfo function!");
+
+		info = master.getPopBulletinInfo(ordinal);
+	}
+	else if (typeBulletin == "l")
+	{
+		if ((typeof(master.getLinkBulletinInfo) != "function") &&
+			(typeof(master.getLinkBulletinInfo) != "object"))
+			alert("Something is wrong opener has no getLinkBulletinInfo function!");
+
+		info = master.getLinkBulletinInfo(ordinal);
+	}
+
+	document.getElementById("linkID").href = master.getStylesheetPath();
+	document.getElementById("customlinkID").href = master.getCustomStylesheetPath();
+
+	document.title = info.title;
+	if (document.all)	// IE
+	{
+		bulletinText.innerHTML = info.desc;
+		if (typeof(info.headline) != "undefined" && info.headline != "")
+		{
+			bulletinImage.style.display = "none";
+			newsClipping.style.display = "block";
+			newsHead.innerHTML = info.headline;
+			newsSubhead.innerHTML = info.subhead;
+		}
+		else
+			bulletinImage.innerHTML = "<img src='" + info.imgSrc + "' width='" + info.imgWidth + "' height='" + info.imgHeight + "' alt='" + info.imgAltText + "'/>";
+
+		form1.closeBtn.value = info.closeWindow;
+		form1.closeBtn.style.visibility = "visible";
+		if (typeof(info.imgSrcPrint) != "undefined" && info.imgSrcPrint != "")
+		{
+			idPrintIcon.src = info.imgSrcPrint;
+			idPrint.style.display = "block";
+		}
+		contentDiv.style.overflowY = "auto";
+	}
+	else	// NS 7
+	{
+		document.getElementById("contentDiv").style.overflow = "auto";
+		document.getElementById("bulletinText").innerHTML = info.desc;
+		document.getElementById("bulletinImage").innerHTML = "<img src='" + info.imgSrc + "' width='" + info.imgWidth + "' height='" + info.imgHeight + "' alt='" + info.imgAltText + "'/>";
+
+		document.getElementById("closeBtn").value = info.closeWindow;
+		document.getElementById("closeBtn").style.visibility = "visible";
+		if (typeof(info.imgSrcPrint) != "undefined" && info.imgSrcPrint != "")
+		{
+			document.getElementById("idPrintIcon").src = info.imgSrcPrint;
+			document.getElementById("idPrint").style.display = "block";
+		}
+		document.getElementById("idNSAdjust").style.display = "block";
+	}
+}
+
+function closeBulletin()
+{
+	if (bNav == "1")
+		master.NavigateDiv(info.curDiv, info.nextDiv);
+
+	master.closePopup();
+}
+function printMe()
+{
+	var curOverflow = contentDiv.style.overflowY;
+	var curScroll = contentDiv.style.scrollTop;
+	contentDiv.style.overflowY = "";
+	window.print()
+	contentDiv.style.overflowY = curOverflow;
+	contentDiv.style.scrollTop = curScroll;
+}
+</script>
+</head>
+<body class="bulletinBody" onLoad="start()" onUnload="closeBulletin()" style="margin:0px">
+<div id="contentDiv" style="height:100%;padding-left:10px;padding-right:4px">
+	<div align="center" id="bulletinImage" class="bulletinIllustrationImage"></div>
+	<div id="newsClipping" style="width:100%;text-align:center;display:none">
+		<div id="newsBg" class="newsBg">
+			<div id="newsHead" class="newsHead"></div>
+			<div id="newsSubhead" class="newsSubhead"></div>
+		</div>
+	</div>
+	<div id="bulletinText" class="bulletinText"></div>
+	<div align="center">
+	<form id="form1">
+	<input type="button" id="closeBtn" value="Close Window" onClick="closeBulletin()" style="visibility:hidden" NAME="closeBtn">
+	</form>
+	<div id="idPrint" class="printBulletin" style="display:none">
+		<a href="javascript:printMe()">
+			<img id="idPrintIcon" border="0">
+		</a>
+	</div>
+	</div>
+<div id="idNSAdjust" style="height:1px;display:none"></div>
+</div>
+</html>

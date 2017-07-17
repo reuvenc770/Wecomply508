@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	
+	<title>{$Content:Title}</title>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}swfobject.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.debug.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.events.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.data.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.lms.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.interface.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.interface.handlers.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.mediaPlayer.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/tween.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/jquery.ui.touch-punch.min.js"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/iscroll.js"></script>
+
+	<!--template file master.desktop.master -->
+
+	<!--TODO: remove the base href and if needed deal dynamically with this-->
+	
+	{$Content:Style}
+	<style>
+		
+		.clear {clear:both;}
+	</style>
+
+	
+	{$Content:Header}
+
+	<script type="text/javascript">
+		wc.interface.options.pageChange.replacementMethod = wc.interface.animationOptions.slideLeftAndFade; //slideLeft, none, slideLeftAndFade
+		wc.interface.options.displayLayer.linkBulletin.textDisplay = wc.interface.animationOptions.textWriter;
+		wc.interface.options.games.randomizeChoices = false;
+		wc.interface.options.games.gameIntroDisplayAnimation = wc.interface.animationOptions.none;
+		wc.interface.options.games.gameChoiceDisplayAnimation = wc.interface.animationOptions.none;
+		wc.interface.options.mediaPlayer.showVideoControls = false;
+		wc.interface.options.mediaPlayer.videoSizePercentage = 100;
+		wc.mediaPlayer.audio.flashPlayerSrc = '{$Value:StaticHtmlPath}player_mp3_js.swf';
+		wc.mediaPlayer.video.flashPlayerSrc = '{$Value:StaticHtmlPath}flvplayer.swf';
+		{$Content:Javascript}
+
+
+		this.parent.wc = wc;
+
+		wc.interface.handlers.events.onBefore_DisplayLayer = function (data) {
+			
+		};
+		wc.interface.handlers.events.onAfter_DisplayLayer = function (data) {
+			if (wc.interface.currentElement.elementType == wc.interface.elementTypes.game)
+				return;
+			var whiteboard = document.getElementById('whiteboard');
+			var Quiz_Wrapper_Element = document.getElementById('Quiz_Wrapper_Element');
+			var effectContainerElement = (isDefined(Quiz_Wrapper_Element) ? Quiz_Wrapper_Element : whiteboard);
+
+			var whiteboardContainer = document.getElementById('whiteboardContainer');
+			if (isDefined(effectContainerElement)) {
+				var whiteboardDimensions = wc.GetObjectBoundaries(effectContainerElement);
+				var whiteboardContainerDimensions = wc.GetObjectBoundaries(whiteboardContainer);
+				//
+				//alert(0 - whiteboardDimensions.height);
+				//alert(whiteboardContainerDimensions.top);
+				var whiteboardTween = new Tween(effectContainerElement.style, 'top', Tween.regularEaseOut, 0 - 620, 0, 1.3, 'px');
+				whiteboardTween.start();
+			}
+		};
+		wc.interface.handlers.events.onAfter_CloseDisplayLayer = function(data) {
+
+		};
+		wc.interface.handlers.events.onBefore_CloseDisplayLayer = function (data) {
+
+			var whiteboard = document.getElementById('whiteboard');
+			var Quiz_Wrapper_Element = document.getElementById('Quiz_Wrapper_Element');
+			var effectContainerElement = (isDefined(Quiz_Wrapper_Element) ? Quiz_Wrapper_Element : whiteboard);
+			var whiteboardContainer = document.getElementById('whiteboardContainer');
+
+			if (isDefined(effectContainerElement)) {
+				//var whiteboardDimensions = wc.GetObjectBoundaries(whiteboard);
+				//var whiteboardContainerDimensions = wc.GetObjectBoundaries(whiteboardContainer);
+				//
+
+				var whiteboardTween = new Tween(effectContainerElement.style, 'top', Tween.regularEaseIn, 0, -620, 2.3, 'px');
+				whiteboardTween.onMotionFinished = function () {
+					document.getElementById('LayerElementContainer').style.display = 'none';
+					document.getElementById('CurrentElementContainer').style.display = '';
+					layerElementopacityTween = new OpacityTween(document.getElementById('CurrentElementContainer'), Tween.regularEaseOut, 0, 100, 0.2);
+					layerElementopacityTween.start();
+					wc.mediaPlayer.audio.play(wc.interface.currentElement.chapterIndex);
+					wc.interface.currentElement.elementType = wc.interface.elementTypes.chapter;
+				};
+				whiteboardTween.start();
+			}
+			return false;//don't have the fire event continue code dependent on code here
+		};
+	</script>
+
+
+</head>
+<body>
+	<div class="viewPort">
+		<div id="CurrentElementContainer" style="position:relative;left:0px;width:100%;">
+			{$Content:Intro}
+		</div>
+		<div id="LayerElementContainer" style="position:relative;left:0px;width:100%;display:none;">
+		</div>
+	</div>
+</body>
+</html>

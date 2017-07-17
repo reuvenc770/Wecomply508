@@ -1,0 +1,121 @@
+<html>
+<head>
+
+<title>WeComply BulletTool Help</title>
+
+<style type="text/css">
+<!--
+p {
+	margin-left: 40px;
+}
+.pIndent {
+	margin-left: 80px;
+}
+-->
+</style>
+</head>
+
+
+
+<body onLoad="self.focus()">
+<h1>WeComply BulletTool</h2>
+
+<h3>System Requirements</h3>
+<p>Since the WeComply authoring system runs only in Internet Explorer running on Windows, BulletTool has the same requirements. It may work in other browsers and on a Macintosh, but this has not been tested. A monitor resolution of at least 1024x768 is highly recommended. Lower resolutions will work, but scrolling will be required.</p>
+
+
+<h3>Getting Started</h3>
+ 
+<p>BulletTool is launched by clicking the Wrench icon below the PithyQuote box in the authoring system.
+
+<p>Hopefully most of BulletTool is self-explanatory, but if not, questions are welcome as are bug reports and suggestions for improvement.</p>
+
+<h3>Importing Text</h3>
+<p>Text can be Copied from Word or other text files, then Pasted into the Bullet Text box.</p>
+
+<h3>Creating Columns</h3>
+<p>To create two bullets lying side-by-side, create the bullets using "New Sub-bullet Below" so they are not siblings, then position the bullets.  WFP does not wrap text to column width; it is up to the author to ensure that text does not overlap.</p>
+
+
+<h3>Exporting Your Work to the WeComply Authoring System</h3>
+
+<p>When your bullets are complete, click Export. Code for the bullets automatically be placed into the PithyQuote box of the chapter editor.</p>
+ 
+ 
+<h3>Using Terms</h3>
+<p>NOTE:   Clicking on a term works only in Preview.</p>
+
+<p>To specify a section of text as a term, select the text in the Bullet Text box, then click Term. You can choose from all terms which are defined in the chapter. If you do not see the term you want, go back to the authoring system, create the term, then return to BulletTool. Once you've selected a term, click Select, then click Submit.  You can then preview the term using Preview.</p>
+
+<p>To remove a term specification from a section of text, delete "&lt;a href="term:x"&gt;" before the section of text, and "&lt;/a&gt;" after it.</p>
+
+
+<h3>Keyboard Shortcuts</h3>
+<p>Pressing the TAB key is a shortcut for pressing the Submit button.</p>
+
+
+<h3>Using Color</h3>
+
+<p> IMPORTANT: Colorizing text is only available in the Vintage version of BulletTool. It is not available in the PDA version.</p>
+
+<p> The default color for a bullet is the color set by the skin. In most cases this is black. To apply a different color to the selected bullet, use the color chip. To revert back to the default, click "Use Default".</p>
+ 
+<p>Colors apply to an entire bullet. If you'd like to set the color of only a section of  bullet text, click "Use Default", then place:</p>
+
+
+<p class="pIndent">&lt;font color="#xxxxxx"&gt; before the section of text, and<br>
+&lt;/font&gt; after it,</p>
+
+<p> where xxxxxx is a color number in hexadecimal notation (e.g  FF0000).  For now, you can colorize a section of text only if the color for the entire bullet is set to default.
+</p>
+
+<h3>Text Sizing</h3>
+
+ 
+<p>The default font size for a bullet is the size set by the skin. In most cases this is 12pt. To apply a different size to the selected bullet, use the - and + size buttons. To revert back to the default, click "Use Default".</p>
+ 
+<p>Sizing applies to an entire bullet. If you'd like to set the size of only a section of bullet text, place:</p>
+
+<p class="pIndent">&lt;span class="xxx"&gt; before the section of text, and<br>
+&lt;/span&gt; after it,</p>
+
+<p> where xxx is one of the following:</p>
+
+<ul><p>textMinus3<br>
+textMinus2<br>
+textMinus1<br>
+textPlus1<br>
+textPlus2<br>
+textPlus3<br>
+textPlus4<br>
+textPlus5<br>
+textPlus6<br>
+textPlus7</p></ul>
+ 
+<p> The following are also available, for the PDA version of BulletTool only:</p>
+
+<ul><p>
+textPlus11<br>
+textPlus13<br>
+textPlus15<br>
+textPlus16
+</p></ul>
+ 
+
+
+
+<h3>A Note about Absolute and Relative Font Size and Positioning</h3>
+<p>In general, a WFP skin determines the size of bullet fonts and spacing. For example, when you change bullet spacing using BulletTool, you are actually changing spacing relative to the default set by the skin.  Font sizing, however, works a little differently. When a bullet size is set to default, the font size is determined by the skin. When it is increased or decreased from the default, however, relative values are not used. Instead, the font size is set to an absolute size.
+</p> 
+
+<p>At the time of the writing of this help, all skins in WFP use the same default font size and spacing, so none of this is really an issue.  It will be important to keep these issues in mind, however, if a skin with a different default font size or spacing is ever created,.</p>
+ 
+
+<h3>Viewing the Generated Code</h3>
+<p>In most cases, you will not need to use this feature.  However, if you'd like to view the bullet code BulletTool generates on Export, click the BulletTool title in the upper left of the BulletTool window. The code will appear at the bottom. (You may need to scroll down to see it.)</p>
+
+<br><br><br>
+</body>
+</html>
+
+

@@ -1,0 +1,84 @@
+﻿<!--ELEMENT_START:Quiz_Wrapper-->
+<div id="Quiz_Wrapper_Element">
+	<div style="float:left;width:440px;" id="Quiz_GameContent">
+		{$Content:quizContent}
+	</div>
+	<div style="float:left;">
+		<img src="/wc2/static/training/ceoImages/splash_ceo.gif" width=88 height=386 border=0 alt="" id="ceoGameOffice" name="ceoGameOffice">
+	</div>
+	<div class="clear"></div>
+	<div id="preloadDIV" style=" width:10; display:none;">
+		<img src="/wc2/static/training/ceoImages/ceo_f01.gif" width="88" height="386" border="0">
+		<img src="/wc2/static/training/ceoImages/ceo1.gif" width="88" height="386" border="0">
+		<img src="/wc2/static/training/ceoImages/ceo2.gif" width="88" height="386" border="0">
+		<img src="/wc2/static/training/ceoImages/ceo3.gif" width="88" height="386" border="0">
+		<img src="/wc2/static/training/ceoImages/ceo4.gif" width="88" height="386" border="0">
+		<img src="/wc2/static/training/ceoImages/ceo5.gif" width="88" height="386" border="0">
+		<img src="/wc2/static/training/ceoImages/ceo6.gif" width="88" height="386" border="0">
+		<img src="/wc2/static/training/ceoImages/ceo7.gif" width="88" height="386" border="0">
+		<img src="/wc2/static/training/ceoImages/ceo8.gif" width="88" height="386" border="0">
+		<img src="/wc2/static/training/ceoImages/ceo9.gif" width="88" height="386" border="0">
+	</div>
+</div>
+<!--ELEMENT_END:Quiz_Wrapper-->
+
+<!--ELEMENT_START:Quiz-->
+<div id="Quiz_Element" class="quizLayout">
+	<div class="quizLeftPage">
+		<div id="Quiz_Illustration_Content" class="quizIllustration">{$Content:Quiz_Illustration}</div>
+		<div id="Quiz_Body_Content" class="questionBody">{$Content:Quiz_Body}</div>
+		<div id="Quiz_Choices_Content">{$Content:Quiz_Choices}</div>
+	</div>
+	<div class="quizRightPage">
+		<div id="Quiz_Body_Feedback_Container" style="display:none;position: absolute;top: 0px;left: 0px;background-color: #FFFFFF;opacity:.95;-ms-filter: “alpha(opacity=95)”;filter: alpha(opacity=95);height: 100%;width:100%;">
+			<div class="agreeText" id="Quiz_Body_Feedback_AgreeText"></div>
+			<div id="Quiz_Body_Feedback">
+				<div id="Quiz_Body_Feedback_Text" class="quizFeedback"></div>
+				<div class="tryAgainButton" id="Quiz_Body_Feedback_TryAgain" onclick="wc.interface.actionHandler.game_closeFeedbackElement();"></div>
+			</div>	
+			<div id="Quiz_Body_Feedback_ContinueButton" class="continueButton_container" id="Continue" style="display: none; ">
+				<div id="continueBtn" class="closeButton" onclick="wc.interface.actionHandler.game_gotoNextQuestion()" name="continueBtn">{$Content:ContinueResource}</div>
+			</div>
+		</div>
+	<div class="clear"></div>
+</div>
+<!--ELEMENT_END:Quiz-->
+
+<!--ELEMENT_START:Quiz_ChoiceItem-->
+<div id="Quiz_ChoiceItem_Element">
+	<table cellspacing="3"><tr><td><input type="radio" onclick="wc.interface.actionHandler.game_answerQuestion({$Content:Quiz_ChoiceItem_Id}, {$Content:gameIndex});" name="Quiz_ChoiceItem" id="Quiz_ChoiceItem_{$Content:Quiz_ChoiceItem_Id}" /></td>
+	<td><label for="Quiz_ChoiceItem_{$Content:Quiz_ChoiceItem_Id}" id="Quiz_ChoiceItemLabel_{$Content:Quiz_ChoiceItem_Id}">{$Content:Quiz_ChoiceItem_Body}</label>
+</td></tr></table>
+	<div class="clear" style="padding-bottom:4px;"></div>
+</div>
+<!--ELEMENT_END:Quiz_ChoiceItem-->
+
+
+<!--ELEMENT_START:Quiz_Intro-->
+<div>
+	<div class="clear" style="padding-top:4px;"></div>
+		<div style="min-height: 304px;">
+			<!--<div id="loadingDIV" style="width: 300px; ">
+			    	<font face="arial" size="3" color="#999999"><b><span id="spanLoading">{$Content:Game_Intro_LoadingText}</span></b></font>
+			    </div>-->
+			<div class="gameTitle">{$Content:Game_Intro_Name}</div>
+			<div id="textDIV" >
+				<table width="90%" id="Table1">
+					<tbody><tr>
+					       	<td bgcolor="#ffffff">
+					       		<span id="spanWelcome"><div class="ceoIntroduction">{$Content:Game_Intro_WelcomeText}</div></span>
+					       	</td>
+					       </tr>
+					</tbody></table>
+			</div>
+			<div id="buttonDIV">
+				<div id="theButton" onclick="wc.interface.actionHandler.displayGame({$Content:gameIndex});" class="closeButton">{$Content:Game_Intro_StartQuizText}</div>
+			</div>
+		</div>
+		<div id="manDIVContainer" style="width:450px;height:15px;padding-top:20px;">
+			<div id="manDIV" style="position:relative;left:0px;width: 10px; height: 15px; z-index: 2;">
+				<img id="ceoSplashMan" src="/wc2/static/training/ceoImages/splash_man2.gif" border="0" name="theMan" width="9" height="15">
+			</div>
+		</div>
+</div>
+<!--ELEMENT_END:Quiz_Intro-->

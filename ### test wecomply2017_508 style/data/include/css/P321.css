@@ -1,0 +1,422 @@
+﻿@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(data/include/css/Fonts/cJZKeOuBrn4kERxqtaUH3aCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(data/include/css/Fonts/MTP_ySUJH_bn48VBG8sNSonF5uFdDttMLvmWuJdhhgs.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Condensed Light'), local('OpenSansCondensed-Light'), url(data/include/css/Fonts/gk5FxslNkTTHtojXrkp-xD1GzwQ5qF9DNzkQQVRhJ4g.ttf) format('truetype');
+}
+
+
+/*.pageHeader {position:relative; background:url('../../../images/WeComply2014/WeComply2015_header.jpg'); background-size: 100% 100%;}*/
+.patternHeader {display:none;}
+.companyLogo {top: 6px; left: 20px;}
+.courseTitle {position:relative; display:table; right:0; top:0; width: 60%; float: right; line-height: 1.1em; height: 100%; padding:0 20px; text-align:right;}
+.innerCourseTitle {display:table-cell; vertical-align:middle;}
+.wc-page-title {line-height:1.1em;}
+.chapterHeading {margin-top:30px;}
+#Chapter_Header_Content {width:100%; height:50px; font-size:30px;}
+.acknowledgmentButtons {width:100%; margin:0;}
+.acknowledgmentButtons .continueButton {float:none !important; display:inline-block; margin-right:5px;}
+.buttonsContainer {text-align:center; height:auto;}
+.buttonsContainer .continueButton {float:none !important; display:inline-block; margin-right:5px;}
+#LinkBulletin_Element .text {margin-bottom:15px; margin-top:15px; padding-right:15px;}
+video {width:100%; height:auto;}
+.backgroundIllustrationContainer {background-size:100%;}
+#MemorandumChapter_Element .chapterDiscussionText {height:392px;}
+.continueButtonContainer {margin-left: 0 !important; width: 100% !important; text-align:center;}
+.continueButtonContainer .continueButton {margin:0; float:none; display:inline-block;}
+#PopQuiz_Video_Container video {width:90%;}
+#PopQuiz_Video_Transcript.corkboard {float:none; width:auto; display:table-cell;}
+#PopQuiz_Video_Transcript table tr td {width:auto; padding-right:15px; font-size:14px;}
+#PopQuiz_Video_Transcript .dummy-scroll-wrapper {padding-right:0;}
+/*#PopQuiz_Video_Transcript .dummy-scroll-wrapper h3 {font: 300 30px Open Sans Condensed, sans-serif;}*/
+#Quiz_Body_Feedback {height:308px !important;}
+#ceoGameOffice {width:88px; height:327px;}
+#Quiz_Body_Feedback_Container .buttonsContainer {width:auto;}
+#Quiz_Wrapper_Element #Quiz_Body_Feedback {height:302px !important;}
+#Quiz_Wrapper_Element #Quiz_Body_Feedback_Text {height:302px !important; margin-bottom:0; overflow-y:auto;}
+#Quiz_Wrapper_Element .buttonsContainer {margin:15px auto;}
+.popQuiz_iScroll {height:220px;}
+#popQuiz_Body_Feedback_ContinueButton {display:inline-block;}
+ul.bulletsList li.mediaBullet {line-height:1.5em !important;}
+#LinkBulletin_Element #LinkBulletin_Body_Content {height:290px;}
+.wc-popquiz-wrapper .chapterHeading {margin-top:0 !important; padding: 8px 0 8px 18px !important; border-bottom: 1px solid #CFCFCF !important;}
+#PopQuiz_Element .popQuizQuestionBodyWrapper {margin: 10px auto 0 auto;}
+#Term_Element .courseContent p {padding:1.5em 2em 0em 2em; margin-bottom:0;}
+#Term_Element .courseContent ul {padding-left: 2em;}
+#Term_Element .courseContent li {float:left; width:49%; padding-right:0.5%;}
+.continueButton.disabled, .continueButton.disabled:hover {background: #cccccc !important;
+    background: -moz-linear-gradient(top, #dddddd 0%, #bbbbbb 100%) !important;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dddddd), color-stop(100%,#bbbbbb)) !important;
+    background: -webkit-linear-gradient(top, #dddddd 0%,#bbbbbb 100%) !important;
+    background: -o-linear-gradient(top, #dddddd 0%,#bbbbbb 100%) !important;
+    background: -ms-linear-gradient(top, #dddddd 0%,#bbbbbb 100%) !important;
+    background: linear-gradient(to bottom, #dddddd 0%,#bbbbbb 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#bbbbbb',GradientType=0 ) !important;}
+
+/*DISABLE THE DISAGREE BUTTON*/
+#Acknowledgment_Refusal {display:none;}
+
+/*START - Quiz Styling*/
+#QuizQuestion_Element  .chapterHeading {margin-top:0 !important; padding: 8px 0 8px 18px !important; border-bottom: 1px solid #CFCFCF !important;}
+#Game_Choice_Element  .chapterHeading {padding-left: 45px; padding-top:0; margin: 30px 0 6px; border:0; /*margin-top:0 !important; padding: 8px 0 8px 18px !important; border-bottom: 1px solid #CFCFCF !important;*/}
+#Game_Choice_Element  .chapterHeading h3 {line-height: 1.1em; font: 300 30px Open Sans Condensed, sans-serif;}
+#Game_Choice_Element .gameChoiceBody ul.quizChoices {width:100%;}
+#Game_Choice_Element #Quiz_Choices_Content .bulletContent {width:740px;}
+#finalQuizContainer .wc-popquiz-question-wrapper .mediaBullet_select.default {margin-top:5px;}
+#finalQuizContainer ul.quizChoices li, ol.quizChoices li {line-height:1.428em; min-height:auto;}
+#PopQuiz_Question_Container .mediaBullet_select.default {margin-top:5px;}
+.ChooseGameButtonWrapper {width:100%; text-align:center;}
+.ChooseGameButtonWrapper .continueButton {margin-right:0; float:none; display: inline-block;}
+#Game_Choice_Element .smallFrame {height:auto; padding-bottom:15px;}
+#Game_Choice_Element .gameChoiceBody ul.quizChoices li .listVerticalAlign {min-height:auto;}
+#Game_Choice_Element .gameChoiceBody  ul.quizChoices li .mediaBullet_select.default {margin-top:5px;}
+#PopQuiz_Element .chapterHeading, #popQuiz_Body_Feedback_Container .chapterHeading {margin-top:0 !important; padding: 8px 0 8px 18px !important; border-bottom: 1px solid #CFCFCF !important; font: 300 30px Open Sans Condensed, sans-serif;}
+#PopQuiz_Element #popQuiz_Heading {display:none;}
+#PopQuiz_Element #PopQuiz_Introduction .text {font-size:1em; font-family: Open Sans, sans-serif;}
+
+#Quiz_Wrapper_Element .finaQuizBodyWrapper {width:auto;}
+#finalQuizContainer #PopQuiz_Element ul.quizChoices li, #Quiz_GameContent ul.quizChoices li {padding:20px 45px;}
+#finalQuizContainer #PopQuiz_Element #quizLeftPage ul.quizChoices li, #Quiz_GameContent ul.quizChoices li {padding:20px 10px 0 10px;}
+
+#Quiz_Wrapper_Element .quizRightPage {width:auto;}
+#Quiz_Choices_Content .listVerticalAlign {min-height:auto;}
+
+#popHeadingQuiz:empty {border:0;}
+#PopQuiz_Question_Container_Body_Questions #PopQuiz_Answer_Button {margin:20px auto 0 auto;}
+
+#QuizQuestion_Body_Content ul.quizChoices li {border-bottom:0;}
+#QuizQuestion_Body_Content .chapterLeftPadding {width: 650px; padding-bottom: 20px;}
+#PopQuiz_Element .listVerticalAlign, #Quiz_Wrapper_Element .listVerticalAlign, #QuizQuestion_Element .listVerticalAlign {min-height:auto;}
+.quizLeftPanel #QuizQuestion_Choices_Content .mediaBullet_select.default {margin-top:5px;}
+.Quiz_FeedBack_iScroll {height:270px;}
+
+/*#finalQuizContainer .smallFrame {width:730px; height:auto; padding-top:0; padding-bottom:15px;}
+#Quiz_Wrapper_Element .finaQuizBodyWrapper {width:100%;}
+#Quiz_Wrapper_Element {height:auto;}
+#Quiz_Body_Content {padding-left:45px;}
+#Quiz_Body_Feedback_Text {padding-left:45px;}
+#PopQuiz_Element ul.quizChoices li, #Quiz_GameContent ul.quizChoices li {padding-left:45px;}
+#popHeadingQuiz {margin-top:0 !important; padding: 8px 0 8px 18px !important; border-bottom: 1px solid #CFCFCF !important; font-family: Open Sans, sans-serif; font-size: 28px; font-weight: bold; line-height: 0.95em; margin-bottom:25px;}
+#finalQuizContainer .quizLayoutFinalQuiz .quizLeftPage .dummy-scroll-wrapper {height:auto;}*/
+/*END - Quiz Styling*/
+
+/*START - Match Game Styling*/
+.matchGameProblemBody .matchGameItemInner {display:table-cell; vertical-align:middle}
+.matchGameItemElement {height:40px;}
+.matchGameItemElement.solved {margin-left:0;}
+#MatchGame_Element .matchGameElementIntro {padding: 15px 0; height:auto;}
+#MatchGame_GameContainer .courseContent {font-size:14px; line-height:1.2em; margin-bottom:0;}
+.matchGameProblemBody, .matchGameProblemBody.solved {display:table; padding:0 15px; text-align:left; width:49%; height:40px; font-size:12px; line-height:1.1em; max-width: 420px;
+cursor: move; cursor: grab; cursor: -moz-grab; cursor: -webkit-grab;
+box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;}
+.matchGameProblemHeader, .matchGameProblemHeader.solved {float:right; width:49%; margin-left:0; display:table; padding:0; height:40px;}
+.matchGameProblemHeader .matchGameItemInner {display:table-cell; vertical-align:middle}
+/*END - Match Game Styling*/
+
+/*START - Rube Goldberg Game Styling*/
+#finalQuizContainer #rubeGoldbergGame #Quiz_GameContent.gameIntro {padding:0 0 20px 0; width:810px;}
+#finalQuizContainer #rubeGoldbergGame {background:none;}
+#finalQuizContainer #rubeGoldbergGame #Quiz_GameContent {
+    background: #f5f5f5;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top, #f5f5f5 0%, #f5f5f5 88%, #eae8e9 95%, #d5d3d4 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(88%,#f5f5f5), color-stop(95%,#eae8e9), color-stop(100%,#d5d3d4));
+    background: -webkit-linear-gradient(top, #f5f5f5 0%,#f5f5f5 88%,#eae8e9 95%,#d5d3d4 100%);
+    background: -o-linear-gradient(top, #f5f5f5 0%,#f5f5f5 88%,#eae8e9 95%,#d5d3d4 100%);
+    background: -ms-linear-gradient(top, #f5f5f5 0%,#f5f5f5 88%,#eae8e9 95%,#d5d3d4 100%);
+    background: linear-gradient(to bottom, #f5f5f5 0%,#f5f5f5 88%,#eae8e9 95%,#d5d3d4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#d5d3d4',GradientType=0 );
+}
+/*<div id="Quiz_GameContent" class="gameIntro textLayer wc-popquiz-content-wrapper" style="left: -763px;">*/
+#rubeGoldbergGame #quizLeftPage .dummy-scroll-wrapper {height:302px; overflow-y:auto; padding-right:90px;}
+#finalQuizContainer #rubeGoldbergGame #Quiz_GameContent.gameIntro {width:100%;}
+#finalQuizContainer #rubeGoldbergGame #Quiz_GameContent #Quiz_Body_Feedback_Container #Quiz_Body_Feedback_Text {height:302px; overflow-y:auto;}
+#rubeGoldbergGame .buttonsContainer {margin:0 auto;}
+/*END - Rube Goldberg Game Styling*/
+
+#LinkBulletin_Header {display:none;}
+/*.continueButton { position: absolute; bottom: 15px; right: 15px; margin-right:0;}*/
+
+/*START - CORPORATE COLOR CHANGES*/
+/*********************************/
+/*Blue: #3386d6*/
+a {color: #800080;}
+.navigationButton {background-color: #800080;}
+.courseProgress {color: #800080;}
+/*Blue 2: #005394*/
+.pageHeader {position:relative; background: #800080; /* Old browsers */
+    /*Blue 2 Gradient: #005394 0%, #003f70 70%, #002f55 100%*/
+    background: -moz-linear-gradient(left,  #800080 0%, #550255 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#800080), color-	 stop(100%,#550255)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #800080 0%,#550255 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #800080 0%,#550255 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #800080 0%,#550255 100%); /* IE10+ */
+    background: linear-gradient(to right,  #800080 0%,#550255 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#800080', 		endColorstr='#550255s',GradientType=1 ); /* IE6-9 */
+}
+.matchGameProblemHeader { color: #ffffff; background: #800080; /* Old browsers */
+    /*Blue 2 Gradient: #005394 0%, #003f70 70%, #002f55 100%*/
+    background: -moz-linear-gradient(left,  #800080 0%, #550255 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#800080), color-	 stop(100%,#550255)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #800080 0%,#550255 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #800080 0%,#550255 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #800080 0%,#550255 100%); /* IE10+ */
+    background: linear-gradient(to right,  #800080 0%,#550255 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#800080', 	endColorstr='#550255s',GradientType=1 ); /* IE6-9 */
+}
+/*Blue 3: #188fdf*/
+ul.bulletsList li.mediaBullet {color: #800080;}
+ul.bulletsList li.mediaBullet.active p.bulletContent {color: #800080;}
+/*Blue 4: #0B8FE2*/
+#LinkBulletin_Element .text{color: #800080;}
+#Term_Element .termContents  h1, #Term_Element .termContents  h2, #Term_Element .termContents  h3, #Term_Element .termContents  h4, #Term_Element .termContents  h5, #Term_Element .termContents  h6{color: #800080;}
+#QuizQuestion_Element  .chapterHeading {color: #800080;}
+#PopQuiz_Element .chapterHeading, #popQuiz_Body_Feedback_Container .chapterHeading{color: #800080;}
+/*Blue 5: #004258*/
+.chapterHeading {color: #800080;}
+/*Blue 6: #1e5c82*/
+/*Gradient: #1e5c82 0%, #154663 100%*/
+#PopQuiz_Content_Container .continueButton{ background: #800080;
+    background: -moz-linear-gradient(top, #800080 0%, #550255 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#800080), color-stop(100%,#550255));
+    background: -webkit-linear-gradient(top, #800080 0%,#550255 100%);
+    background: -o-linear-gradient(top, #800080 0%,#550255 100%);
+    background: -ms-linear-gradient(top, #800080 0%,#550255 100%);
+    background: linear-gradient(to bottom, #800080 0%,#550255 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#800080', endColorstr='#550255',GradientType=0 );
+}
+#tableOfContentsEmail{ background: #800080;
+    background: -moz-linear-gradient(top, #800080 0%, #550255 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#800080), color-stop(100%,#550255));
+    background: -webkit-linear-gradient(top, #800080 0%,#550255 100%);
+    background: -o-linear-gradient(top, #800080 0%,#550255 100%);
+    background: -ms-linear-gradient(top, #800080 0%,#550255 100%);
+    background: linear-gradient(to bottom, #800080 0%,#550255 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#800080', endColorstr='#550255',GradientType=0 );
+}
+#Policy_Element	.continueButton{ background: #800080;
+    background: -moz-linear-gradient(top, #800080 0%, #550255 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#800080), color-stop(100%,#550255));
+    background: -webkit-linear-gradient(top, #800080 0%,#550255 100%);
+    background: -o-linear-gradient(top, #800080 0%,#550255 100%);
+    background: -ms-linear-gradient(top, #800080 0%,#550255 100%);
+    background: linear-gradient(to bottom, #800080 0%,#550255 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#800080', endColorstr='#550255',GradientType=0 );
+}
+.acknowledgmentButtons .continueButton{ background: #800080;
+    background: -moz-linear-gradient(top, #800080 0%, #550255 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#800080), color-stop(100%,#550255));
+    background: -webkit-linear-gradient(top, #800080 0%,#550255 100%);
+    background: -o-linear-gradient(top, #800080 0%,#550255 100%);
+    background: -ms-linear-gradient(top, #800080 0%,#550255 100%);
+    background: linear-gradient(to bottom, #800080 0%,#550255 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#800080', endColorstr='#550255',GradientType=0 );
+}
+/*Blue 7: #1896D2*/
+#PopQuiz_Content_Container .continueButton:hover{background-color:#c601c6 !important;}
+#tableOfContentsEmail:hover{background-color:#c601c6 !important;}
+#Policy_Element	.continueButton:hover{background-color:#c601c6 !important;}
+.acknowledgmentButtons .continueButton:hover{background-color:#c601c6 !important;}
+/*Blue 8: #213b59*/
+.courseContent h1, .courseContent h2, .courseContent h3, .courseContent h4, .courseContent h5, .courseContent h6 {color: #550255;}
+/*Blue 9: #0070B4*/
+#chapterLinkBulletinMenu{background-color: #800080;color:#ffffff;}
+/*Blue 10: #00b9fc*/
+/*Gradient: #00b9fc 0%, #0091D4 100%*/
+#MatchGame_GameContainer .ui-state-hover { 
+    background: linear-gradient(to bottom, #c601c6 0%, #800080 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c601c6', endColorstr='#800080', GradientType=0);
+    background: -webkit-linear-gradient(top, #c601c6 0%,#800080 100%);
+    background: -moz-linear-gradient(top, #c601c6 0%, #800080 100%);
+}
+/*Blue 11: #6fb1ea*/
+#PopQuiz_Question_Container_Body_Questions .chapterHeading, #popQuiz_Body_Feedback_Container .chapterHeading {color:#800080;}
+#QuizQuestion_Element  .chapterHeading {color:#800080;}
+#Game_Choice_Element  .chapterHeading {color:#800080;}
+/*Orange: #d89200*/
+.navigationButton:hover {background-color: #8aff61;}
+/*Orange 2: #faa900*/
+.navigationButton:active, .navigationButton.active {background-color: #4bca1e;}
+.mediaBullet_select.selected{background-color:#4bca1e;}
+.mediaBullet_select_multiple.selected{background-color:#4bca1e;}
+ul.bulletsList li.mediaBullet.active {color: #4bca1e;}
+.matchGameItemElement.solved {background-color: #4bca1e;}
+.matchGameItemElement.solved .matchGameProblemBody {background-color: #4bca1e; color: #ffffff;}
+.matchGameItemElement.solved .matchGameProblemHeader {background: #4bca1e; color: #ffffff;}
+.matchGameItemElement.solved .matchGameProblemHeader { color: #ffffff; background: #4bca1e; /* Old browsers */
+    /*Orange Gradient: #faa900 0%,#cb8900 70%,#b97d00 100%*/
+	background: -moz-linear-gradient(left,  #4bca1e 0%, #185c00 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#4bca1e), color-	 stop(100%,#185c00)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #4bca1e 0%,#185c00 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #4bca1e 0%,#185c00 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #4bca1e 0%,#185c00 100%); /* IE10+ */
+	background: linear-gradient(to right,  #4bca1e 0%,#185c00 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4bca1e', endColorstr='#185c00',GradientType=1 	); /* IE6-9 */
+}
+/*Orange 3: #ff9900; hover: #f8b551*/
+.continueButton {background-color: #800080; color: #FFFFFF;}
+.continueButton:hover { background-color: #c601c6;}
+/*********************************/
+/*END - CORPORATE COLOR CHANGES*/
+
+/*LANGUAGES START*/
+/*French*/
+.fr h3,
+.fr-CA h3,
+.de h3
+{font-size: 0.9em;}
+
+.fr #Chapter_Header_Content,
+.fr-CA #Chapter_Header_Content,
+.de #Chapter_Header_Content
+{font-size: 1.8em;}
+
+.fr #Chapter_Header .wc-page-title,
+.fr-CA #Chapter_Header .wc-page-title,
+.de #Chapter_Header .wc-page-title
+{ font-size: 0.85em; }
+
+.fr .chapterHeading.wc-page-title,
+.fr-CA .chapterHeading.wc-page-title,
+.de .chapterHeading.wc-page-title
+{ font-size: 1.8em; }
+/*LANGUAGES END*/
+
+/*apply new colors*/
+
+/*START - CORPORATE COLOR CHANGES*/
+/*********************************/
+/*Blue: #3386d6*/
+a {color: #005e7a;}
+.navigationButton {background-color: #005e7a;}
+.courseProgress {color: #005e7a;}
+/*Blue 2: #005394*/
+.pageHeader {position:relative; background: #005e7a; /* Old browsers */
+    /*Blue 2 Gradient: #005394 0%, #003f70 70%, #002f55 100%*/
+    background: -moz-linear-gradient(left,  #005e7a 0%, #00aab2 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#005e7a), color-	 stop(100%,#00aab2)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #005e7a 0%,#00aab2 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #005e7a 0%,#00aab2 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #005e7a 0%,#00aab2 100%); /* IE10+ */
+    background: linear-gradient(to right,  #005e7a 0%,#00aab2 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005e7a', 		endColorstr='#00aab2s',GradientType=1 ); /* IE6-9 */
+}
+.matchGameProblemHeader { color: #ffffff; background: #005e7a; /* Old browsers */
+    /*Blue 2 Gradient: #005394 0%, #003f70 70%, #002f55 100%*/
+    background: -moz-linear-gradient(left,  #005e7a 0%, #00aab2 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#005e7a), color-	 stop(100%,#00aab2)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #005e7a 0%,#00aab2 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #005e7a 0%,#00aab2 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #005e7a 0%,#00aab2 100%); /* IE10+ */
+    background: linear-gradient(to right,  #005e7a 0%,#00aab2 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005e7a', 	endColorstr='#00aab2s',GradientType=1 ); /* IE6-9 */
+}
+/*Blue 3: #188fdf*/
+ul.bulletsList li.mediaBullet {color: #005e7a;}
+ul.bulletsList li.mediaBullet.active p.bulletContent {color: #005e7a;}
+/*Blue 4: #0B8FE2*/
+#LinkBulletin_Element .text{color: #005e7a;}
+#Term_Element .termContents  h1, #Term_Element .termContents  h2, #Term_Element .termContents  h3, #Term_Element .termContents  h4, #Term_Element .termContents  h5, #Term_Element .termContents  h6{color: #005e7a;}
+#QuizQuestion_Element  .chapterHeading {color: #005e7a;}
+#PopQuiz_Element .chapterHeading, #popQuiz_Body_Feedback_Container .chapterHeading{color: #005e7a;}
+/*Blue 5: #004258*/
+.chapterHeading {color: #005e7a;}
+/*Blue 6: #1e5c82*/
+/*Gradient: #1e5c82 0%, #154663 100%*/
+#PopQuiz_Content_Container .continueButton{ background: #005e7a;
+    background: -moz-linear-gradient(top, #005e7a 0%, #00aab2 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#005e7a), color-stop(100%,#00aab2));
+    background: -webkit-linear-gradient(top, #005e7a 0%,#00aab2 100%);
+    background: -o-linear-gradient(top, #005e7a 0%,#00aab2 100%);
+    background: -ms-linear-gradient(top, #005e7a 0%,#00aab2 100%);
+    background: linear-gradient(to bottom, #005e7a 0%,#00aab2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005e7a', endColorstr='#00aab2',GradientType=0 );
+}
+#tableOfContentsEmail{ background: #005e7a;
+    background: -moz-linear-gradient(top, #005e7a 0%, #00aab2 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#005e7a), color-stop(100%,#00aab2));
+    background: -webkit-linear-gradient(top, #005e7a 0%,#00aab2 100%);
+    background: -o-linear-gradient(top, #005e7a 0%,#00aab2 100%);
+    background: -ms-linear-gradient(top, #005e7a 0%,#00aab2 100%);
+    background: linear-gradient(to bottom, #005e7a 0%,#00aab2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005e7a', endColorstr='#00aab2',GradientType=0 );
+}
+#Policy_Element	.continueButton{ background: #005e7a;
+    background: -moz-linear-gradient(top, #005e7a 0%, #00aab2 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#005e7a), color-stop(100%,#00aab2));
+    background: -webkit-linear-gradient(top, #005e7a 0%,#00aab2 100%);
+    background: -o-linear-gradient(top, #005e7a 0%,#00aab2 100%);
+    background: -ms-linear-gradient(top, #005e7a 0%,#00aab2 100%);
+    background: linear-gradient(to bottom, #005e7a 0%,#00aab2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005e7a', endColorstr='#00aab2',GradientType=0 );
+}
+.acknowledgmentButtons .continueButton{ background: #005e7a;
+    background: -moz-linear-gradient(top, #005e7a 0%, #00aab2 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#005e7a), color-stop(100%,#00aab2));
+    background: -webkit-linear-gradient(top, #005e7a 0%,#00aab2 100%);
+    background: -o-linear-gradient(top, #005e7a 0%,#00aab2 100%);
+    background: -ms-linear-gradient(top, #005e7a 0%,#00aab2 100%);
+    background: linear-gradient(to bottom, #005e7a 0%,#00aab2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005e7a', endColorstr='#00aab2',GradientType=0 );
+}
+/*Blue 7: #1896D2*/
+#PopQuiz_Content_Container .continueButton:hover{background-color:#a96b70 !important;}
+#tableOfContentsEmail:hover{background-color:#a96b70 !important;}
+#Policy_Element	.continueButton:hover{background-color:#a96b70 !important;}
+.acknowledgmentButtons .continueButton:hover{background-color:#a96b70 !important;}
+/*Blue 8: #213b59*/
+.courseContent h1, .courseContent h2, .courseContent h3, .courseContent h4, .courseContent h5, .courseContent h6 {color: #00aab2;}
+/*Blue 9: #0070B4*/
+#chapterLinkBulletinMenu{background-color: #005e7a;color:#ffffff;}
+/*Blue 10: #00b9fc*/
+/*Gradient: #00b9fc 0%, #0091D4 100%*/
+#MatchGame_GameContainer .ui-state-hover { 
+    background: linear-gradient(to bottom, #a96b70 0%, #005e7a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a96b70', endColorstr='#005e7a', GradientType=0);
+    background: -webkit-linear-gradient(top, #a96b70 0%,#005e7a 100%);
+    background: -moz-linear-gradient(top, #a96b70 0%, #005e7a 100%);
+}
+/*Blue 11: #6fb1ea*/
+#PopQuiz_Question_Container_Body_Questions .chapterHeading, #popQuiz_Body_Feedback_Container .chapterHeading {color:#005e7a;}
+#QuizQuestion_Element  .chapterHeading {color:#005e7a;}
+#Game_Choice_Element  .chapterHeading {color:#005e7a;}
+/*Orange: #d89200*/
+.navigationButton:hover {background-color: #00aab2;}
+/*Orange 2: #faa900*/
+.navigationButton:active, .navigationButton.active {background-color: #00aab2;}
+.mediaBullet_select.selected{background-color:#00aab2;}
+.mediaBullet_select_multiple.selected{background-color:#00aab2;}
+ul.bulletsList li.mediaBullet.active {color: #00aab2;}
+.matchGameItemElement.solved {background-color: #00aab2;}
+.matchGameItemElement.solved .matchGameProblemBody {background-color: #00aab2; color: #ffffff;}
+.matchGameItemElement.solved .matchGameProblemHeader {background: #00aab2; color: #ffffff;}
+.matchGameItemElement.solved .matchGameProblemHeader { color: #ffffff; background: #00aab2; /* Old browsers */
+    /*Orange Gradient: #faa900 0%,#cb8900 70%,#b97d00 100%*/
+	background: -moz-linear-gradient(left,  #00aab2 0%, #00aab2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#00aab2), color-	 stop(100%,#00aab2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #00aab2 0%,#00aab2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #00aab2 0%,#00aab2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #00aab2 0%,#00aab2 100%); /* IE10+ */
+	background: linear-gradient(to right,  #00aab2 0%,#00aab2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00aab2', endColorstr='#00aab2',GradientType=1 	); /* IE6-9 */
+}
+/*Orange 3: #ff9900; hover: #f8b551*/
+.continueButton {background-color: #005e7a; color: #FFFFFF;}
+.continueButton:hover { background-color: #a96b70;}
+/*********************************/
+/*END - CORPORATE COLOR CHANGES*/
+
+

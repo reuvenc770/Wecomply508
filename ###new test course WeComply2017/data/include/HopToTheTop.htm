@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Hop to the Top</title>
+
+<script type="text/javascript">
+var master = typeof(top.master) == "object" ? top.master : window.opener;
+var game = "hopGame";
+var bShowWelcome = true;
+function start()
+{
+	master.bPause = true;
+	startBottom();	// game
+	startLower();	// splash
+}
+
+function startBottom()
+{
+	if (typeof(bottom.loaded) != "undefined" && bottom.loaded && (typeof(bottom.init) == "object" || typeof(bottom.init) == "function"))
+		bottom.start(master);
+	else
+		setTimeout("startBottom()", 10);
+}
+
+function startLower()
+{
+	if (typeof(lower.loaded) != "undefined" && lower.loaded && (typeof(lower.init) == "object" || typeof(lower.init) == "function"))
+	{
+		lower.init(master);
+		if (bShowWelcome)
+		{
+			bShowWelcome = false;
+			setTimeout("ShowWelcome()", 3000);
+		}
+	}
+	else
+		setTimeout("startLower()", 10);
+}
+
+function ShowWelcome()
+{
+	lower.document.getElementById("bodySplash").bgColor = "#ffffff";
+	lower.document.getElementById("bodySplash").innerHTML = master.GetHopWelcomeText();
+}
+
+function handleResize()
+{
+	location.reload();
+	return false;
+}
+
+if (document.layers)
+{
+	window.captureEvents (Event.RESIZE);
+	window.onresize = handleResize;
+}
+</script>
+</head>
+
+<frameset rows="162,*" frameborder="no" border="0" framespacing="0" onload="start()"> 
+	<frame src="Hop.htm" name="bottom" frameborder="no" border="no" scrolling="no">
+	<frame src="HopSplash.htm" name="lower" frameborder="no" border="no" scrolling="no">
+</frameset>
+
+<noframes></noframes>
+
+</html>

@@ -1,0 +1,105 @@
+﻿<HTML>
+			<HEAD><META http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="XSLT Version" content="2011-04-05 23:05:07Z"><TITLE>Main</TITLE>
+
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>	
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
+<script type="text/javascript">
+				// var g_bFlashAvailable = false;
+			</script>
+
+	<script type="text/javascript" src="js/wc.js"></script>
+
+<style>
+.languageselection {
+align: center;
+margin-top: 100px;
+font-size: 16pt;
+width: 300px;
+height: 300px;
+border-width: 2px;
+border-color: black;
+border-style: solid;
+}
+</style>
+
+</HEAD>
+<BODY>
+
+<div style="margin-left:10px;margin-top:100px">
+<center>
+<div id="languageselection" class="languageselection" style="display:block">
+<br/>
+
+<img src="/datafiles/logo-11006.gif"><br/><br/>
+<b>Please Select your preferred language: </b><br/><br/>
+<form id="languagesubmitform">
+
+    <select id="la" name="la">
+ <OPTION selected value=1033>English</OPTION>
+ <OPTION value=4>中文(简体) 旧版</OPTION>
+ <OPTION value=17>日本語</OPTION>
+ <OPTION value=25>Русский</OPTION>
+    </select>
+<br/><br/>
+<input type=BUTTON OnClick="switchLanguage();" value="Submit">
+
+</form>
+
+
+
+</div>
+</center>
+<div id="splashpage" class="splashpage" style="display:none">
+</div>
+</div>
+
+<script type="text/javascript" language="javascript">
+var language;
+var urlarguments;
+function get(name){
+   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+      return decodeURIComponent(name[1]);
+}
+
+			function switchTemplate() {
+				
+				var thisQueryString = location.search;
+				
+				if (wc.deviceDetection.isMobile()) {
+					window.location.href = "p.mobile.htm" + thisQueryString;
+				} else {
+					if (wc.deviceDetection.isTablet()) {
+						window.location.href = "p.tablet.htm" + thisQueryString;
+					} else {
+						window.location.href = "p.desktop.htm" + thisQueryString;
+					}
+				}
+			}
+			function switchLanguage() {
+				//language = get('la');
+				language = document.getElementById("la").options[document.getElementById("la").selectedIndex].value;
+				urlarguments = location.search;
+				urlarguments = urlarguments.replace("languageid=1033","languageid=" + language);
+
+				if (typeof(language) != 'undefined' && language != "") {
+
+				//    document.getElementById('languageselection').style.display="none";
+				//    document.getElementById("splashpage").style.backgroundImage = "url(splash/GlobalCompliance_" + language + ".png)";
+				//    document.getElementById("splashpage").style.display="block";
+
+				    setTimeout('switchPage()',0);
+
+				}				
+
+			}
+			function switchPage() {
+				window.location.href = "/wc2/cmi/launch.aspx" + urlarguments;
+
+			}
+
+</script>
+
+</BODY>
+</HTML>
+
+

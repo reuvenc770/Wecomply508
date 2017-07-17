@@ -1,0 +1,156 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>{$Content:Title}</title>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/swfobject.js?r={$Value:RandomNumber}"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.js?r={$Value:RandomNumber}"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.debug.js?r={$Value:RandomNumber}"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.events.js?r={$Value:RandomNumber}"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.data.js?r={$Value:RandomNumber}"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.lms.js?r={$Value:RandomNumber}"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.interface.js?r={$Value:RandomNumber}"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.interface.navigation.js?r={$Value:RandomNumber}"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.interface.handlers.js?r={$Value:RandomNumber}"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.mediaPlayer.js?r={$Value:RandomNumber}"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/tween.js?r={$Value:RandomNumber}"></script>
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.7.2.min.js"></script>	
+		<!--<script type="text/javascript"> window.jQuery || document.write('<script type="text/javascript" src="{$Value:StaticHtmlPath}js/jquery-1.7.2.min.js"><' + '/script>');</script>-->
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/jquery.ui.touch-punch.min.js"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/flowplayer-3.2.9.min.js"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/iscroll.js"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/html5.animation.js?r={$Value:RandomNumber}"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/AddObject.js?r={$Value:RandomNumber}"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.interface.flashcourse.js?r={$Value:RandomNumber}"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/tagcanvas.js"></script>
+		<script type="text/javascript" src="{$Value:StaticHtmlPath}js/json2.js?r={$Value:RandomNumber}"></script>
+		<!--TODO: remove the base href and if needed deal dynamically with this-->
+		<!--iPadFrame.Desktop.Master-->
+		{$Content:Style}
+		<style type="text/css">
+			.clear {clear:both;}
+		</style>
+		{$Content:Header}
+		<script type="text/javascript">
+			wc.interface.options.pageChange.replacementMethod = wc.interface.animationOptions.slideLeftAndFade; //slideLeft, none, slideLeftAndFade
+			wc.interface.options.displayLayer.linkBulletin.textDisplay = wc.interface.animationOptions.none;
+			wc.interface.options.games.randomizeChoices = false;
+			wc.interface.options.games.gameIntroDisplayAnimation = wc.interface.animationOptions.none;
+			wc.interface.options.games.gameChoiceDisplayAnimation = wc.interface.animationOptions.none;
+			wc.interface.options.mediaPlayer.showVideoControls = true;
+			wc.interface.options.mediaPlayer.videoSizePercentage = 100;
+			wc.mediaPlayer.flashvideodatafilepath = '{$Value:MediaPath}';
+			if (wc.mediaPlayer.flashvideodatafilepath == 'images/') {
+				wc.mediaPlayer.flashvideodatafilepath = '../../images/';
+				wc.interface.gameFilePath = '';
+			}
+
+			//wc.mediaPlayer.audio.flashPlayerSrc = '{$Value:StaticHtmlPath}player_mp3_js.swf';
+			wc.mediaPlayer.audio.flashPlayerSrc = '{$Value:StaticHtmlPath}flowplayer-3.2.10.swf';
+			wc.mediaPlayer.video.flashPlayerSrc = '{$Value:StaticHtmlPath}flvplayer.swf';
+			wc.mediaPlayer.dataFilePath = '{$Value:DataFiles}';
+			{$Content:Javascript}
+
+			this.parent.wc = wc;
+
+			wc.interface.handlers.events.onBefore_DisplayLayer = function (data) {
+			};
+			wc.interface.handlers.events.onAfter_DisplayLayer = function (data) {
+				if (wc.interface.currentElement.elementType == wc.interface.elementTypes.game)
+					return;
+
+				var whiteboard = document.getElementById('whiteboard');
+				var Quiz_Wrapper_Element = document.getElementById('Quiz_Wrapper_Element');
+				var effectContainerElement = (isDefined(Quiz_Wrapper_Element) ? Quiz_Wrapper_Element : whiteboard);
+				var whiteboardContainer = document.getElementById('whiteboardContainer');
+				if (isDefined(effectContainerElement)) {
+					var whiteboardDimensions = wc.GetObjectBoundaries(effectContainerElement);
+					var whiteboardContainerDimensions = wc.GetObjectBoundaries(whiteboardContainer);
+					//
+					//alert(0 - whiteboardDimensions.height);
+					//alert(whiteboardContainerDimensions.top);				
+					var whiteboardTween = new Tween(effectContainerElement.style, 'top', Tween.regularEaseOut, 0 - 620, 0, 1.3, 'px');
+					whiteboardTween.start();
+				}
+			};
+			wc.interface.handlers.events.onAfter_CloseDisplayLayer = function (data) {
+			};
+			wc.interface.handlers.events.onBefore_CloseDisplayLayer = function (data) {
+				var whiteboard = document.getElementById('whiteboard');
+				var Quiz_Wrapper_Element = document.getElementById('Quiz_Wrapper_Element');
+				var effectContainerElement = (isDefined(Quiz_Wrapper_Element) ? Quiz_Wrapper_Element : whiteboard);
+				var whiteboardContainer = document.getElementById('whiteboardContainer');
+
+				if (isDefined(effectContainerElement)) {
+					//var whiteboardDimensions = wc.GetObjectBoundaries(whiteboard);
+					//var whiteboardContainerDimensions = wc.GetObjectBoundaries(whiteboardContainer);
+					//
+
+					var whiteboardTween = new Tween(effectContainerElement.style, 'top', Tween.regularEaseIn, 0, -620, 2.3, 'px');
+					whiteboardTween.onMotionFinished = function () {
+						document.getElementById('LayerElementContainer').style.display = 'none';
+						document.getElementById('CurrentElementContainer').style.display = '';
+						layerElementopacityTween = new OpacityTween(document.getElementById('CurrentElementContainer'), Tween.regularEaseOut, 0, 100, 0.2);
+						layerElementopacityTween.onMotionFinished = function () {
+							wc.mediaPlayer.logs.push("Calling audio.play from onBefore_CloseDisplayLayer (onMotionFinished)");
+							wc.mediaPlayer.audio.play(wc.interface.currentElement.chapterIndex);
+						};
+
+						layerElementopacityTween.start();
+
+						wc.interface.currentElement.elementType = wc.interface.elementTypes.chapter;
+					};
+					whiteboardTween.start();
+				}
+				return false; //don't have the fire event continue code dependent on code here
+			};
+
+			wc.interface.handlers.events.onBefore_DisplaySecondLayer = function (data) {
+
+			};
+
+			wc.interface.handlers.events.onAfter_DisplaySecondLayer = function (data) {
+
+			};
+
+			wc.interface.handlers.events.onBefore_CloseSecondLayer = function (data) {
+
+			};
+
+			wc.interface.handlers.events.onAfter_CloseSecondLayer = function (data) {
+
+			};
+		</script>
+	</head>
+	<body>
+		<div class="viewPort" id="viewPort">
+			<h2 class="courseTitle">{$Value:CourseName}</h2>
+			<div id="CurrentElementContainer" style="position:relative;left:0px;width:100%;">
+				{$Content:Intro}
+			</div>
+			<div id="LayerElementContainer" class="dontReposition" style="position:relative;left:0px;width:100%;display:none;">
+			</div>		
+			<div id="SecondLayerElementContainer" class="dontReposition" style="position:relative;left:0px;width:100%;display:none;">
+			</div>
+
+			<!-- Navigation -->
+			<div class="mainControls">
+				<a id="Button_Index" href="javascript:void(0);" title="{$Resource:index}" onclick="wc.interface.elements.tableOfContents.display();" class="navigationButton disabled"></a>
+				<a id="Button_ResizeFont" href="javascript:void(0);" title="{$Resource:font}" onclick="wc.interface.elements.resizeFont.resize();" class="navigationButton disabled"></a>	
+				<a id="Button_Policy" href="javascript:void(0);" onclick="wc.interface.elements.policy.display();" class="navigationButton disabled borderRight"></a>		
+				<a id="Button_Previous" href="javascript:void(0);" onclick="wc.interface.actionHandler.previousButton();" class="navigationButton disabled"></a>
+				<a id="Button_PlayAudio" href="javascript:void(0);" onclick="wc.interface.actionHandler.playAudio(true);" class="navigationButton disabled oneMustBeVisible" title="{$Resource:play}">
+				</a>
+				<a id="Button_PauseAudio" href="javascript:void(0);" onclick="wc.interface.actionHandler.pauseAudio(true);" class="navigationButton disabled hiddenElement oneMustBeVisible" title="{$Resource:pause}"></a>
+				<a id="Button_Next" href="javascript:void(0);" onclick="wc.interface.actionHandler.nextButton();" class="navigationButton disabled"></a>			
+				<a id="Button_AudioSpeech" href="javascript:void(0);" onclick="wc.interface.elements.audioSpeechButton.toggleAudioSpeech();" class="navigationButton disabled"></a>
+				<a id="Button_EnableBullets" href="javascript:void(0);" onclick="wc.interface.actionHandler.enableBullets();" class="navigationButton disabled"></a>
+				<a id="Button_DisableBullets" href="javascript:void(0);" onclick="wc.interface.actionHandler.disableBullets();" class="navigationButton disabled"></a>			
+				<a id="Button_Help" href="javascript:void(0);" onclick="wc.interface.elements.help.display();" class="navigationButton disabled borderRight"></a>
+			</div>							
+		</div>
+		<div class="flashViewPort"  id="flashViewPort">
+		</div>
+	</body>
+
+</html>

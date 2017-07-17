@@ -1,0 +1,31 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" id="linkID"/>
+<link rel="stylesheet" type="text/css" id="customlinkID"/>
+<script type="text/javascript">
+var master = null;
+var loaded = false;
+function start(handle)
+{
+	master = handle;
+	if (typeof(master) != "object")
+		alert("Can't find master, type = " + typeof(master));
+
+	document.getElementById("linkID").href = master.getStylesheetPath();
+	document.getElementById("customlinkID").href = master.getCustomStylesheetPath();
+	document.getElementById("spanTitle").innerHTML = master.getQuizName(top);
+}
+
+</script>
+<body onload="loaded=true"><div align="left">
+	<table width="90%" ID="Table2">
+		<tr>
+			<td bgcolor="#ffffff">
+				<font color="navy" face="times new roman" style="height:14pt;font-size:14pt;">
+				<span id="spanTitle"></span>
+				</font>
+			</td>
+		</tr>
+	</table>
+	<hr style="color:navy" width="100%">
+</div></body></html>

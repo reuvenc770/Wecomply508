@@ -1,0 +1,317 @@
+<html>
+<head>
+<title>Bulletin Window</title>
+<meta content="2007-04-29 11:01:07Z" name="LastModified">
+<link rel="stylesheet" type="text/css" id="linkID"/>
+<link rel="stylesheet" type="text/css" id="customlinkID"/>
+<script type="text/javascript" src="AddObject.js"></script>
+<style type="text/css">
+.newsBg
+{
+  background-image: url(newsclipping.gif);
+  background-repeat: no-repeat;
+  text-align: center;
+  width: 360px;
+  height: 80px;
+  padding-top: 16px;
+}
+.newsHead
+{
+  font-family: times new roman;
+  font-size: 18pt;
+  font-weight: normal;
+  text-align: center;
+  width: 338px;
+}
+.newsSubhead
+{
+  font-family: times new roman;
+  font-size: 9pt;
+  font-weight: normal;
+  font-style: italic;
+  text-align: center;
+  width: 338px;
+}
+</style>
+<script type="text/javascript">
+
+var tries = 0;
+var master = typeof(top.master) == "object" ? top.master : window.opener;
+var bNav = master.getArg(window, "n");
+var ordinal = master.getArg(window, "o");
+var typeBulletin = master.getArg(window, "t");
+var info;
+var loader;
+var bIsMacOsX;
+
+function start()
+{
+	if (typeof(master) != "object")
+		alert("Something is wrong -- this popup has no master!");
+
+	if (typeof(bNav) != "string" || bNav.length == 0)
+	{
+		alert("Something is wrong the location is empty!");
+	}
+
+	if (typeof(ordinal) != "string" || ordinal.length == 0)
+	{
+		alert("Something is wrong the location is empty!");
+	}
+
+	if (typeof(typeBulletin) != "string" || typeBulletin.length == 0)
+	{
+		alert("Something is wrong the location is empty!");
+	}
+
+	if (typeBulletin == "p")
+	{
+		if ((typeof(master.getPopBulletinInfo) != "function") &&
+			(typeof(master.getPopBulletinInfo) != "object"))
+			alert("Something is wrong opener has no getPopBulletinInfo function!");
+
+		info = master.getPopBulletinInfo(ordinal);
+	}
+	else if (typeBulletin == "l")
+	{
+		if ((typeof(master.getLinkBulletinInfo) != "function") &&
+			(typeof(master.getLinkBulletinInfo) != "object"))
+			alert("Something is wrong opener has no getLinkBulletinInfo function!");
+
+		info = master.getLinkBulletinInfo(ordinal);
+	}
+
+	document.getElementById("linkID").href = master.getStylesheetPath();
+	document.getElementById("customlinkID").href = master.getCustomStylesheetPath();
+
+	bIsMacOsX = (navigator.userAgent.indexOf("Mac OS X") != -1);
+
+	document.title = info.title;
+	if (document.all)	// IE
+	{
+		bulletinText.innerHTML = info.desc;
+		if (typeof(info.video) != "undefined" && info.video != "")
+		{
+			bulletinImage.style.display = "none";
+			flashDiv.style.display = "block";
+			loader = setTimeout("doneLoading()", 100);
+		}
+		else if (typeof(info.headline) != "undefined" && info.headline != "")
+		{
+			bulletinImage.style.display = "none";
+			newsClipping.style.display = "block";
+			newsHead.innerHTML = info.headline;
+			newsSubhead.innerHTML = info.subhead;
+		}
+		else
+			bulletinImage.innerHTML = "<img src='" + info.imgSrc + "' width='" + info.imgWidth + "' height='" + info.imgHeight + "' alt='" + info.imgAltText + "'/>";
+
+		form1.closeBtn.value = info.closeWindow;
+		form1.closeBtn.style.visibility = "visible";
+		if (typeof(info.imgSrcPrint) != "undefined" && info.imgSrcPrint != "")
+		{
+			idPrintIcon.src = info.imgSrcPrint;
+			idPrint.style.display = "block";
+		}
+		contentDiv.style.overflowY = "auto";
+	}
+	else	// NS 7
+	{
+		if( navigator.userAgent.toLowerCase().indexOf('iphone', 0) < 0 ) //this messes up iphone scrolling
+			document.getElementById("contentDiv").style.overflow = "auto";
+	
+		document.getElementById("bulletinText").innerHTML = info.desc;
+		
+		if (typeof(info.video) != "undefined" && info.video != "")
+		{
+			document.getElementById("bulletinImage").style.display = "none";
+			document.getElementById("flashDiv").style.display = "block";
+			loader = setTimeout("doneLoading()", 100);
+		}
+		else if (typeof(info.headline) != "undefined" && info.headline != "")
+		{
+			document.getElementById("bulletinImage").style.display = "none";
+			document.getElementById("newsClipping").style.display = "block";
+			document.getElementById("newsHead").innerHTML = info.headline;
+			document.getElementById("newsSubhead").innerHTML = info.subhead;
+		}
+		else
+			document.getElementById("bulletinImage").innerHTML = "<img src='" + info.imgSrc + "' width='" + info.imgWidth + "' height='" + info.imgHeight + "' alt='" + info.imgAltText + "'/>";
+
+		document.getElementById("closeBtn").value = info.closeWindow;
+		document.getElementById("closeBtn").style.visibility = "visible";
+		if (typeof(info.imgSrcPrint) != "undefined" && info.imgSrcPrint != "")
+		{
+			document.getElementById("idPrintIcon").src = info.imgSrcPrint;
+			document.getElementById("idPrint").style.display = "block";
+		}
+		document.getElementById("idNSAdjust").style.display = "block";
+	}
+}
+
+function doneLoading()
+{
+	var theFlash = document.getElementById("idFlash")
+	if (bIsMacOsX || theFlash.PercentLoaded() == 100)
+	{
+		window.clearTimeout( loader );
+		theFlash.GotoFrame(2);
+		theFlash.GotoFrame(4);	// start the movie
+	}
+}
+
+function idFlash_DoFSCommand(command, args)
+{
+	switch (command)
+	{
+	case "state":
+	{
+		if (args == "end")
+		{
+		}
+		else if (args == "ready")
+		{
+		}
+		break;
+	}
+	case "status":
+	{
+		if (args == "PlayStop")
+		{
+		}
+		else if (args == "BufferFull")
+		{
+		}
+		break;
+	}
+	case "statusConnection":
+	{
+		switch (args)
+		{
+			case "Success":	
+				//alert("The connection attempt succeeded ");
+				break;
+			case "Error":
+				//alert("Cannot find video resource ");
+				break;
+		}
+		break;
+	}
+	case "statusStream":
+	{
+		switch (args)
+		{
+			case "BufferEmpty":
+				//alert( " Movie finished " );
+				break;
+			case "PlayStart":
+				//alert( " Movie started  " );
+				break;
+			/*case "Error":
+				alert( " Flash cannot find the video file  " );
+				break;*/
+		}
+		break;
+	}
+	} 
+}
+
+// Hook for Internet Explorer.
+if (navigator.appName && navigator.appName.indexOf("Microsoft") != -1 && navigator.userAgent.indexOf("Windows") != -1 && navigator.userAgent.indexOf("Windows 3.1") == -1)
+{
+	document.write('<script language=\"VBScript\"\>\n');
+	document.write('On Error Resume Next\n');
+	document.write('Sub idFlash_FSCommand(ByVal command, ByVal args)\n');
+	document.write('Call idFlash_DoFSCommand(command, args)\n');
+	document.write('End Sub\n');
+	document.write('</script\>\n');
+}
+
+
+function closeBulletin()
+{
+	// only if close button used!
+	if (bNav == "1")
+		master.NavigateDiv(info.curDiv, info.nextDiv);
+	
+	master.closePopup();
+}
+function closePopup()
+{
+	if (!master.IsFreshContent())
+		master.closePopup();
+}
+function printMe()
+{
+	var curOverflow = contentDiv.style.overflowY;
+	var curScroll = contentDiv.style.scrollTop;
+	contentDiv.style.overflowY = "";
+	window.print()
+	contentDiv.style.overflowY = curOverflow;
+	contentDiv.style.scrollTop = curScroll;
+}
+</script>
+</head>
+<body class="bulletinBody" onLoad="start()" onUnload="closePopup()" style="margin:0px">
+<div id="contentDiv" style="height:100%;padding-left:10px;padding-right:4px">
+	<div align="center" id="bulletinImage" class="bulletinIllustrationImage"></div>
+	<div id="newsClipping" style="width:100%;text-align:center;display:none">
+		<table width="360" border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td colspan="3" width="360"><img src="images/news_top.gif" width="360" height="20" border="0" alt=""/></td>
+			</tr>
+			<tr>
+			<td width="11" height="18" valign="top" background="images/news_l_bg.gif"><img src="images/news_l.gif" width="11" height="18" border="0" alt=""/></td>
+			<td width="338" bgcolor="#EEE6D6">
+				<div id="newsHead" class="newsHead"></div>
+				<div id="newsSubhead" class="newsSubhead"></div>
+			</td>
+			<td width="11" height="18" valign="top" background="images/news_r_bg.gif"><img src="images/news_r.gif" width="11" height="18" border="0" alt=""/></td>
+			</tr>
+			<tr>
+				<td colspan="3"><img src="images/news_bottom.gif" width="360" height="20" border="0" alt=""/></td>
+			</tr>
+		</table>
+	</div>
+	<div id="flashDiv" class="flashLayout" style="display:none">
+		<script type="text/javascript">
+		if (typeof(master) == "object")
+		{
+			var info = null;
+			if ((typeBulletin == "p") &&
+				((typeof(master.getPopBulletinInfo) == "function") ||
+				(typeof(master.getPopBulletinInfo) == "object")))
+			{
+				info = master.getPopBulletinInfo(ordinal);
+			}
+
+			if ((typeBulletin == "l") &&
+				((typeof(master.getLinkBulletinInfo) == "function") ||
+				(typeof(master.getLinkBulletinInfo) == "object")))
+			{
+				info = master.getLinkBulletinInfo(ordinal);
+			}
+			
+			if (typeof(info) == "object")
+			{
+				if (typeof(info.video) == "string")
+					AddObject("flashDiv", info.video);
+			}
+		}
+		</script>
+	</div>
+	<div id="bulletinText" class="bulletinText"></div>
+	<div align="center">
+		<form id="form1">
+			<input type="button" id="closeBtn" value="Close Window" onClick="closeBulletin()" style="visibility:hidden" NAME="closeBtn" />
+		</form>
+		<div id="idPrint" class="printBulletin" style="display:none">
+			<a href="javascript:printMe()">
+				<img id="idPrintIcon" border="0">
+			</a>
+		</div>
+	</div>
+	<div id="idNSAdjust" style="height:1px;display:none"></div>
+</div>
+</body>
+</html>

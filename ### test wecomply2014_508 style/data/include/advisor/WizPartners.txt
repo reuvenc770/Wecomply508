@@ -1,0 +1,158 @@
+partnersStr="
+//
+//
+// *************************************
+// PROGRAMS TO USE FOR EDITING THIS FILE
+// *************************************
+// This file must be saved as a .txt file, with Windows-type carriage returns (CR/LF).
+// WINDOWS: Notepad is the best program to use. Microsoft Word may also be used, but when you're finished editing, the file must be saved as Text Only .txt (NOT Text Only with Line Breaks).
+// MAC: TextEdit should NOT be used.  TextWrangler is a recommended shareware editor ( http://www.barebones.com/products/textwrangler/ ).
+// In TextWrangler, when you Save As, choose 'Windows (CR/LF)' in the Line Breaks dropdown menu.
+//
+//
+// *************************************
+// ADDING COMMENTS
+// *************************************
+// All lines starting with // will be ignored, including the carriage return on that line.
+// IMPORTANT: Anything following // on a line will NOT be ignored.  // must appear at the beginning of a line for that line to be considered a comment.
+//
+//
+// *************************************
+// SPECIAL CHARACTERS
+// *************************************
+// Certain reserved characters must be URL encoded.
+// Most common are the percent sign, which should be entered as "%25", the ampersand, which should be entered as "%26", and a carriage return, which should be "%0A".
+// There may be other characters which need to be URL encoded. If you are running into problems, and you suspect a special character is the culprit, consult http://www.blooberry.com/indexdot/html/topics/urlencoding.htm for url encoding.
+//
+// *************************************
+// IMPORTANT DETAILS
+// *************************************
+// There must be no extra empty lines.
+// The first line must always be 'partnersStr='.
+// The 2nd to last line must be blank (the last line of the last partner), and the last line must contain only a double-quote.
+//
+//
+//
+// PARTNER INFORMATION FORMAT
+//
+// line 1: partner name
+// line 2: image file for the logo (eg. "ibmlogo.png") (create using WizardLogoTemplate.psd)
+// line 3: image file for the background (eg. "ibmBackground.png") (create using WizardLogoBackgroundTemplate.psd)
+// line 4: URL to the logo which appears at the top of the user email (eg. "http://test.wecomply.com/wc2/static/training/advisor/logos/wclogo.gif")
+// line 5: email logo width (the width, in pixels, of the image specified in line 4)
+// line 6: email logo hieght (the height, in pixels, of the image specified in line 4)
+// line 7: HTML for the footer for user email. The HTML should include any desired logos.
+// line 8: plain text footer for user email.
+// line 9: Comma separated list of email addresses that the admin email is sent to. Be sure there are no extra spaces (example: "jfrankel@wecomply.com,bob@bob.com")
+// line 10: email opening paragraph (html)
+// line 11:email opening paragraph (non-html)
+// line 12: lead source
+// line 13: from address for user email
+// line 14: send leads to Salesforce ("yes" or "no")
+// line 15: include addr1, addr2, city, state and zip fields in contact page ("yes" or "no")
+// line 16: blank  (for future use)
+// line 17: blank  (for future use)
+// line 18: blank  (for future use)
+// line 19: blank  (for future use)
+// line 20: blank
+WeComply
+wecomply.png
+wecomplyBackground.png
+http://test.wecomply.com/wc2/static/training/advisor/logos/wclogo.gif
+200
+53
+<img src='http://test.wecomply.com/wc2/static/training/advisor/logos/wclogo.gif' width=200 height=53 border=0 alt='WeComply'><br>WeComply, Inc.<br>344 Main Street, Mount Kisco, NY 10549<br>866-932-6675<br><a href='http://www.wecomply.com'>www.wecomply.com</a></p><p style='font-size:8pt;text-align:center;'>Copyright %26reg; 2011 WeComply, Inc. All rights reserved.</p>
+WeComply, Inc.\n344 Main Street, Mount Kisco, NY 10549%0A866-932-6675%0ACopyright 2011 WeComply, Inc. All rights reserved.
+web_leads@wecomply.com
+Thank you for using the <b>WeComply Course Advisor</b>. Based on the information you provided, your organization's employees would benefit from a compliance-training curriculum that includes the courses listed below. "Mandatory" courses may be required on an annual, biannual or one-time basis (check with a compliance professional.) "Best Practice" courses are assigned over several months and typically repeated every two or three years. "Suggested" courses may be assigned to specific employees as needed or made available to all employees to take on an elective basis.<br/><br/>If you would like to discuss your compliance training initiative with a WeComply representative, please call 1-866-WeComply or email <a href='mailto:info@wecomply.com'>info@wecomply.com</a>.
+Thank you for using the WeComply Course Advisor. Based on the information you provided, your organization's employees would benefit from a compliance-training curriculum that includes the courses listed below. "Mandatory" courses may be required on an annual, biannual or one-time basis (check with a compliance professional.) "Best Practice" courses are assigned over several months and typically repeated every two or three years. "Suggested" courses may be assigned to specific employees as needed or made available to all employees to take on an elective basis.\n\nIf you would like to discuss your compliance training initiative with a WeComply representative, please call 1-866-WeComply or email info@wecomply.com.
+Course Advisor
+courseadvisor@wecomply.com
+yes
+no
+
+
+
+
+
+Cogentys
+WizardLogoCogentys.jpg
+WizardLogoBackgroundCogentys.jpg
+http://www.wecomply.com/logos/cogentys-logo.gif
+108
+55
+Cogentys | 1680 Vine Street, Suite 1006 | Hollywood, CA 90028 | 323-466-6800</p><p style='font-size:8pt;text-align:center;'>Copyright %26reg; 2011 WeComply, Inc. All rights reserved.</p>
+Cogentys | 1680 Vine Street, Suite 1006 | Hollywood, CA 90028 | 323-466-6800%0ACopyright 2011 WeComply, Inc. All rights reserved.
+web_leads@wecomply.com,jeff.armant@cogentys.com
+Thank you for using the <b>Cogentys Course Advisor</b>. Based on the information you provided, your organization's employees would benefit from a compliance-training curriculum that includes the courses listed below. "Mandatory" courses may be required on an annual, biannual or one-time basis (check with a compliance professional.) "Best Practice" courses are assigned over several months and typically repeated every two or three years. "Suggested" courses may be assigned to specific employees as needed or made available to all employees to take on an elective basis.<br/><br/>If you would like to discuss your compliance training initiative with a Cogentys representative, please call 1-323-466-6800 or email <a href='mailto:info@cogentys.com'>info@cogentys.com</a>.
+Thank you for using the Cogentys Course Advisor. Based on the information you provided, your organization's employees would benefit from a compliance-training curriculum that includes the courses listed below. "Mandatory" courses may be required on an annual, biannual or one-time basis (check with a compliance professional.) "Best Practice" courses are assigned over several months and typically repeated every two or three years. "Suggested" courses may be assigned to specific employees as needed or made available to all employees to take on an elective basis.\n\nIf you would like to discuss your compliance training initiative with a Cogentys representative, please call 1-323-466-6800 or email info@cogentys.com.
+Cogentys Course Advisor
+courseadvisor@cogentys.com
+no
+no
+
+
+
+
+
+ACC-WeComply
+WizardLogoACC.jpg
+WizardLogoBackgroundACC.jpg
+http://test.wecomply.com/wc2/static/training/advisor/logos/ACC-WeComply-Logo.jpg
+246
+46
+<img src='http://test.wecomply.com/wc2/static/training/advisor/logos/wclogo.gif' width=200 height=53 border=0 alt='WeComply'><br>WeComply, Inc.<br>344 Main Street, Mount Kisco, NY 10549<br>866-932-6675<br><a href='http://www.wecomply.com'>www.wecomply.com</a></p><p style='font-size:8pt;text-align:center;'>Copyright %26reg; 2011 WeComply, Inc. All rights reserved.</p>
+WeComply, Inc.\n344 Main Street, Mount Kisco, NY 10549%0A866-932-6675%0ACopyright 2011 WeComply, Inc. All rights reserved.
+web_leads@wecomply.com
+Thank you for using the <b>ACC-WeComply Course Advisor</b>. Based on the information you provided, your organization's employees would benefit from a compliance-training curriculum that includes the courses listed below. "Mandatory" courses may be required on an annual, biannual or one-time basis (check with a compliance professional.) "Best Practice" courses are assigned over several months and typically repeated every two or three years. "Suggested" courses may be assigned to specific employees as needed or made available to all employees to take on an elective basis.<br/><br/>If you would like to discuss your compliance training initiative with a WeComply representative, please call 1-866-WeComply or email <a href='mailto:info@wecomply.com'>info@wecomply.com</a>.
+Thank you for using the ACC-WeComply Course Advisor. Based on the information you provided, your organization's employees would benefit from a compliance-training curriculum that includes the courses listed below. "Mandatory" courses may be required on an annual, biannual or one-time basis (check with a compliance professional.) "Best Practice" courses are assigned over several months and typically repeated every two or three years. "Suggested" courses may be assigned to specific employees as needed or made available to all employees to take on an elective basis.\n\nIf you would like to discuss your compliance training initiative with a WeComply representative, please call 1-866-WeComply or email info@wecomply.com.
+Course Advisor - ACC
+courseadvisor@wecomply.com
+yes
+no
+
+
+
+
+
+Cintas
+WizardLogoCintas.jpg
+WizardLogoBackgroundCintas.jpg
+http://test.wecomply.com/wc2/static/training/advisor/logos/Cintas-Logo.jpg
+180
+69
+<img src='http://test.wecomply.com/wc2/static/training/advisor/logos/Cintas-Logo.jpg' width=180 height=69 border=0 alt='Cintas'><br>Cintas | 6800 Cintas Blvd | Mason, OH 45040 | 1-800-Cintas-1</p><p style='font-size:8pt;text-align:center;'>Copyright %26reg; 2012 WeComply, Inc. All rights reserved.</p>
+Cintas | 6800 Cintas Blvd | Mason, OH 45040 | 1-800-Cintas-1%0ACopyright 2012 WeComply, Inc. All rights reserved.
+OttenJ@Cintas.com,CampbellB@cintas.com
+Thank you for using the <b>Cintas Course Advisor</b>. Based on the information you provided, your organization's employees would benefit from a compliance-training curriculum that includes the courses listed below. "Mandatory" courses may be required on an annual, biannual or one-time basis (check with a compliance professional.) "Best Practice" courses are assigned over several months and typically repeated every two or three years. "Suggested" courses may be assigned to specific employees as needed or made available to all employees to take on an elective basis.<br/><br/>If you would like to discuss your compliance training initiative with a Cintas representative, please call 1-800-Cintas-1.
+Thank you for using the Cintas Course Advisor. Based on the information you provided, your organization's employees would benefit from a compliance-training curriculum that includes the courses listed below. "Mandatory" courses may be required on an annual, biannual or one-time basis (check with a compliance professional.) "Best Practice" courses are assigned over several months and typically repeated every two or three years. "Suggested" courses may be assigned to specific employees as needed or made available to all employees to take on an elective basis.\n\nIf you would like to discuss your compliance training initiative with a Cintas representative, please call 1-800-Cintas-1.
+Course Advisor - Cintas
+DocumentManagement@Cintas.com
+no
+yes
+
+
+
+
+
+PrintCom Solutions
+WizardLogoPrintCom.jpg
+WizardLogoBackgroundPrintCom.jpg
+http://test.wecomply.com/wc2/static/training/advisor/logos/PrintCom-Logo.jpg
+250
+52
+<img src='http://test.wecomply.com/wc2/static/training/advisor/logos/PrintCom-Logo.jpg' width=250 height=52 border=0 alt='PrintCom Solutions'><br>PrintCom Solutions | 45 Eton Court | Bedminster, NJ 07921 | 908-547-0085</p><p style='font-size:8pt;text-align:center;'>Copyright %26reg; 2012 WeComply, Inc. All rights reserved.</p>
+PrintCom Solutions | 45 Eton Court | Bedminster, NJ 07921 | 908-547-0085%0ACopyright 2012 WeComply, Inc. All rights reserved.
+j.minichiello@printcomsolutions.com 
+Thank you for using the <b>PrintCom Solutions Course Advisor</b>. Based on the information you provided, your organization's employees would benefit from a compliance-training curriculum that includes the courses listed below. "Mandatory" courses may be required on an annual, biannual or one-time basis (check with a compliance professional.) "Best Practice" courses are assigned over several months and typically repeated every two or three years. "Suggested" courses may be assigned to specific employees as needed or made available to all employees to take on an elective basis.<br/><br/>If you would like to discuss your compliance training initiative with a PrintCom Solutions representative, please call 908-547-0085 or email <a href='mailto:j.minichiello@printcomsolutions.com'>j.minichiello@printcomsolutions.com</a>.
+Thank you for using the PrintCom Solutions Course Advisor. Based on the information you provided, your organization's employees would benefit from a compliance-training curriculum that includes the courses listed below. "Mandatory" courses may be required on an annual, biannual or one-time basis (check with a compliance professional.) "Best Practice" courses are assigned over several months and typically repeated every two or three years. "Suggested" courses may be assigned to specific employees as needed or made available to all employees to take on an elective basis.\n\nIf you would like to discuss your compliance training initiative with a PrintCom Solutions representative, please call 908-547-0085 or email j.minichiello@printcomsolutions.com.
+Course Advisor - PrintCom
+j.minichiello@printcomsolutions.com
+no
+no
+
+
+
+
+
+"

@@ -1,0 +1,194 @@
+LAYER.Normal {
+font-family: Times New Roman, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 12pt;
+color: rgb(0,0,0);
+}
+
+TH.Normal {
+font-family: Times New Roman, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 12pt;
+color: rgb(0,0,0);
+}
+
+TD.Normal {
+font-family: Times New Roman, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 12pt;
+color: rgb(0,0,0);
+}
+
+INPUT.Normal {
+font-family: Times New Roman, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 12pt;
+color: rgb(0,0,0);
+}
+
+TD DIV.Normal {
+font-family: Times New Roman, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 12pt;
+color: rgb(0,0,0);
+}
+
+LAYER.BasicBodyText {
+font-family: Verdana, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 10pt;
+color: rgb(0,0,0);
+}
+
+TH.BasicBodyText {
+font-family: Verdana, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 10pt;
+color: rgb(0,0,0);
+}
+
+TD.BasicBodyText {
+font-family: Verdana, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 10pt;
+color: rgb(0,0,0);
+}
+
+INPUT.BasicBodyText {
+font-family: Verdana, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 10pt;
+color: rgb(0,0,0);
+}
+
+TD DIV.BasicBodyText {
+font-family: Verdana, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 10pt;
+color: rgb(0,0,0);
+}
+
+
+
+LAYER.FixedWidthFont {
+font-family: Courier New, serif;
+font-size: 10pt;
+}
+
+TH.FixedWidthFont {
+font-family: Courier New, serif;
+font-size: 10pt;
+}
+
+TD.FixedWidthFont {
+font-family: Courier New, serif;
+font-size: 10pt;
+}
+
+INPUT.FixedWidthFont {
+font-family: Courier New, serif;
+font-size: 10pt;
+}
+
+TD DIV.FixedWidthFont {
+font-family: Courier New, serif;
+font-size: 10pt;
+}
+
+
+TH.Smalllist {
+font-family: Arial, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 8pt;
+text-align: left;
+color: rgb(0,0,0);
+}
+
+TD.Smalllist {
+font-family: Arial, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 8pt;
+text-align: left;
+color: rgb(0,0,0);
+}
+
+INPUT.Smalllist {
+font-family: Arial, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 8pt;
+text-align: left;
+color: rgb(0,0,0);
+}
+
+TD DIV.Smalllist {
+font-family: Arial, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 8pt;
+text-align: left;
+color: rgb(0,0,0);
+}
+
+LAYER.Index {
+font-family: Arial, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 8pt;
+color: rgb(0,0,0);
+}
+
+TH.Index {
+font-family: Arial, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 8pt;
+color: rgb(0,0,0);
+}
+
+TD.Index {
+font-family: Arial, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 8pt;
+color: rgb(0,0,0);
+}
+
+INPUT.Index {
+font-family: Arial, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 8pt;
+color: rgb(0,0,0);
+}
+
+TD DIV.Index {
+font-family: Arial, serif;
+font-style: normal;
+font-weight: 400;
+font-size: 8pt;
+color: rgb(0,0,0);
+}
+
+B { font-weight:bold }
+
+SPAN.DecorationOff { text-decoration:none }
+SPAN.ItalicOff { font-style:normal }
+SPAN.BoldOff { font-weight:normal }
+SPAN.DecorationAndItalicOff { text-decoration:none; font-style:normal }
+SPAN.DecorationAndBoldOff { text-decoration:none; font-weight:normal }
+SPAN.ItalicAndBoldOff { font-style:normal; font-weight:normal }
+SPAN.AllOff { text-decoration:none; font-style:normal; font-weight:normal }
+

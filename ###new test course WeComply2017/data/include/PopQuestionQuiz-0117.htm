@@ -1,0 +1,574 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" id="linkID" href=""/>
+	<link rel="stylesheet" type="text/css" id="customlinkID" href=""/>
+		<style type="text/css">
+		.rollButton
+		{
+			font-weight: bolder;
+			padding: 3px;
+			background-color: #bbbbbb;
+			margin-top: 75px;
+			margin-bottom: 16px;
+		}
+		.continueButton
+		{
+			margin: 12px;
+		}
+		</style>
+	</script>
+	<script language="JavaScript">
+			/*** Detects internet explorer ( WIN ) ***/
+			winIEpass = ((navigator.appName.indexOf("Microsoft") != -1) && 
+			(navigator.appVersion.indexOf("Windows") != -1)) && 
+			(parseFloat(navigator.appVersion) >= 4) ? true : false;
+
+			/*** Detects netscape navigator ***/
+			NNpass = ((navigator.appName == "Netscape") && 
+			(navigator.userAgent.indexOf("Mozilla") != -1) && 
+			(parseFloat(navigator.appVersion) >= 4) && 
+			(navigator.javaEnabled())) ? true : false;
+
+			supportedBrowser = (winIEpass || NNpass) ? true : false;
+
+			minPlayer = 6;
+
+			/*** Get Flash plugin version for NN ( Mac/Win )  ***/
+			function Flash_checkForPlugIn()
+			{
+			var plugin = (navigator.mimeTypes &&
+			navigator.mimeTypes["application/x-shockwave-flash"]) ?
+			navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
+			if (plugin) {
+			var pluginversion = parseInt(plugin.description.substring(plugin.description.indexOf(".")-1)) 
+			if(pluginversion >= minPlayer) {return true;}
+			}
+			return false;
+			}
+
+
+			/*** vbscript check for Flash ActiveX control in windows IE ***/
+			if(supportedBrowser && winIEpass)
+			{
+			document.write(
+					'<script language=VBScript>' + '\n' +
+					'Function Flash_checkForActiveX()' + '\n' +
+						'Dim hasPlayer, playerversion' + '\n' +
+						'hasPlayer = false' + '\n' +
+						'playerversion = 10' + '\n' +
+						'Do While playerversion >= minPlayer' + '\n' +
+							'On Error Resume Next' + '\n' +
+							'hasPlayer = (IsObject(CreateObject(\"ShockwaveFlash.ShockwaveFlash.\" & playerversion & \"\")))' + '\n' +
+							'If hasPlayer = true Then Exit Do' + '\n' +
+							'playerversion = playerversion - 1' + '\n' +
+						'Loop' + '\n' +
+						//'MsgBox playerversion ' + '\n' +
+						'Flash_checkForActiveX = hasPlayer' + '\n' +
+					'End Function' + '\n' +
+					'<\/script>'
+					);
+			}
+
+
+
+			/*** Encapsulation function for ActiveX / Plugin case detections ***/
+			function Flash_checkForMinPlayer()
+			{
+				if(!supportedBrowser) return false;
+				if(NNpass) return (Flash_checkForPlugIn());
+				if(winIEpass) return (Flash_checkForActiveX());
+			}
+
+
+			/*** Redirect if browser version is incompatible ***/
+			if(!Flash_checkForMinPlayer()) {
+					//	Add code for handling redirection :
+					window.location.href = "noflash.html"; 
+			}
+
+			/*** Used to write movie clip to client ( currently not used ) ***/
+			function Flash_embedSWF(srcURL)
+			{
+			if (!Flash_checkForMinPlayer()) return;
+				if( NNpass ) {
+					document.writeln(
+			//		'<EMBED swLiveConnect="true" NAME="sonify"' +
+			//		'src="' + srcURL + '"' +
+			//		'quality=high' +
+			//		'bgcolor=#999999' + 
+			//		'WIDTH="400" HEIGHT="260"' +
+			//		'TYPE="application/x-shockwave-flash"'+	
+			//		'PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">' +
+			//		'</EMBED>'
+					'<embed src="' + srcURL + '" quality="high" bgcolor="#999999" ' +  
+				'width="400" height="260" swLiveConnect=true id="animation_man" ' +  
+				'name="animation_man" align="middle" allowScriptAccess="sameDomain" ' + 
+				'type="application/x-shockwave-flash" ' + 
+				'pluginspage="http://www.macromedia.com/go/getflashplayer" />' 
+						);
+				} else if(winIEpass){
+						document.writeln(
+				'<OBJECT id=animation_man ' + 
+				'codeBase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0 ' + 
+				'height=260 width=400 align=middle ' + 
+				'classid=clsid:d27cdb6e-ae6d-11cf-96b8-444553540000>' +
+						'<PARAM NAME="allowScriptAccess" VALUE="sameDomain">' +
+						'<PARAM NAME="movie" VALUE="' + srcURL + '">' +
+						'<PARAM NAME="quality" VALUE="high">' +
+						'<PARAM NAME="bgcolor" VALUE="#999999">' +
+				'<embed src="' + srcURL + '" quality="high" bgcolor="#999999" ' +  
+				'width="400" height="260" swLiveConnect=true id="animation_man" ' +  
+				'name="animation_man" align="middle" allowScriptAccess="sameDomain" ' + 
+				'type="application/x-shockwave-flash" ' + 
+				'pluginspage="http://www.macromedia.com/go/getflashplayer" />' + 
+						'</OBJECT>'
+						);
+				}
+			}
+
+
+			/*** Return a valid flash object ***/
+			function object_flash(){
+				if(!Flash_checkForMinPlayer()) {
+					//	Add code for handling redirection :
+					// window.location.href = "noflash.html"; 
+					return null;
+				}
+				
+				if(winIEpass) {
+					return document.all.idFlash;
+				} else if(NNpass) {
+					return document.idFlash;
+				}
+			}
+
+
+			var master = typeof(top.master) == "object" ? top.master : window.opener;
+			var game = "popQuestion";
+			var objIndex = null;
+			var objPopQuestion = null;
+			var nCurQuestion = -1;
+			// flash stuff
+			var isInternetExplorer = navigator.appName.indexOf("Microsoft") != -1;
+			var bIntroDone = true;
+			var bMovieDone = true;
+			var theFlash = null;
+			var loader;
+			
+			function start()
+			{
+				if (typeof(master) != "object")
+					alert("Can't find master, type = " + typeof(master));
+
+				var str = master.getQuizName(this);
+				if (str != "")
+					document.title = str;
+					
+				document.getElementById("linkID").href = master.getStylesheetPath();
+				document.getElementById("customlinkID").href = master.getCustomStylesheetPath();
+
+				objIndex = master.getPopQuestionIndex();
+				if (objIndex == null || typeof(objIndex) != "object")
+					alert("Can't retrieve questions");
+				
+				if (document.all)	// IE
+				{
+					continueBtn.value = objIndex.Continue;
+					bottomDiv.style.overflowY = "auto";
+				}
+				else	// NS 7
+				{
+					document.getElementById("continueBtn").value = objIndex.Continue;
+					document.getElementById("bottomDiv").style.overflow = "auto";
+				}
+
+				if (objIndex.Introduction != "")
+					bIntroDone = false;	// enable intro
+
+//				if (isInternetExplorer && typeof(objIndex.LipSync) == "object")
+				if (typeof(objIndex.LipSync) == "object")
+				{
+					// Set bottom div height for independent scrolling
+					// Note: assumes fixed height of Flash, and this is not exact
+					var bodyHeight, bottomHeight;
+					if (document.all)	// IE
+					{
+						bodyHeight = document.body.clientHeight;
+						bottomHeight = bodyHeight;
+					}
+					else	// NS 7
+					{
+						bodyHeight = window.innerHeight;
+						bottomHeight = bodyHeight + 20;
+					}
+					bottomHeight = bodyHeight - 174;//195;
+					document.getElementById("bottomDiv").style.height = bottomHeight.toString() + "px";
+
+					bMovieDone = false;	// enable movie
+
+					if (document.all)	// IE
+					{
+// disable till we can figure out the VBScript hoooks...
+//						flashDiv.innerHTML = objIndex.LipSync.Flash;
+						flashDiv.style.display = "block";
+					}
+					else	// NS 7
+					{
+//						document.getElementById("flashDiv").innerHTML = objIndex.LipSync.Flash;
+						document.getElementById("flashDiv").style.display = "block";
+					}
+					
+					theFlash = object_flash();
+					loader = setTimeout("doneLoading()", 100);
+				}
+
+				goNext();
+			}
+
+			function doneLoading()
+			{
+				if (theFlash.PercentLoaded() == 100)
+				{
+					window.clearTimeout( loader );
+					initFlash();
+				}
+			}
+
+			function pickedAnswer(which)
+			{
+				var str = objPopQuestion.choices[which-1]["FeedbackPreface"] + objPopQuestion.choices[which-1]["Feedback"];
+				if (document.all) // IE
+				{
+					Continue.style.display = "block";
+					Feedback.className = "popQuestionFeedback";
+					Feedback.innerHTML = str;
+					questionDiv.style.display = "none";
+					answerDiv.style.display = "block";
+					bottomDiv.scrollTop = 0;
+				}
+				else	// NS 7
+				{
+					document.getElementById("Continue").style.display = "block";
+					document.getElementById("Feedback").className = "popQuestionFeedback";
+					document.getElementById("Feedback").innerHTML = str;
+					document.getElementById("questionDiv").style.display = "none";
+					document.getElementById("answerDiv").style.display = "block";
+					document.getElementById("bottomDiv").scrollTop = 0;
+				}
+			}
+
+			function goNext()
+			{
+				if (!bIntroDone)
+				{
+					ShowIntro(typeof(objIndex.LipSync) == "object");
+					bIntroDone = true;
+				}
+				else if (!bMovieDone)
+				{
+					playFlash();
+					bMovieDone = true;
+				}
+				else
+				{
+					nCurQuestion++;
+
+					if (nCurQuestion >= objIndex.questions.length)
+						master.closePopQuestionText();
+					else
+					{
+						objPopQuestion = master.getPopQuestionText(objIndex.questions[nCurQuestion]);
+						DisplayQuestion();
+					}
+				}
+			}
+			
+			function DisplayQuestion()
+			{
+				ClearAnswers();
+
+				var i;
+				var len = objPopQuestion.choices.length;
+				if (document.all)	// IE
+				{
+					divIllustration.innerHTML = objPopQuestion.illustration;
+					Table1.style.display = "block";
+					QuestionText.innerHTML = objPopQuestion.body;
+					bottomDiv.scrollTop = 0;
+
+					for (i = 1; i <= len; i++)
+					{
+						eval("form1.Radio" + i + ".style.display = 'block'");
+						eval("Row" + i + ".style.display = 'block'");
+						eval("Answer" + i + ".innerHTML = objPopQuestion.choices[i-1]['Body']");
+					}
+				}
+				else	// NS 7
+				{
+					document.getElementById("divIllustration").innerHTML = objPopQuestion.illustration;
+					document.getElementById("Table1").style.display = "block";
+					document.getElementById("QuestionText").innerHTML = objPopQuestion.body;
+					document.getElementById("bottomDiv").scrollTop = 0;
+
+					for (i = 1; i <= len; i++)
+					{
+						eval("document.getElementById('Radio" + i + "').style.display = 'block'");
+						eval("document.getElementById('Row" + i + "').style.display = 'block'");
+						eval("document.getElementById('Answer" + i + "').innerHTML = objPopQuestion.choices[i-1]['Body']");
+					}
+				}
+			}
+			
+			function ClearAnswers()
+			{
+				var i;
+				if (document.all)	// IE
+				{
+					for (i = 1; i <= 8; i++)
+					{
+						eval("Answer" + i + ".innerHTML = ''");
+						eval("form1.Radio" + i + ".checked = false");
+						eval("form1.Radio" + i + ".style.display = 'none'");
+						eval("Row" + i + ".style.display = 'none'");
+					}
+
+					answerDiv.style.display = "none";
+					questionDiv.style.display = "block";
+				}	
+				else	// NS 7
+				{
+					for (i = 1; i <= 8; i++)
+					{
+						eval("document.getElementById('Answer" + i + "').innerHTML = ''");
+						eval("document.getElementById('Radio" + i + "').checked = false");
+						eval("document.getElementById('Radio" + i + "').style.display = 'none'");
+						eval("document.getElementById('Row" + i + "').style.display = 'none'");
+					}
+
+					document.getElementById("answerDiv").style.display = "none";
+					document.getElementById("questionDiv").style.display = "block";
+				}
+			}
+			
+			function ShowIntro(bWaitForMovie)
+			{
+				// make the introduction look like feedback
+				if (document.all) // IE
+				{
+					Continue.style.display = "block";
+					if (bWaitForMovie)
+						Continue.disabled = true;
+					Feedback.innerHTML = objIndex.Introduction;
+					questionDiv.style.display = "none";
+					answerDiv.style.display = "block";
+				}
+				else	// NS 7
+				{
+					document.getElementById("Continue").style.display = "block";
+					if (bWaitForMovie)
+						document.getElementById("Continue").disabled = true;
+					document.getElementById("Feedback").innerHTML = objIndex.Introduction;
+					document.getElementById("questionDiv").style.display = "none";
+					document.getElementById("answerDiv").style.display = "block";
+				}
+			}
+			
+			// Handle all the FSCommand messages in a Flash movie
+			//	( may be used for flash to send messages to javascript ) - currently not used
+			function idFlash_DoFSCommand(command, args)
+			{
+				if (command == "state")
+				{
+					if (args == "end")
+					{
+						if (document.all) // IE
+							Continue.style.display = "block";
+						else	// NS 7
+							document.getElementById("Continue").style.display = "block";
+							
+						goNext();
+					}
+					else if (args == "ready")
+					{
+						if (document.all) // IE
+							Continue.disabled = false;
+						else	// NS 7
+							document.getElementById("Continue").disabled = false;
+					}
+				}
+			}
+
+			// Hook for Internet Explorer.
+			if (navigator.appName && navigator.appName.indexOf("Microsoft") != -1 && navigator.userAgent.indexOf("Windows") != -1 && navigator.userAgent.indexOf("Windows 3.1") == -1)
+			{
+				document.write('<script language=\"VBScript\"\>\n');
+				document.write('On Error Resume Next\n');
+				document.write('Sub idFlash_FSCommand(ByVal command, ByVal args)\n');
+				document.write('Call idFlash_DoFSCommand(command, args)\n');
+				document.write('End Sub\n');
+				document.write('</script\>\n');
+			}
+			
+
+			function initFlash()
+			{
+				var bMovieReady = false;
+				var xml = getLipSyncXML();
+				while (!bMovieReady) 
+				{ 
+					// call Active X object method and get percentage loaded
+					if (theFlash.PercentLoaded() == 100) 
+						bMovieReady = true;
+				} 
+				// set internal flash variable to the active dialog name
+				theFlash.SetVariable("/:dialogToPlay", xml); 
+				// call to config param reading frame - called for any case ( dialogToPlay is read in this frame )
+				theFlash.GotoFrame(2);
+			}
+
+			function playFlash()
+			{
+				if (document.all) // IE
+				{
+					Continue.style.display = "none";
+					Feedback.className = "lipSyncTranscript";
+					Feedback.innerHTML = "<span class='lipSyncTranscript'>" + objIndex.LipSync.Transcript + "</span>";
+				}
+				else	// NS 7
+				{
+					document.getElementById("Continue").style.display = "none";
+					document.getElementById("Feedback").className = "lipSyncTranscript";
+					document.getElementById("Feedback").innerHTML = "<span class='lipSyncTranscript'>" + objIndex.LipSync.Transcript + "</span>";
+				}
+				
+				theFlash.GotoFrame(4);
+// For testing, comment the above line and uncomment the following:
+//setTimeout('idFlash_DoFSCommand("state", "end")',2000);
+			}
+
+			function getLipSyncXML()
+			{
+				var str = "";
+				
+				if (typeof(objIndex.LipSync) == "object")
+				{
+					str = "";
+					//str += "<player>";
+					//str += "<activedialog>" + objIndex.LipSync.Scene + "</activedialog>";
+					str += "<dialog>";
+				// DO NOT ADD ANY WHITESPACE in the xml!!! If you do, the files don't load!
+					str += "<dialogname>" + objIndex.LipSync.Scene + "</dialogname>";
+					str += "<audio>" + objIndex.LipSync.Audio + "</audio>";
+					str += "<asfile>" + objIndex.LipSync.CuePoints + "</asfile>";
+					//str += "<telephone>Yes</telephone>";
+					str += "</dialog>";
+					//str += "</player>";
+				}
+
+				return str;
+			}
+			
+		</script>
+	</head>
+
+	<body class="popQuestionBody" onLoad="start()" style="margin:0px">
+		<div id="flashDiv" class="lipSync" style="display:none;margin-bottom:12px">
+      <embed src="animation_man.swf" quality="high" bgcolor="#999999" 
+      width="240" height="156" swLiveConnect="true" id="idFlash" 
+      name="idFlash" align="middle" allowScriptAccess="sameDomain" 
+      type="application/x-shockwave-flash" 
+      pluginspage="http://www.macromedia.com/go/getflashplayer" />
+		</div>
+		<div id="bottomDiv" style="height:100%;padding-left:12px;padding-right:12px">
+		<div style="margin:4px"></div>
+		<div id="questionDiv" style="display:block">
+		<form id="form1">
+		<table ID="Table1" border="0" cellpadding="2" style="display:none">
+			<tr>
+				<td colspan="2">
+					<div class="popQuestionIllustration" id="divIllustration" align="center"></div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+						<div class="popQuestionQuestion" id="QuestionText"></div>
+				</td>
+			</tr>
+			<tr id="Row1" style="display:none">
+				<td width="8" valign="top">
+					<input align="right" type="radio" name="r" id="Radio1" onClick="pickedAnswer(1);"  style="display:none" VALUE="Radio1">
+				</td>
+				<td width="95%" align="left">
+						<div id="Answer1"></div>
+				</td>
+			</tr>
+			<tr id="Row2" style="display:none">
+				<td width="8" valign="top">
+					<input align="right" type="radio" name="r" id="Radio2" onClick="pickedAnswer(2);" style="display:none" VALUE="Radio2">
+				</td>
+				<td width="95%" align="left">
+						<div id="Answer2"></div>
+				</td>
+			</tr>
+			<tr id="Row3" style="display:none">
+				<td width="8" valign="top">
+					<input align="right" type="radio" name="r" id="Radio3" onClick="pickedAnswer(3);"  style="display:none" VALUE="Radio3">
+				</td>
+				<td width="95%" align="left">
+						<div id="Answer3"></div>
+				</td>
+			</tr>
+			<tr id="Row4" style="display:none">
+				<td width="8" valign="top">
+					<input align="right" type="radio" name="r" id="Radio4" onClick="pickedAnswer(4);"  style="display:none" VALUE="Radio4">
+				</td>
+				<td width="95%" align="left">
+						<div id="Answer4"></div>
+				</td>
+			</tr>
+			<tr id="Row5" style="display:none">
+				<td width="8" valign="top">
+					<input align="right" type="radio" name="r" id="Radio5" onClick="pickedAnswer(5);"  style="display:none" VALUE="Radio5">
+				</td>
+				<td width="95%" align="left">
+						<div id="Answer5"></div>
+				</td>
+			</tr>
+			<tr id="Row6" style="display:none">
+				<td width="8" valign="top">
+					<input align="right" type="radio" name="r" id="Radio6" onClick="pickedAnswer(6);"  style="display:none" VALUE="Radio6">
+				</td>
+				<td width="95%" align="left">
+						<div id="Answer6"></div>
+				</td>
+			</tr>
+			<tr id="Row7" style="display:none">
+				<td width="8" valign="top">
+					<input align="right" type="radio" name="r" id="Radio7" onClick="pickedAnswer(7);"  style="display:none" VALUE="Radio7">
+				</td>
+				<td width="95%" align="left">
+						<div id="Answer7"></div>
+				</td>
+			</tr>
+			<tr id="Row8" style="display:none">
+				<td width="8" valign="top">
+					<input align="right" type="radio" name="r" id="Radio8" onClick="pickedAnswer(8);"  style="display:none" VALUE="Radio8">
+				</td>
+				<td width="95%" align="left">
+						<div id="Answer8"></div>
+				</td>
+			</tr>
+		</table>
+	</form>
+	</div>
+	<div id="answerDiv"  style="display:none">
+		<div id="Div1">
+			<div id="Feedback"></div>
+			<div align="center" id="Continue" style="display:none">
+				<input type="button" id="continueBtn" class="continueButton" value="Continue" onClick="goNext()" NAME="continueBtn">
+			</div>
+		</div>
+	</div>
+	</div>
+	</body>
+</html>

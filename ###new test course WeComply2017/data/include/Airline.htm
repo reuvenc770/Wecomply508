@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html>
+<head>
+	<title>Airline Game</title>
+	<script type="text/javascript">
+
+		//Start Mobile Device Detection
+			var userAgent = navigator.userAgent.toLowerCase();
+			var iphone = (userAgent.indexOf('iphone', 0) >= 0);
+			var droid = (userAgent.indexOf('droid', 0) >= 0);
+
+			if (iphone || droid) {
+				window.location = window.location.href.replace('Airline.htm', 'MobileAirline.htm');
+			}
+		//End Mobile Device Detection
+
+			var master = typeof (top.master) == "object" ? top.master : window.opener;
+			var game = "airlineGame";
+			var bShowWelcome = true;
+			function start() {
+				master.bPause = true;
+				startTitle();
+				startWelcome();
+			}
+
+			function startWelcome() {
+				if (typeof (top.lower) != "undefined" && typeof (top.lower.loaded) != "undefined" && top.lower.loaded && (typeof (top.lower.start) == "object" || typeof (top.lower.start) == "function")) {
+					top.lower.start(master);
+				}
+				else
+					setTimeout("startWelcome()", 10);
+			}
+
+			function startTitle() {
+				if (typeof (top.title) != "undefined" && typeof (top.title.loaded) != "undefined" && top.title.loaded && (typeof (top.title.start) == "object" || typeof (top.title.start) == "function")) {
+					top.title.start(master);
+				}
+				else
+					setTimeout("startTitle()", 10);
+			}
+
+			function startQuestion() {
+				if (typeof (top.lower) != "undefined" && typeof (top.lower.question) != "undefined" && typeof (top.lower.question.loaded) != "undefined" && top.lower.question.loaded && (typeof (top.lower.question.start) == "object" || typeof (top.lower.question.start) == "function")) {
+					master.bNeedIntro = true;
+					top.lower.question.start(master);
+				}
+				else
+					setTimeout("startQuestion()", 10);
+			}
+
+			function startAnswer() {
+				if (typeof (top.lower) != "undefined" && typeof (top.lower.answer) != "undefined" && typeof (top.lower.answer.loaded) != "undefined" && top.lower.answer.loaded && (typeof (top.lower.answer.start) == "object" || typeof (top.lower.answer.start) == "function")) {
+					top.lower.answer.start(master);
+					startQuestion();
+				}
+				else
+					setTimeout("startAnswer()", 10);
+			}
+
+			function handleResize() {
+				location.reload();
+				return false;
+			}
+
+			if (document.layers) {
+				window.captureEvents(Event.RESIZE);
+				window.onresize = handleResize;
+			}
+
+		////////////////////////////////// HTML creation ////////////////////////////////
+			function layerWrite(id, text) {
+				if (n) {
+					document.layers[id].document.write(text);
+					document.layers[id].document.close();
+				}
+				else if (ie)
+					document.all[id].innerHTML = text;
+			}
+
+		//////////////// fix for netscape resize bug ////////////////
+			if (document.layers) {
+				origWidth = innerWidth;
+				origHeight = innerHeight;
+			}
+
+			function reDo() {
+				if (innerWidth != origWidth || innerHeight != origHeight)
+					location.reload();
+			}
+
+			if (document.layers)
+				onresize = reDo;
+
+			function StartGame() {
+				top.lower.document.write('<frameset cols="288,*" frameborder="no" border="0" framespacing="0">');
+				top.lower.document.write('<frame src="Question.htm" name="question" frameborder="no" border="no" scrolling="auto">');
+				top.lower.document.write('<frame src="Answer.htm" name="answer" frameborder="no" border="no" scrolling="auto">');
+				top.lower.document.write('</frameset>');							
+
+				startAnswer();
+				
+				
+
+			}
+	</script>
+</head>
+
+	<frameset cols="550,*" frameborder="no" border="0" framespacing="0" onload="start()">
+	<frameset rows="64,*" frameborder="no" border="0" framespacing="0">
+		<frame src="AirlineTitle.htm" name="title" frameborder="no" border="no" scrolling="no">
+		<frame src="AirlineWelcome.htm" name="lower" frameborder="no" border="no" scrolling="no">
+	</frameset>
+	<frame src="AirlineOffice.htm" name="office" frameborder="no" border="no" scrolling="no">
+</frameset>
+	<noframes>
+	</noframes>
+
+</html>

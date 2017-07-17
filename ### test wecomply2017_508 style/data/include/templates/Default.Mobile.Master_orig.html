@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	
+	<title>{$Content:Title}</title>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}swfobject.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.debug.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.events.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.data.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.lms.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.interface.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.interface.handlers.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/wc.mediaPlayer.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/tween.js?r={$Value:RandomNumber}"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.6.3.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/jquery.ui.touch-punch.min.js"></script>
+	<script type="text/javascript" src="{$Value:StaticHtmlPath}js/flowplayer-3.2.9.min.js"></script>
+	<!--TODO: remove the base href and if needed deal dynamically with this-->
+        <!--Master.mobile.master-->
+	
+	{$Content:Style}
+	<style type="text/css">
+		
+		.clear {clear:both;}
+	</style>
+
+	
+	{$Content:Header}
+
+	<script type="text/javascript">
+		wc.interface.options.pageChange.replacementMethod = wc.interface.animationOptions.slideLeftAndFade; //slideLeft, none, slideLeftAndFade
+		wc.interface.options.displayLayer.linkBulletin.textDisplay = wc.interface.animationOptions.none;
+		wc.interface.options.games.randomizeChoices = false;
+		wc.interface.options.games.scrollToTopOnFeedback = true;
+		wc.interface.options.mediaPlayer.showVideoControls = false;
+		wc.interface.options.mediaPlayer.videoSizePercentage = 50;
+
+		wc.mediaPlayer.flashvideodatafilepath = '{$Value:MediaPath}';
+		if (wc.mediaPlayer.flashvideodatafilepath == 'images/') {	
+			wc.mediaPlayer.flashvideodatafilepath = '../../images/';
+			wc.interface.gameFilePath = '';
+		}
+		wc.mediaPlayer.audio.flashPlayerSrc = '{$Value:StaticHtmlPath}flowplayer-3.2.10.swf';
+		//wc.mediaPlayer.audio.flashPlayerAudioPluginSrc = '{$Value:StaticHtmlPath}flowplayer.audio-3.2.9.swf';
+		wc.mediaPlayer.video.flashPlayerSrc = '{$Value:StaticHtmlPath}flvplayer.swf';
+		wc.mediaPlayer.dataFilePath = '{$Value:DataFiles}';
+		wc.interface.allowFlashInterface = false;
+		{$Content:Javascript}
+
+		wc.interface.parentWindow = this.parent.window;
+		this.parent.wc = wc;
+	</script>
+
+
+</head>
+<body>
+    <div class="viewPort" id="viewPort">
+        <div id="CurrentElementContainer" style="position:relative;left:0px;width:100%;">
+            {$Content:Intro}
+        </div>
+        <div id="LayerElementContainer" style="position:relative;left:0px;width:100%;display:none;">
+        </div>
+    </div>
+    <div class="flashViewPort"  id="flashViewPort">
+	</div>
+</body>
+</html>

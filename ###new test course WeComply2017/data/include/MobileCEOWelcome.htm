@@ -1,0 +1,147 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" id="linkID"/>
+<link rel="stylesheet" type="text/css" id="customlinkID"/>
+<script type="text/javascript">
+var master = null;
+var loaded = false;
+function start(handle)
+{
+	master = handle;
+	if (typeof(master) != "object")
+		alert("Can't find master, type = " + typeof(master));
+
+	document.getElementById("linkID").href = master.getStylesheetPath();
+	document.getElementById("customlinkID").href = master.getCustomStylesheetPath();
+	document.getElementById("spanLoading").innerHTML = master.GetLoadingText();
+	document.getElementById("spanWelcome").innerHTML = master.GetCEOWelcomeText();
+	document.getElementById("theButton").value = master.GetStartQuizText();
+
+	init();
+}
+
+function init()
+{
+	var n = false;
+	var ie = false;
+	var ns7 = false;
+
+	if (document.all)
+		ie = true;
+	else if (document.layers)
+		n = true;
+	else
+		ns7 = true;
+	
+	noshow = (n)? 'hide':'hidden';
+	yeshow = (n)? 'show':'visible';
+																																																	
+	if (n)
+	{
+		loading = document.layers['loadingDIV'];
+		text = document.layers['textDIV'];
+		button = document.layers['buttonDIV'];
+		man = document.layers['manDIV'];
+
+		manimg = man.document.images["theMan"];
+	}
+	else if (ie)
+	{
+		loading = loadingDIV.style;
+		text = textDIV.style;
+		button = buttonDIV.style;
+		man = manDIV.style;
+
+		manimg = document.images["theMan"];
+	}
+	else // ns7
+	{
+		loading = document.getElementById("loadingDIV").style;
+		text = document.getElementById("textDIV").style;
+		button = document.getElementById("buttonDIV").style;
+		man = document.getElementById("manDIV").style;
+
+		manimg = document.images["theMan"];
+	}
+	
+	setFirstPos();
+}
+
+function setFirstPos()
+{
+/*
+	title.top  = 10; title.left  = 10;
+	text.top = 80; text.left = 20;
+	button.top = 320; button.left = 150;
+	man.top = 370; man.left = 10;
+*/
+	text.top = 10; text.left = 20;
+	button.top = 250; button.left = 150;
+	man.top = 280; man.left = 10;
+
+	loading.visibility = noshow;
+	text.visibility = yeshow;
+	button.visibility = yeshow;
+	man.visibility = yeshow;
+	
+	startMan();
+}
+
+//////////////// button functionality ////////////////
+function buttonFun(x)
+{
+	if (x==1)
+		document.getElementById("theButton").style.backgroundColor = '#c0c0c0';
+	if (x==2)
+		document.getElementById("theButton").style.backgroundColor = 'white';
+	if (x==3)
+		top.StartGame();
+}
+/////////////////////////////////////////////////////////////
+
+function startMan()
+{
+	man.left = parseInt(man.left) + 2;
+	if (parseInt(man.left)<310)
+		setTimeout('startMan()',10);
+	else
+		manimg.src='ceoImages/splash_man2.gif';
+}
+
+</script>
+</head>
+<body onload="loaded=true" bgcolor="#ffffff">
+	<div id="loadingDIV" style="position:absolute; left:0; top:200; width:150; height:10; z-index:1; visibility:visible">
+		<font face="arial" size="3" color="#999999"><b><span id="spanLoading"></span></b></font>
+	</div>
+	<div id="preloadDIV" style="position:absolute; left:0; top:0; width:10; height:10; z-index:1; visibility:hidden">
+		<img src="ceoImages/ceo_f01.gif" width="85" height="356" border="0">
+		<img src="ceoImages/ceo1.gif" width="85" height="356" border="0">
+		<img src="ceoImages/ceo2.gif" width="85" height="356" border="0">
+		<img src="ceoImages/ceo3.gif" width="85" height="356" border="0">
+		<img src="ceoImages/ceo4.gif" width="85" height="356" border="0">
+		<img src="ceoImages/ceo5.gif" width="85" height="356" border="0">
+		<img src="ceoImages/ceo6.gif" width="85" height="356" border="0">
+		<img src="ceoImages/ceo7.gif" width="85" height="356" border="0">
+		<img src="ceoImages/ceo8.gif" width="85" height="356" border="0">
+		<img src="ceoImages/ceo9.gif" width="85" height="356" border="0">
+	</div>
+	<div id="textDIV" style="position:absolute; left:0; top:0; width:245; height:10; z-index:1; visibility:hidden">
+		<table width="90%" ID="Table1">
+			<tr>
+				<td bgcolor="#ffffff">
+				<span id="spanWelcome"></span>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="buttonDIV" style="position:absolute; left:0; top:0; width:10; height:10; z-index:1; visibility:hidden">
+		<a href="javascript:buttonFun(3)" onmouseover="buttonFun(1)" onmouseout="buttonFun(2)">
+			<input type="button" id="theButton" value="" onclick="buttonFun(3)" NAME="theButton" WIDTH="216" HEIGHT="23">
+		</a>
+	</div>
+	<div id="manDIV" style="position:absolute; left:0; top:0; width:10; height:10; z-index:2; visibility:hidden">
+		<img src="ceoImages/splash_man.gif" border="0" name="theMan" WIDTH="9" HEIGHT="15">
+	</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" id="linkID"/>
+<link rel="stylesheet" type="text/css" id="customlinkID"/>
+<title>Hop Splash</title>
+
+<script type="text/javascript">
+var master = null;
+var loaded = false;
+
+/////////////////////////////////////
+///                               ///
+///     hop Game Script	  ///
+///   	- Version: 1.2       	  ///
+///   	- Creator: John Forde     ///
+///   	- Date: 09/01/01       	  ///
+///   	- john@macrocube.com	  ///
+///   	- www.macrocube.com    	  ///
+///                               ///
+/////////////////////////////////////
+
+
+/////////////////////// set pointer variables in init ////////////////////////
+self.focus();
+
+var n = false;
+var ie = false;
+var ns7 = false;
+
+function init(handle)
+{
+	document.getElementById("linkID").href = handle.getStylesheetPath();
+	document.getElementById("customlinkID").href = handle.getCustomStylesheetPath();
+
+	twitch_delay = 10000;
+
+	if (document.all)
+		ie = true;
+	else if (document.layers)
+		n = true;
+	else
+		ns7 = true;
+	
+	noshow = (n)? 'hide':'hidden';
+	yeshow = (n)? 'show':'visible';
+																																																	
+	if (ie) {
+		splashscene = splashsceneDIV.style;
+		splashhead = splashheadDIV.style;
+		splashlegs = splashlegsDIV.style;
+		splashheadani = document.images["headspin"];
+		splashlegani = document.images["legraise"];
+	}
+	if (ns7)
+	{
+		splashscene = document.getElementById("splashsceneDIV").style;
+		splashhead = document.getElementById("splashheadDIV").style;
+		splashlegs = document.getElementById("splashlegsDIV").style;
+		splashheadani = document.getElementById("headspin");
+		splashlegani = document.getElementById("legraise");
+	}
+	else if (n) {
+		splashscene = document.splashsceneDIV;
+		splashhead = document.splashheadDIV;
+		splashlegs = document.splashlegsDIV;
+		splashheadani = document.splashheadDIV.document.images["headspin"];
+		splashlegani = document.splashlegsDIV.document.images["legraise"];
+	}
+	start();
+	setTimeout('headTwitch()',twitch_delay/2);
+	setTimeout('legTwitch()',twitch_delay);
+}
+
+function start() {
+	splashscene.top = parseInt(splashscene.top) - 5;
+	splashhead.top = parseInt(splashhead.top) - 5;
+	splashlegs.top = parseInt(splashlegs.top) - 5;
+	if (parseInt(splashscene.top)>0) setTimeout('start()',10);
+}
+function headTwitch() {
+	splashheadani.src = 'hopImages/head_spin.gif';
+	setTimeout('headTwitch()',twitch_delay);
+}
+function legTwitch() {
+	splashlegani.src = 'hopImages/leg_raise.gif'
+	setTimeout('legTwitch()',twitch_delay);
+}
+
+</script>
+
+</head>
+
+<body id="bodySplash" onload="loaded=true" bgcolor="#88ffff">
+<div id="splashsceneDIV" style="position:absolute; left:0; top:300; width:10; height:10; z-index:1; visibility:visible">
+<img src="hopImages/scene.jpg" width=600 height=300 border=0 alt="">
+</div>
+<div id="splashheadDIV" style="position:absolute; left:410; top:360; width:10; height:10; z-index:2; visibility:visible">
+<img src="hopImages/head1.gif" width=60 height=56 border=0 id="headspin" name="headspin">
+</div>
+<div id="splashlegsDIV" style="position:absolute; left:130; top:510; width:10; height:10; z-index:2; visibility:visible">
+<img src="hopImages/legs1.gif" width=66 height=52 border=0 id="legraise" name="legraise">
+</div>
+
+</body>
+
+</html>

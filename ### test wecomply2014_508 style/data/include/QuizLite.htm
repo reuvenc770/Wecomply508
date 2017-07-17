@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Quiz Lite</title>
+<script type="text/javascript">
+var master = typeof(top.master) == "object" ? top.master : window.opener;	// this == top ? this.opener : top.master;
+var game = "quizLite";
+function start()
+{
+	startAnswer();
+
+	var str = master.getQuizName(this);
+
+	if (str != "")
+		document.title = str;
+}
+
+function startQuestion()
+{
+	if (typeof(question.loaded) != "undefined" && question.loaded && (typeof(question.start) == "object" || typeof(question.start) == "function"))
+		question.start(master);
+	else
+		setTimeout("startQuestion()", 10);
+}
+function startAnswer()
+{
+	if (typeof(answer.loaded) != "undefined" && answer.loaded && (typeof(answer.start) == "object" || typeof(answer.start) == "function"))
+	{
+		answer.start(master);
+		startQuestion();
+	}
+	else
+		setTimeout("startAnswer()", 10);
+}
+
+// onload="question.startQuiz()" onunload="question.gameClosing()"
+</script>
+</head>
+
+<frameset rows="*,0" border="0" framespacing="0" onLoad="start()">
+<frameset cols="55%,*" border="0" framespacing="0">
+<frame name="question" src="Question.htm" scrolling="auto" marginheight="6" marginwidth="6" frameborder="no" noresize>
+<frame name="answer" src="Answer.htm" scrolling="auto" marginheight="10" marginwidth="10" frameborder="no" noresize>
+</frameset>
+</frameset>
+</html>

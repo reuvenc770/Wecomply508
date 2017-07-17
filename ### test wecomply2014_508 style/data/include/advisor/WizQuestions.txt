@@ -1,0 +1,204 @@
+questionStr="
+//
+//
+// *************************************
+// PROGRAMS TO USE FOR EDITING THIS FILE
+// *************************************
+// This file must be saved as a .txt file, with Windows-type carriage returns (CR/LF).
+// WINDOWS: Notepad is the best program to use. Microsoft Word may also be used, but when you're finished editing, the file must be saved as Text Only .txt (NOT Text Only with Line Breaks).
+// MAC: TextEdit should NOT be used.  TextWrangler is a recommended shareware editor ( http://www.barebones.com/products/textwrangler/ ).
+// In TextWrangler, when you Save As, choose 'Windows (CR/LF)' in the Line Breaks dropdown menu.
+//
+//
+// *************************************
+// ADDING COMMENTS
+// *************************************
+// All lines starting with // will be ignored, including the carriage return on that line.
+// Anything following // on a line will be ignored.
+//
+//
+// *************************************
+// SPECIAL CHARACTERS
+// *************************************
+// Certain reserved characters must be URL encoded.  Most common are the percent sign, which should be entered as "%25", and the ampersand, which should be entered as "%26".
+// There may be other characters which need to be URL encoded. If you are running into problems, and you suspect a special character is the culprit, consult http://www.blooberry.com/indexdot/html/topics/urlencoding.htm for url encoding.
+//
+// *************************************
+// IMPORTANT DETAILS
+// *************************************
+// There must be no extra empty lines.
+// The first line must always be 'questionStr='.
+// The last 4 lines of the file must be 3 blank lines, then a line containing only a double-quote.
+// The second line is the version number for this file. This number will be included in the email sent to WeComply.
+//
+//
+// QUESTION FORMAT
+//
+// Questions and answers may not have carriage returns within them.
+// The first line of a question is the question text.
+// The 2nd line of a question must be either 'select one' (the user must choose exactly one answer)
+// or 'select multiple' (the user must choose at least one answer, and may choose multiple.)
+// If the question is a subquestion, then this line has a 3rd option - "select optional",
+// which means the user may make one selection, multiple selections, or zero selections.
+// The following lines are the answers, one per line.
+// After the last answer line, there are 3 blank lines. Then the next question.
+//
+//
+// SUBQUESTIONS
+//
+// If a given answer has a subquestion, the answer line should be followed by 2 blank lines, then the subquestion, and its answers.
+// The subquestion and its answers follow the same format as a question.
+// Following a subquestion and its answers are 2 blank lines, then the next answer.
+//
+//
+//
+//
+//
+Version: 2.0
+//1
+What type of entity is your organization?
+select one
+Publicly traded corporation
+Private for-profit company
+Not-for-profit organization
+Educational institution
+Government agency
+
+
+
+//2
+How many employees are in your organization?
+select one
+1 - 14
+15 - 199
+200 - 999
+1,000 - 4,999
+5,000+
+
+
+
+//3
+Is your organization in any of these industries?  (Select all that apply.)
+select multiple
+Healthcare
+
+
+Does your organization provide products or services under Medicare Parts C or D?
+select one
+Yes
+No
+Not sure
+
+
+Finance
+Energy
+Telecommunications
+Insurance
+Transportation
+Technology
+Retail
+Hospitality
+Other
+
+
+
+//4
+Where are your employees located?  (Select all that apply.)
+select multiple
+U.S.
+
+
+Which of the following, if any, are true?
+select optional
+One or more of my supervisory personnel work or supervise employees who work in California or Connecticut
+One or more of my employees reside in the Commonwealth of Massachusetts
+One or more of my employees work in California
+
+
+European Union
+Canada
+Elsewhere
+
+
+
+//5
+Does your organization conduct business internationally?
+select one
+Yes
+No
+
+
+
+//6
+Where are your customers located?  (Select all that apply.)
+select multiple
+U.S.
+
+
+Do any of your customers reside in the Commonwealth of Massachusetts?
+select one
+Yes
+No
+
+
+European Union
+Canada
+Elsewhere
+
+
+
+//7
+Do employees in your organization handle any of the following information?  (Select all that apply.)
+select optional
+Personal health information of employees, customers, consumers, etc.
+Personal information of customers or consumers, such as names, addresses, Social Security numbers, credit-card information, etc.?
+Personal information about any resident of the Commonwealth of Massachusetts? 
+
+
+
+//8
+What percentage of your employees work in a factory or other type of manufacturing environment?
+select one
+Under 10%25
+11 - 50%25
+51 - 100%25
+
+
+
+//9
+Does your organization offer products or services to the U.S. Government?
+select one
+Yes
+No
+
+
+
+//10
+Does your organization employ (or want to employ) individuals who are not U.S. citizens?
+select one
+Yes
+No
+
+
+
+//11
+How would you describe the work environment within your organization?
+select one
+Cooperative and supportive
+Tolerable but not supportive
+Stressful and/or hostile
+
+
+
+//12
+Does your organization have any of the following documents in written form?  (Select all that apply.)
+select optional
+Code of Ethics/Code of Conduct
+Employee handbook
+Anti-harassment policy
+Drug-free workplace policy
+Social-networking policy
+
+
+
+"
