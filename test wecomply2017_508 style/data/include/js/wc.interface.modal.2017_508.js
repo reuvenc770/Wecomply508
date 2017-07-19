@@ -602,7 +602,14 @@ wc.interface.replaceCurrentElement = function(nextElementType, nextChapterIndex,
         }
 
         //Terms
-        templateHtml = templateHtml.replace(/<a href="term:([0-9]+)">/g, '<a href="javascript:;" tabindex="0" id="Term_$1" class="wc-term-link" onclick="wc.interface.actionHandler.displayTerm($1);">');
+        var terms508linkaddition = '';
+        if (wc.interface.options.is508) {
+            terms508linkaddition = '<span class="offscreen">Link to more information and additional resources  </span>';
+
+        }
+        var termslinkreplacement = '<a href="javascript:;" tabindex="0" id="Term_$1" class="wc-term-link" onclick="wc.interface.actionHandler.displayTerm($1);">' + terms508linkaddition;
+
+        templateHtml = templateHtml.replace(/<a href="term:([0-9]+)">/g, termslinkreplacement);
         templateHtml = wc.interface.customNavigation.replaceTagsWithJavaScript(templateHtml);
 
         currentElementContainer.innerHTML = templateHtml;
@@ -1605,7 +1612,7 @@ wc.interface.displayLayer = function(elementType, data, onDoneCallback) {
         wc.interface.currentElement.elementType = wc.interface.elementTypes.acknowledgment;
         //Acknowledgment_Refusal, Acknowledgment_Agree, Acknowledgment_Previous, Acknowledgment_Confirm
         //, Acknowledgment_Body, Acknowledgment_Refusal, 
-    } else if (elementType == wc.interface.elementTypes.matchGame) {
+    } else if (elementType == wc.interface.elementTypes.matchGame && !wc.interface.options.is508) {
         wc.mediaPlayer.stopCurrentActiveMedia();
 
         var templateHtml = wc.data.templateElements.matchGame;
