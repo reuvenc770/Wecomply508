@@ -34,7 +34,7 @@
             }
         }
     </script>
-    <!--System.WeComply2017.Desktop.Master-->
+    <!--System.WeComply2017_508.Desktop.Master-->
     {$Content:Style}
     <style type="text/css">
         .clear {
@@ -151,8 +151,8 @@
 	<![endif]-->
 
     <script type="text/javascript">
-        wc.interface.options.pageChange.popupReplacementMethod = wc.interface.transitionOptions.slideLeft; //none, slideDownUp, zoomInOut, slideLeft
-        wc.interface.options.pageChange.replacementMethod = wc.interface.animationOptions.slideLeftAndFade; //slideLeft, none, slideLeftAndFade
+        wc.interface.options.pageChange.popupReplacementMethod = wc.interface.transitionOptions.none; //none, slideDownUp, zoomInOut, slideLeft
+        wc.interface.options.pageChange.replacementMethod = wc.interface.animationOptions.none; //slideLeft, none, slideLeftAndFade
         wc.interface.options.popup.customWidth = true;
         wc.interface.options.linkBulletin.displayMode = wc.interface.linkBulletinDisplayModes.menu; //icons,menu
         wc.interface.options.displayLayer.linkBulletin.textDisplay = wc.interface.animationOptions.none;
@@ -166,6 +166,9 @@
             wc.mediaPlayer.flashvideodatafilepath = '../../images/';
             wc.interface.gameFilePath = '';
         }
+
+        wc.interface.options.is508 = true;
+
 
         //wc.mediaPlayer.audio.flashPlayerSrc = '{$Value:StaticHtmlPath}player_mp3_js.swf';
         wc.mediaPlayer.audio.flashPlayerSrc = '{$Value:StaticHtmlPath}flowplayer-3.2.10.swf';
@@ -248,9 +251,10 @@
     <div class="viewPort" id="viewPort">
         <div class="pageHeader wc-header-bar ">
             <img src="{$Value:ImagePath}WeComply2015_header.jpg" alt="" height="63" class="patternHeader" />
-            <img src="{$Value:DataFiles}{$Value:CompanyLogo}" alt="{$Value:CompanyName}" height="56" class="companyLogo" />
+            <img src="{$Value:DataFiles}{$Value:CompanyLogo}" alt="Company Logo {$Value:CompanyName}" height="56" class="companyLogo" />
             <h2 class="courseTitle wc-course-name"><span class="innerCourseTitle">{$Value:CourseName}</span></h2>
         </div>
+        <a class="skipnav" href="#mainControls">Skip  to mainControls</a>
         <div id="CurrentElementContainer" class="courseBody courseBodyGradient wc-course-body ">
             {$Content:Intro}
         </div>
@@ -260,6 +264,7 @@
         </div>
 
         <!-- Navigation -->
+        <a name="mainControls" tabIndex="-1" id="mainControlslink"> </a>
         <div class="mainControls">
             <a id="Button_Index" href="javascript:void(0);" title="{$Resource:index}" onclick="wc.interface.elements.tableOfContents.display();" class="navigationButton disabled wc-navigation-button "></a>
             <a id="Button_ResizeFont" href="javascript:void(0);" title="{$Resource:font}" onclick="wc.interface.elements.resizeFont.resize();" class="navigationButton disabled wc-navigation-button "></a>

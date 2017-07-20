@@ -1170,5 +1170,17 @@ a.skipnav:active {
     top: 3em;
 }
 
+*:focus {
+    outline: 0;
+    box-shadow: 0 0 30px #005e7a;
+    border-color: #005e7a;
+}
+
+a:focus {
+    color: #005e7a;
+    font-weight: bold;
+    box-shadow: none;
+}
+
 
 /*END 508 addtions */

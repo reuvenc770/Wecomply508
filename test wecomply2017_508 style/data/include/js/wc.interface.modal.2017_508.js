@@ -277,6 +277,10 @@ wc.init = function(data, dataFilePath) {
             wc.interface.elements.tableOfContents.display({ all: true });
         }
     });
+
+    if (wc.interface.options.is508) {
+        wc.interface.doBullets = false;
+    }
 };
 
 wc.interface.getResource = function(key) {
@@ -774,6 +778,7 @@ wc.interface.replaceCurrentElement = function(nextElementType, nextChapterIndex,
             if (!wc.interface.isAdmin && wc.data.jsonData.chapters[nextChapterIndex].chapterOptions.autoplay == 'true') {
                 if (!wc.interface.options.muteAll)
                     wc.mediaPlayer.video.play(nextChapterIndex);
+
             };
         }
 
@@ -808,6 +813,7 @@ wc.interface.replaceCurrentElement = function(nextElementType, nextChapterIndex,
         }
 
         if (wc.interface.options.is508) {
+            wc.mediaPlayer.stopCurrentActiveMedia();
             setTimeout(function() {
                 var element = $("#CurrentElementContainer").find('*[tabindex]').filter(':visible').filter(':first');
                 if ($(element)) $(element).focus();
@@ -1612,7 +1618,7 @@ wc.interface.displayLayer = function(elementType, data, onDoneCallback) {
         wc.interface.currentElement.elementType = wc.interface.elementTypes.acknowledgment;
         //Acknowledgment_Refusal, Acknowledgment_Agree, Acknowledgment_Previous, Acknowledgment_Confirm
         //, Acknowledgment_Body, Acknowledgment_Refusal, 
-    } else if (elementType == wc.interface.elementTypes.matchGame && !wc.interface.options.is508) {
+    } else if (elementType == wc.interface.elementTypes.matchGame) {
         wc.mediaPlayer.stopCurrentActiveMedia();
 
         var templateHtml = wc.data.templateElements.matchGame;
@@ -2329,6 +2335,12 @@ wc.interface.displayLayer = function(elementType, data, onDoneCallback) {
             if (data.introduction == '') {
                 wc.interface.actionHandler.popQuiz_ContinueFromIntroduction(true);
             }
+
+            if (wc.interface.options.is508) {
+                wc.mediaPlayer.stopCurrentActiveMedia(true);
+
+            }
+
         } else if (data.introduction == '') { //No video and no introduction, go straight to the question
 
             templateHtml = templateHtml.replaceTag('Content', 'PopQuiz_AlternateHeading', '');
@@ -2376,6 +2388,8 @@ wc.interface.displayLayer = function(elementType, data, onDoneCallback) {
             };
             currentElementopacityTween.start();
         }
+
+
 
         wc.interface.currentElement.elementType = elementType;
     } else if (elementType == wc.interface.elementTypes.gameRestart) {
@@ -2529,6 +2543,8 @@ wc.interface.displaySecondLayer = function(elementType, onDoneCallback, options)
         wc.interface.navigation.insecondlayer = true;
         wc.interface.handlers.fireEvent(wc.interface.handlers.onAfter_DisplaySecondLayer, { elementType: elementType });
     }
+
+
     /* ######################################## */
 
     if (onDoneCallback && typeof(onDoneCallback) === "function") {
@@ -4627,7 +4643,13 @@ wc.interface.actionHandler = {
                                 //wc.mediaPlayer.video.videoParams.height = "156";
                                 wc.mediaPlayer.video.videoParams.containerElementId = 'PopQuiz_Video_Container';
 
+
                                 wc.mediaPlayer.video.play(wc.mediaPlayer.video.videoParams);
+                                if (wc.interface.options.is508) {
+                                    wc.mediaPlayer.stopCurrentActiveMedia();
+
+                                }
+
                             }
                         } catch (eee) {
                             //console.log("exception starting video " + eee);
@@ -4776,6 +4798,10 @@ wc.interface.actionHandler = {
                             wc.mediaPlayer.video.videoParams.containerElementId = 'PopQuiz_Video_Container';
 
                             wc.mediaPlayer.video.play(wc.mediaPlayer.video.videoParams);
+                            if (wc.interface.options.is508) {
+                                wc.mediaPlayer.stopCurrentActiveMedia();
+
+                            }
                         }
                     } catch (eee) {
                         //console.log("exception starting video from back " + eee);
