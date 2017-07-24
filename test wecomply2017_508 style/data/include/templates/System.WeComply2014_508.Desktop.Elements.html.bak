@@ -172,7 +172,7 @@
 			<div class="chapterLinkBulletinMenuLayout hiddenElement">		
 				<div id="chapterLinkBulletinMenu" class="hiddenElement">
 					<span>Additional Information</span>
-					<ul>
+					<ul >
 						{$Content:LinkBulletin_MenuItems}
 					</ul>
 				</div>
