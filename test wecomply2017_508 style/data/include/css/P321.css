@@ -1152,7 +1152,7 @@ ul.bulletsList li.mediaBullet.active {
 
 .offscreen {
     position: absolute;
-    left: -10em;
+    left: -100em;
     top: -10em;
     overflow: hidden;
 }

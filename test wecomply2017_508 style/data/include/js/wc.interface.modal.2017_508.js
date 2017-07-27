@@ -134,7 +134,8 @@ wc.interface = {
                 randomizeChoices: false,
                 gameIntroDisplayAnimation: 5 /*wc.interface.animationOptions.fadeOutIn*/ ,
                 gameChoiceDisplayAnimation: 5 /*wc.interface.animationOptions.fadeOutIn*/ ,
-                scrollToTopOnFeedback: false
+                scrollToTopOnFeedback: false,
+                showMatchGame:true
             },
             linkBulletin: {
                 displayMode: 1 //wc.interface.linkBulletinDisplayModes.icons
@@ -1832,6 +1833,17 @@ wc.interface.displayLayer = function(elementType, data, onDoneCallback) {
 
 
     $(document).attr("title", data.heading);
+
+       if (wc.interface.options.is508) {
+            setTimeout(function() {
+                var element = $("#LayerElementContainer")
+                    .find("*[tabindex]")
+                    .filter(":visible")
+                    .filter(":first");
+                if ($(element)) $(element).focus();
+            }, 600);
+        }
+        
 
     var buttonsToDisable =
         wc.interface.navigation.buttonTypes.All ^
@@ -4468,6 +4480,9 @@ wc.interface.navigateToElement = function(direction) {
                        // wc.data.jsonData.chapters[wc.interface.currentElement.chapterIndex]
                        // .matchGame;
                     var matchGame = null;
+                       if (wc.interface.options.games.showMatchGame) {
+                      matchGame = wc.data.jsonData.chapters[wc.interface.currentElement.chapterIndex].matchGame;
+                    }
                     var minimumTimeInSeconds =
                         wc.data.jsonData.chapters[wc.interface.currentElement.chapterIndex]
                         .chapterOptions.minimumTimeSec || 0;

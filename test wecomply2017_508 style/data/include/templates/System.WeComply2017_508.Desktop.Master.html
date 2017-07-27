@@ -164,8 +164,8 @@
 			wc.interface.gameFilePath = '';
 		}
 
- wc.interface.options.is508 = true;
- 
+        //wc.interface.options.is508 = true;
+  wc.interface.options.games.showMatchGame=false;
 		//wc.mediaPlayer.audio.flashPlayerSrc = '{$Value:StaticHtmlPath}player_mp3_js.swf';
 		wc.mediaPlayer.audio.flashPlayerSrc = '{$Value:StaticHtmlPath}flowplayer-3.2.10.swf';
 		wc.mediaPlayer.video.flashPlayerSrc = '{$Value:StaticHtmlPath}flvplayer.swf';
@@ -261,19 +261,19 @@
 
 		<!-- Navigation -->
 		<a name="mainControls" tabIndex="-1" id="mainControlslink"> </a>
-		<div class="mainControls">
-			<a id="Button_Index" href="javascript:void(0);" title="{$Resource:index}" onclick="wc.interface.elements.tableOfContents.display();" class="navigationButton disabled wc-navigation-button "></a>
-			<a id="Button_ResizeFont" href="javascript:void(0);" title="{$Resource:font}" onclick="wc.interface.elements.resizeFont.resize();" class="navigationButton disabled wc-navigation-button "></a>	
-			<a id="Button_Policy" href="javascript:void(0);" onclick="wc.interface.elements.policy.display();" class="navigationButton disabled borderRight wc-navigation-button "></a>		
-			<a id="Button_Previous" href="javascript:void(0);" onclick="wc.interface.actionHandler.previousButton();" class="navigationButton disabled wc-navigation-button "></a>
-			<a id="Button_PlayAudio" href="javascript:void(0);" onclick="wc.interface.actionHandler.playAudio(true);" class="navigationButton disabled oneMustBeVisible wc-navigation-button " title="{$Resource:play}">
-			</a>
-			<a id="Button_PauseAudio" href="javascript:void(0);" onclick="wc.interface.actionHandler.pauseAudio(true);" class="navigationButton disabled hiddenElement oneMustBeVisible wc-navigation-button " title="{$Resource:pause}"></a>
-			<a id="Button_Next" href="javascript:void(0);" onclick="wc.interface.actionHandler.nextButton();" class="navigationButton disabled wc-navigation-button "></a>			
-			<a id="Button_AudioSpeech" href="javascript:void(0);" onclick="wc.interface.elements.audioSpeechButton.toggleAudioSpeech();" class="navigationButton disabled wc-navigation-button "></a>
-			<a id="Button_EnableBullets" href="javascript:void(0);" onclick="wc.interface.actionHandler.enableBullets();" class="navigationButton disabled wc-navigation-button "></a>
-			<a id="Button_DisableBullets" href="javascript:void(0);" onclick="wc.interface.actionHandler.disableBullets();" class="navigationButton disabled wc-navigation-button "></a>			
-			<a id="Button_Help" href="javascript:void(0);" onclick="wc.interface.elements.help.display();" class="navigationButton disabled borderRight wc-navigation-button "></a>
+		<div tabindex="0" class="mainControls" aria-label=">Navigation Menu">
+            <a tabindex="0" id="Button_Index" href="javascript:void(0);" title="{$Resource:index}" onclick="wc.interface.elements.tableOfContents.display();" class="navigationButton disabled wc-navigation-button "><span class="offscreen">Navigation Menu {$Resource:index}</span></a>
+            <a tabindex="0" id="Button_ResizeFont" href="javascript:void(0);" title="{$Resource:font}" onclick="wc.interface.elements.resizeFont.resize();" class="navigationButton disabled wc-navigation-button "><span class="offscreen">Navigation Menu {$Resource:font}</span></a>
+            <a tabindex="0" id="Button_Policy" href="javascript:void(0);" onclick="wc.interface.elements.policy.display();" class="navigationButton disabled borderRight wc-navigation-button "><span class="offscreen">Navigation Menu Policy</span></a>
+            <a tabindex="0" id="Button_Previous" href="javascript:void(0);" onclick="wc.interface.actionHandler.previousButton();" class="navigationButton disabled wc-navigation-button "><span class="offscreen">Navigation Menu Previous</span></a>
+            <a tabindex="0" id="Button_PlayAudio" href="javascript:void(0);" onclick="wc.interface.actionHandler.playAudio(true);" class="navigationButton disabled oneMustBeVisible wc-navigation-button " title="{$Resource:play}"><span class="offscreen">Navigation Menu {$Resource:play}</span>
+            </a>
+            <a tabindex="0" id="Button_PauseAudio" href="javascript:void(0);" onclick="wc.interface.actionHandler.pauseAudio(true);" class="navigationButton disabled hiddenElement oneMustBeVisible wc-navigation-button " title="{$Resource:pause}"><span class="offscreen">Navigation Menu {$Resource:pause}</span></a>
+            <a tabindex="0" id="Button_Next" href="javascript:void(0);" onclick="wc.interface.actionHandler.nextButton();" class="navigationButton disabled wc-navigation-button "><span class="offscreen">Navigation Menu Next</span></a>
+            <a tabindex="0" id="Button_AudioSpeech" href="javascript:void(0);" onclick="wc.interface.elements.audioSpeechButton.toggleAudioSpeech();" class="navigationButton disabled wc-navigation-button "><span class="offscreen">Navigation Toogle Menu Next</span></a>
+            <a tabindex="0" id="Button_EnableBullets" href="javascript:void(0);" onclick="wc.interface.actionHandler.enableBullets();" class="navigationButton disabled wc-navigation-button "><span class="offscreen">Navigation Toogle Menu Enable Bullets</span></a>
+            <a tabindex="0" id="Button_DisableBullets" href="javascript:void(0);" onclick="wc.interface.actionHandler.disableBullets();" class="navigationButton disabled wc-navigation-button "><span class="offscreen">Navigation Toogle Menu Disable Bullets</span></a>
+            <a tabindex="0" id="Button_Help" href="javascript:void(0);" onclick="wc.interface.elements.help.display();" class="navigationButton disabled borderRight wc-navigation-button "><span class="offscreen">Navigation Toogle Menu Help</span></a>
 		</div>							
 	
 	<div class="flashViewPort"  id="flashViewPort">
