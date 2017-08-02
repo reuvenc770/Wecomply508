@@ -76,7 +76,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="buttonsContainer" tabindex="0">
+                <div class="buttonsContainer">
                     <a href="javascript:void(0);" id="BookmarkBeginButton" onclick="wc.interface.actionHandler.bookmarkGoto();" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.bookmarkGoto();" class="continueButton wc-rectangular-button disabled" tabindex="0">
 							{$Resource:Continue}</a>
                     <!--<div id="BookmarkBeginButton" onclick="wc.interface.actionHandler.displayCertificate();"
@@ -211,8 +211,8 @@
                     <!--<p class="dummy-spacer">&nbsp;</p>-->
                 </div>
             </div>
-            <div class="buttonsContainer" tabindex="0">
-                <a href="javascript:void(0);" id="PopQuiz_ContinueFromIntroduction" onclick="wc.interface.actionHandler.popQuiz_ContinueFromIntroduction({$Content:quizHasVideo});" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.popQuiz_ContinueFromIntroduction({$Content:quizHasVideo});" class="continueButton wc-rectangular-button " tabindex="0">{$Resource:Continue}</a>
+            <div class="buttonsContainer" >
+                <a href="javascript:void(0);" id="PopQuiz_ContinueFromIntroduction" onclick="wc.interface.actionHandler.popQuiz_ContinueFromIntroduction({$Content:quizHasVideo});"  class="continueButton wc-rectangular-button " tabindex="0">{$Resource:Continue}</a>
             </div>
         </div>
         <div id="PopQuiz_Content_Container" class="standardChapter wc-popquiz-content-wrapper wc-popquiz-content " style="display: none">
@@ -225,7 +225,7 @@
                 <div id="PopQuiz_Video_Container" class="popQuizVideoContainer">
                 </div>
                 <div class="buttonsContainer">
-                    <a href="javascript:void(0);" id="PopQuiz_ContinueBtton" class="continueButton wc-rectangular-button " onclick="wc.interface.actionHandler.popQuiz_nextQuestion();" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.popQuiz_nextQuestion();" tabindex="0">
+                    <a href="javascript:void(0);" id="PopQuiz_ContinueBtton" class="continueButton wc-rectangular-button " onclick="wc.interface.actionHandler.popQuiz_nextQuestion();"  tabindex="0">
 					{$Resource:Continue}</a>
                 </div>
             </div>
@@ -253,10 +253,10 @@
                 </div>
             </div>
 
-            <div id="PopQuiz_Answer_Button" style="display: none;" class="buttonsContainer" tabindex="0">
-                <a href="javascript:void(0);" id="Button_Back" onclick="wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);" class="continueButton" tabindex="0">
+            <div id="PopQuiz_Answer_Button" style="display: none;" class="buttonsContainer" >
+                <a href="javascript:void(0);" id="Button_Back" onclick="wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);"  class="continueButton" tabindex="0">
                              {$Resource:Back}</a>
-                <a href="javascript:void(0);" id="Button_Continue" onclick="wc.interface.actionHandler.popQuiz_answerSelected(wc.interface.elements.quiz.selectedChoiceIndex, wc.interface.elements.quiz.selectedElementType);" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.popQuiz_answerSelected(wc.interface.elements.quiz.selectedChoiceIndex, wc.interface.elements.quiz.selectedElementType);" class="continueButton" tabindex="0">
+                <a href="javascript:void(0);" id="Button_Continue" onclick="wc.interface.actionHandler.popQuiz_answerSelected(wc.interface.elements.quiz.selectedChoiceIndex, wc.interface.elements.quiz.selectedElementType);"  class="continueButton" tabindex="0">
 							{$Resource:Continue}</a>
                 <!-- <div id="Button_Back" class="continueButton" onclick="wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);">
                     {$Resource:Back}</div>
@@ -282,16 +282,14 @@
             </div>
         </div>
     </div>
-    <div class="buttonsContainer" tabindex="0">
-        <a href="javascript:void(0);" class="continueButton" id="feedbackButton_Back" onclick="wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);" tabindex="0">
+    <div class="buttonsContainer" >
+        <a href="javascript:void(0);" class="continueButton" id="feedbackButton_Back" onclick="wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);"  tabindex="0">
                             {$Resource:Back}</a>
 
-        <a href="javascript:void(0);" class="continueButton wc-rectangular-button" id="popQuiz_Body_Feedback_TryAgain" onclick="wc.interface.actionHandler.popQuiz_closeFeedbackElement();" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
-           wc.interface.actionHandler.popQuiz_closeFeedbackElement();" tabindex="0">
+        <a href="javascript:void(0);" class="continueButton wc-rectangular-button" id="popQuiz_Body_Feedback_TryAgain" onclick="wc.interface.actionHandler.popQuiz_closeFeedbackElement();"  tabindex="0">
                             {$Resource:PleaseTryAgain}</a>
-        <div id="popQuiz_Body_Feedback_ContinueButton" style="display: none;" tabindex="0">
-            <a href="javascript:void(0);" class="continueButton wc-rectangular-button" id="popQuizContinueBtn" onclick="wc.interface.actionHandler.popQuiz_nextQuestion(0);" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
-           wc.interface.actionHandler.popQuiz_nextQuestion(0);" tabindex="0">
+        <div id="popQuiz_Body_Feedback_ContinueButton" style="display: none;">
+            <a href="javascript:void(0);" class="continueButton wc-rectangular-button" id="popQuizContinueBtn" onclick="wc.interface.actionHandler.popQuiz_nextQuestion(0);"  tabindex="0">
                             {$Content:ContinueResource}</a>
 
         </div>
@@ -315,12 +313,14 @@
 </div>
 <!--ELEMENT_END:PopQuiz-->
 <!--ELEMENT_START:PopQuiz_Question-->
-<li style="" id="mediaBullet_{$Content:answerIndex}" class="active hidden wc-popquiz-question-wrapper wc-popquiz-question-bullet " onclick="wc.interface.elements.quiz.selectAnswer({$Content:answerIndex},{$Content:questionIndex});">
+<li style="" id="mediaBullet_{$Content:answerIndex}"  tabindex="0" class="active hidden wc-popquiz-question-wrapper wc-popquiz-question-bullet "
+ onclick="wc.interface.elements.quiz.selectAnswer({$Content:answerIndex},{$Content:questionIndex});"
+ onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.elements.quiz.selectAnswer({$Content:answerIndex},{$Content:questionIndex});" 
+ >
     <p class="listVerticalAlign">
         .</p>
-    <p class="bulletContent wc-popquiz-question-content ">
-        {$Content:popQuiz_questionBody}</p>
-    <div class="default mediaBullet_select wc-media-bullet-select "></div>
+   <p class="bulletContent wc-popquiz-question-content "> {$Content:popQuiz_questionBody}</p> 
+   <div class="default mediaBullet_select wc-media-bullet-select "></div>
 </li>
 <!--ELEMENT_END:PopQuiz_Question-->
 <!--ELEMENT_START:MediaBulletinsList-->
@@ -372,9 +372,9 @@
                     </div>
 
 
-                    <div class="buttonsContainer" tabindex="0" >
+                    <div class="buttonsContainer"  >
                         <a href="javascript:void(0);" style="text-decoration: none;" tabindex="0" >
-                            <div id="Button_Close" class="continueButton wc-rectangular-button ">
+                            <div id="Button_Close2" class="continueButton wc-rectangular-button " tabindex="0"  onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)   document.getElementById('Button_Close2').click();">
                                 {$Resource:Continue}</div>
                         </a>
                     </div>
@@ -410,8 +410,8 @@
                 <div id="QuizQuestion_iScroll" class="">
                     <div class="dummy-scroll-wrapper">
                         <div class="courseContent text chapterLeftPadding" tabindex="0">{$Content:QuizQuestion_Body}</div>
-                        <div class="quizLeftPanel wc-popquiz-question-wrapper ">
-                            <ul id="QuizQuestion_Choices_Content" class="quizChoices">
+                        <div class="quizLeftPanel wc-popquiz-question-wrapper "  tabindex="0">
+                            <ul id="QuizQuestion_Choices_Content"  tabindex="0" class="quizChoices">
                                 {$Content:QuizQuestion_Choices}
                             </ul>
                         </div>
@@ -420,7 +420,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="buttonsContainer" tabindex="0">
+                <div class="buttonsContainer" >
 
                     <div id="PopQuestion_Back_Button" style="display:none" class="buttonsContainter" tabindex="0">
                       <a href="javascript:void(0);" class="continueButton" id="QuestionButton_Back"
@@ -459,7 +459,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="buttonsContainer" tabindex="0">
+                <div class="buttonsContainer" >
                     <div id="PopQuestion_feedback_Back_Button" style="display:none" class="buttonsContainter" tabindex="0">
                      <a href="javascript:void(0);" class="continueButton" id="Button_Back" 
          onclick="wc.interface.actionHandler.redisplayQuizQuestion();"
@@ -579,7 +579,7 @@
             </ol>
         </div>
     </div>
-    <div id="tableOfContentsButtonsContainer" class="buttonsContainer"tabindex="0" >
+    <div id="tableOfContentsButtonsContainer" class="buttonsContainer" >
         <!--<div id="tableOfContentsPrint" class="continueButton" onclick="window.print();">{$Resource:Print}</div>	-->
                <a href="javascript:void(0);" class="continueButton wc-rectangular-button" id="tableOfContentsEmail"
          onclick="wc.interface.elements.tableOfContents.close();"
@@ -607,11 +607,12 @@
 <!--ELEMENT_END:TableOfContents-->
 
 <!--ELEMENT_START:TableOfContents_Item-->
-<li id="mediaBullet_toc_{$Content:Item_Id}" class="active hidden wc-toc-item-wrapper wc-toc-item-bullet " onclick="{$Content:Click_Function}">
+<li id="mediaBullet_toc_{$Content:Item_Id}" class="active hidden wc-toc-item-wrapper wc-toc-item-bullet "   tabindex="0" onclick="{$Content:Click_Function}" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+           {$Content:Click_Function}" >
     <p class="listVerticalAlign">.</p>
-    <p class="bulletContent wc-toc-item-content {$Content:Item_ContentClass} " style="color:{$Content:Item_Color};">
-        <span>{$Content:TableOfContents_Item_Text}</span></p>
-    <div class="default mediaBullet_select wc-media-bullet-select "></div>
+<label class="bulletContent wc-toc-item-content {$Content:Item_ContentClass}" for="default mediaBullet_select_{$Content:Item_Id}" 
+style="color:{$Content:Item_Color};">{$Content:TableOfContents_Item_Text}</label>
+    <div id="default mediaBullet_select_{$Content:Item_Id}" class="default mediaBullet_select wc-media-bullet-select "></div>
 </li>
 <!--ELEMENT_END:TableOfContents_Item-->
 
@@ -667,7 +668,7 @@
                 </li>
             </ul>
         </div>
-        <div class="buttonsContainer" tabindex="0">
+        <div class="buttonsContainer" >
 							
                <a href="javascript:void(0);" class="continueButton wc-rectangular-button" id="helpDone"
          onclick="wc.interface.elements.help.close();"
@@ -694,7 +695,7 @@
             <div class="dummy-scroll-wrapper lightShadow">
                 <div id="policyContents_Text" class="">{$Content:Policy_Text}</div>
             </div>
-            <div class="buttonsContainer" tabindex="0">
+            <div class="buttonsContainer" >
                                <a href="javascript:void(0);" class="continueButton wc-rectangular-button" id="policyDone"
          onclick="wc.interface.elements.policy.close();"
           onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
@@ -768,10 +769,10 @@
                     </div>
                 </div>
             </div>
-            <div class="buttonsContainer" tabindex="0" >
+            <div class="buttonsContainer" >
       
                  	       
-                <div id="Button_Close" class="continueButton wc-rectangular-button "  tabindex="0">
+                <div id="Button_Close" class="continueButton wc-rectangular-button "  tabindex="0" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)   document.getElementById('Button_Close').click();" > 
                     {$Resource:Continue}</div> 
             </div>
         </div>
@@ -805,10 +806,14 @@
             </div>
         </div>
         <div class="acknowledgmentButtons">
-            <div id="Acknowledgment_Agree" class="continueButton firstButton wc-rectangular-button " onclick="wc.interface.actionHandler.acknowledgmentAgreeButton();">{$Resource:AckAgree}</div>
-            <div id="Acknowledgment_Refusal" class="continueButton wc-rectangular-button " onclick="wc.interface.actionHandler.acknowledgmentRefusalButton();">{$Resource:AckNotAgree}</div>
-            <div id="Acknowledgment_Previous" class="continueButton firstButton wc-rectangular-button " onclick="wc.interface.actionHandler.acknowledgmentPreviousButton();" style="display:none;">{$Resource:Previous}</div>
-            <div id="Acknowledgment_Confirm" class="continueButton wc-rectangular-button " onclick="wc.interface.actionHandler.acknowledgmentConfirmButton();" style="display:none;">{$Resource:Exit}</div>
+            <div id="Acknowledgment_Agree" class="continueButton firstButton wc-rectangular-button"   tabindex="0"
+             onclick="wc.interface.actionHandler.acknowledgmentAgreeButton();"  onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.acknowledgmentAgreeButton();">{$Resource:AckAgree}</div>
+            <div id="Acknowledgment_Refusal" class="continueButton wc-rectangular-button"   tabindex="0" 
+            onclick="wc.interface.actionHandler.acknowledgmentRefusalButton();"  onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.acknowledgmentRefusalButton();">{$Resource:AckNotAgree}</div>
+            <div id="Acknowledgment_Previous" class="continueButton firstButton wc-rectangular-button"   tabindex="0"
+             onclick="wc.interface.actionHandler.acknowledgmentPreviousButton();" style="display:none;"  onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.acknowledgmentPreviousButton();">{$Resource:Previous}</div>
+            <div id="Acknowledgment_Confirm" class="continueButton wc-rectangular-button"   tabindex="0"
+             onclick="wc.interface.actionHandler.acknowledgmentConfirmButton();" style="display:none;"  onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.acknowledgmentConfirmButton();">{$Resource:Exit}</div>
         </div>
     </div>
 </div>
@@ -834,7 +839,8 @@
             </div>
         </div>
         <div class="ChooseGameButtonWrapper">
-            <div id="ChooseGameButton" class="continueButton disabledButton wc-rectangular-button " onclick="wc.interface.elements.quiz.executeSelectedOption();">{$Resource:Continue}</div>
+            <div id="ChooseGameButton"  tabindex="0" class="continueButton disabledButton wc-rectangular-button"
+             onclick="wc.interface.elements.quiz.executeSelectedOption();"  onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.elements.quiz.executeSelectedOption();">{$Resource:Continue}</div>
         </div>
     </div>
     <!--ELEMENT_END:Game_Choice-->
@@ -848,8 +854,10 @@
             <div class="gameRestartBody">
                 <div id="GameRestart_Body_Content" class="gameRestartText courseContent" tabindex="0">{$Resource:GameRestart_Body}</div>
                 <div class="gameRestartButtons">
-                    <div id="GameRestart_Previous" class="closeButton firstButton continueButton wc-rectangular-button " onclick="wc.interface.actionHandler.displayGameChoice();">{$Resource:GameRestart_TakeQuiz}</div>
-                    <div id="GameRestart_Confirm" class="closeButton continueButton wc-rectangular-button " onclick="top.close();">{$Resource:Exit}</div>
+                    <div id="GameRestart_Previous" class="closeButton firstButton continueButton wc-rectangular-button"  tabindex="0"
+                     onclick="wc.interface.actionHandler.displayGameChoice();"  onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.displayGameChoice();">{$Resource:GameRestart_TakeQuiz}</div>
+                    <div id="GameRestart_Confirm" class="closeButton continueButton wc-rectangular-button "  tabindex="0" 
+                    onclick="top.close();"  onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) top.close();">{$Resource:Exit}</div>
                 </div>
             </div>
         </div>
@@ -857,7 +865,8 @@
     <!--ELEMENT_END:GameRestart-->
 
     <!--ELEMENT_START:Game_ChoiceItem-->
-    <li id="mediaBullet_{$Content:GameItem_Id}" class="active hidden wc-popquiz-question-wrapper " onclick="wc.interface.elements.quiz.selectAnswer({$Content:GameItem_Id}, -1);">
+    <li id="mediaBullet_{$Content:GameItem_Id}" class="active hidden wc-popquiz-question-wrapper "  tabindex="0"
+      onclick="wc.interface.elements.quiz.selectAnswer({$Content:GameItem_Id}, -1);"  onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.elements.quiz.selectAnswer({$Content:GameItem_Id}, -1);">
         <p class="listVerticalAlign">
             .</p>
         <p class="bulletContent wc-popquiz-question-content ">

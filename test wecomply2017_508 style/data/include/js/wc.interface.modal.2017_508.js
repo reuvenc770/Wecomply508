@@ -1832,18 +1832,7 @@ wc.interface.displayLayer = function(elementType, data, onDoneCallback) {
     });
 
 
-    $(document).attr("title", data.heading);
-
-       if (wc.interface.options.is508) {
-            setTimeout(function() {
-                var element = $("#LayerElementContainer")
-                    .find("*[tabindex]")
-                    .filter(":visible")
-                    .filter(":first");
-                if ($(element)) $(element).focus();
-            }, 600);
-        }
-        
+   
 
     var buttonsToDisable =
         wc.interface.navigation.buttonTypes.All ^
@@ -3599,7 +3588,7 @@ wc.interface.displayLayer = function(elementType, data, onDoneCallback) {
         }
 
         wc.interface.actionHandler.scrollToTop();
-        var closeButton = document.getElementById("Button_Close");
+        var closeButton = document.getElementById("Button_Close2");
         if (typeof closeButton != "undefined" && closeButton != null) {
             closeButton.onclick = function() {
                 wc.mediaPlayer.stopCurrentActiveMedia();
@@ -4068,6 +4057,19 @@ wc.interface.displayLayer = function(elementType, data, onDoneCallback) {
             wc.interface.elementTypes.gameRestart;
     }
 
+   
+
+       if (wc.interface.options.is508) {
+            setTimeout(function() {
+                var element = $("#LayerElementContainer")
+                    .find("*[tabindex]")
+                    .filter(":visible")
+                    .filter(":first");
+                if ($(element)) $(element).focus();
+            }, 600);
+        }
+        
+
     wc.interface.currentElement.displayType = wc.interface.displayTypes.Layer;
 
     wc.interface.navigation.updateButtons(
@@ -4321,7 +4323,16 @@ wc.interface.displaySecondLayer = function(
             wc.interface.handlers.onAfter_DisplaySecondLayer, { elementType: elementType }
         );
     }
-
+       if (wc.interface.options.is508) {
+            setTimeout(function() {
+                var element = $("#LayerElementContainer")
+                    .find("*[tabindex]")
+                    .filter(":visible")
+                    .filter(":first");
+                if ($(element)) $(element).focus();
+            }, 600);
+        }
+        
     /* ######################################## */
 
     if (onDoneCallback && typeof onDoneCallback === "function") {
@@ -6858,6 +6869,15 @@ wc.interface.actionHandler = {
       wc.interface.resizeScrolls();
 
       wc.interface.elements.quiz.clearSelection();
+            if (wc.interface.options.is508) {
+            setTimeout(function() {
+                var element = $("#PopQuiz_Question_Container")
+                    .find("*[tabindex]")
+                    .filter(":visible")
+                    .filter(":first");
+                if ($(element)) $(element).focus();
+            }, 600);
+        }
     }
 
     if (isDefined(feedbackContainerElement)) {
@@ -6891,6 +6911,9 @@ wc.interface.actionHandler = {
       "popQuiz_Body_Feedback_Container"
     );
     if (isDefined(feedbackContainerElement))
+        {
+
+       
       /*if (wc.interface.options.pageChange.popupReplacementMethod == wc.interface.transitionOptions.slideDownUp) {
           //transition
           $(feedbackContainerElement).slideUp(600);
@@ -6903,8 +6926,19 @@ wc.interface.actionHandler = {
           }
           else */
       feedbackContainerElement.style.display = "none";
+              if (wc.interface.options.is508) {
+            setTimeout(function() {
+                var element = $("#PopQuiz_Content_Container")
+                    .find("*[tabindex]")
+                    .filter(":visible")
+                    .filter(":first");
+                if ($(element)) $(element).focus();
+            }, 600);
+        }
+        }
   },
   popQuiz_nextQuestion: function(questionIndex) {
+      console.log('index',questionIndex);
     wc.interface.elements.quiz.clearSelection();
     //if (wc.data.values.IsiPadFrame == 'True') {
     try {
@@ -7073,6 +7107,16 @@ wc.interface.actionHandler = {
 
     // apply iScroll
     wc.interface.applyScroll("#PopQuiz_Question_Container_Body_Questions");
+
+          if (wc.interface.options.is508) {
+            setTimeout(function() {
+                var element = $("#PopQuiz_Question_Container_Body_Questions")
+                    .find("*[tabindex]")
+                    .filter(":visible")
+                    .filter(":first");
+                if ($(element)) $(element).focus();
+            }, 600);
+        }
   },
   popQuiz_ContinueFromIntroduction: function(hasVideo) {
     try {
@@ -7476,6 +7520,15 @@ wc.interface.actionHandler = {
       //console.log("exception in popquiz_continuefromquestion " + exception);
     }
     wc.interface.applyScroll("#PopQuiz_Content_Container");
+          if (wc.interface.options.is508) {
+            setTimeout(function() {
+                var element = $("#PopQuiz_Content_Container")
+                    .find("*[tabindex]")
+                    .filter(":visible")
+                    .filter(":first");
+                if ($(element)) $(element).focus();
+            }, 600);
+        }
     //
     //
     //popQuiz_ContinueFromIntroduction
