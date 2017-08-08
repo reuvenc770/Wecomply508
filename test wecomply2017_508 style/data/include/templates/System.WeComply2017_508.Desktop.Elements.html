@@ -27,11 +27,14 @@
             <div id="Chapter_Header_Content" class="chapterHeading wc-page-title wc-left-horiz-top-bar ">
                 <h1 tabindex="0">{$Content:Chapter_Header}</h1>
             </div>
-            <div tabindex="0" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();"><a href="javascript:void(0);" style="text-decoration: none;" class="muteButton" id="muteButton" onclick="wc.interface.actionHandler.toggleMuteAll();" tabindex="0" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();">{$Content:MuteButton}</a></div>
-            <ul class="studentDetails chapterLeftPadding" tabindex="0">
-                <li><span class="label">{$Resource:To}</span><span class="fieldContent">{$Content:firstName} {$Content:lastName}</span></li>
-                <li><span class="label">{$Resource:Date}</span><span class="fieldContent">{$Content:currentDate}</span></li>
-                <li><span class="label">{$Resource:Re}</span><span class="fieldContent">{$Value:CourseName}</span></li>
+            <div  onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();">
+                <a href="javascript:void(0);" style="text-decoration: none;" class="muteButton" id="muteButton" 
+                onclick="wc.interface.actionHandler.toggleMuteAll();" tabindex="0"   aria-live="assertive"
+                onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();">{$Content:MuteButton}</a></div>
+            <ul class="studentDetails chapterLeftPadding">
+                <li tabindex="0"><span class="label">{$Resource:To}</span><span class="fieldContent">{$Content:firstName} {$Content:lastName}</span></li>
+                <li tabindex="0"><span class="label">{$Resource:Date}</span><span class="fieldContent">{$Content:currentDate}</span></li>
+                <li tabindex="0"><span class="label">{$Resource:Re}</span><span class="fieldContent">{$Value:CourseName}</span></li>
             </ul>
             <div id="Chapter_Video_Container" class="memorandumVideoContainer chapterLeftPadding">
             </div>
@@ -572,7 +575,7 @@
     <div class="chapterHeading wc-page-title wc-horiz-top-bar ">
         <h1 tabindex="0">{$Resource:TableOfContents}</h1>
     </div>
-    <div class="tableOfContentsItems lightShadow">
+    <div class="tableOfContentsItems lightShadow"  tabindex="-1">
         <div class="dummy-scroll-wrapper">
             <ol id="QuizQuestion_Choices_Content" class="quizChoices">
                 {$Content:TableOfContents_Items}

@@ -8002,6 +8002,13 @@ wc.interface.actionHandler = {
         }
       //change the link
       document.getElementById("muteButton").innerHTML = "Text Only Mode";
+              setTimeout(function() {
+                var element = $("#muteButton")
+                    .find("*[tabindex]")
+                    .filter(":visible")
+                    .filter(":first");
+                if ($(element)) $(element).focus();
+            }, 600);
     } else {
       wc.interface.options.muteAll = true;
 
