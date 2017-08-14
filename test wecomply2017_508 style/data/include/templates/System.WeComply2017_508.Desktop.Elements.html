@@ -573,11 +573,11 @@
 <!--ELEMENT_START:TableOfContents-->
 <div id="TOC_Element" class="standardChapter wc-toc-content-wrapper courseBodyGradient">
     <div class="chapterHeading wc-page-title wc-horiz-top-bar ">
-        <h1 tabindex="0">{$Resource:TableOfContents}</h1>
+        <h2 tabindex="0"  id="tableheader">{$Resource:TableOfContents}</h2>
     </div>
     <div class="tableOfContentsItems lightShadow"  tabindex="-1">
         <div class="dummy-scroll-wrapper">
-            <ol id="QuizQuestion_Choices_Content" class="quizChoices">
+            <ol id="QuizQuestion_Choices_Content" class="quizChoices" tabindex="0"  aria-label="Table Of Contents" role"listbox" aria-labelledby="tableheader" >
                 {$Content:TableOfContents_Items}
             </ol>
         </div>
@@ -610,10 +610,10 @@
 <!--ELEMENT_END:TableOfContents-->
 
 <!--ELEMENT_START:TableOfContents_Item-->
-<li id="mediaBullet_toc_{$Content:Item_Id}" class="active hidden wc-toc-item-wrapper wc-toc-item-bullet "   tabindex="0" onclick="{$Content:Click_Function}" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+<li id="mediaBullet_toc_{$Content:Item_Id}" class="active hidden wc-toc-item-wrapper wc-toc-item-bullet " role="checkbox" aria-checked="false"  aria-live="assertive"   tabindex="0" onclick="{$Content:Click_Function}" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
            {$Content:Click_Function}" >
-    <p class="listVerticalAlign">.</p>
-<label class="bulletContent wc-toc-item-content {$Content:Item_ContentClass}" for="default mediaBullet_select_{$Content:Item_Id}" 
+    <p class="listVerticalAlign"></p>
+<label class="bulletContent wc-toc-item-content {$Content:Item_ContentClass}" id="labelmediaBullet_toc_{$Content:Item_Id}" for="default mediaBullet_select_{$Content:Item_Id}" 
 style="color:{$Content:Item_Color};">{$Content:TableOfContents_Item_Text}</label>
     <div id="default mediaBullet_select_{$Content:Item_Id}" class="default mediaBullet_select wc-media-bullet-select "></div>
 </li>

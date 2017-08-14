@@ -343,11 +343,36 @@ wc.init = function(data, dataFilePath) {
             //console.log('calling TOC display');
             wc.interface.elements.tableOfContents.display({ all: true });
         }
+
+           //Control Sift n go to next page 
+         if (ev.ctrlKey && ev.shiftKey && ev.keyCode == 78) {
+            wc.interface.actionHandler.nextButton();
+        }
+
+        		
+  //Control Sift b go to last page 
+         if (ev.ctrlKey && ev.shiftKey && ev.keyCode == 66) {
+           wc.interface.actionHandler.previousButton();
+        }
+        
     });
 
     if (wc.interface.options.is508) {
         wc.interface.doBullets = false;
     }
+
+     $("[role=listbox]").on("keydown", 'li', function (e) {            
+ var $this = $(this);
+    if (e.keyCode === 40) {        
+        $this.next().focus();
+      return false;
+    } else if (e.keyCode === 38) {        
+        $this.prev().focus();
+        return false;
+    }
+                     
+       
+    });  
 };
 
 wc.interface.getResource = function(key) {
@@ -3029,7 +3054,7 @@ wc.interface.displayLayer = function(elementType, data, onDoneCallback) {
         templateHtml = templateHtml.replaceTag(
             "Content",
             "Chapter_Header",
-            
+            templateHtml
         );
            $(document).attr("title", wc.data.jsonData.chapters[wc.interface.currentElement.chapterIndex]
             .heading || "MultiChoise");
@@ -8492,6 +8517,7 @@ wc.interface.storage = {
 wc.interface.generalDisplayMethods = {
     selectListItem: function(name, choiceIndex, doNotClearSelection) {
         var li = document.getElementById(name + choiceIndex.toString());
+       
         //if doNotClearSelection is comming with false value or is not defined, we have to uncheck all choices
         if (!isDefined(doNotClearSelection) || doNotClearSelection == false) {
             var ul = li.parentNode;
@@ -8500,6 +8526,7 @@ wc.interface.generalDisplayMethods = {
                 if (isDefined(elementLi.className)) {
                     elementLi.className = elementLi.className.replace("hidden", "");
                     elementLi.className += "hidden";
+                    elementLi.setAttribute("aria-checked", false);
                     //remove 'selected' class from all li, first div child (=uncheck mediaBullet_select elements)
                     if (
                         $(elementLi).find("div").length > 0 &&
@@ -8516,6 +8543,7 @@ wc.interface.generalDisplayMethods = {
             }
         }
         li.className = li.className.replace("hidden", "");
+         li.setAttribute("aria-checked", true);
         if (!isDefined(doNotClearSelection) || doNotClearSelection == false) {
             //add 'selected' class to current li,first div child (=check mediaBullet_select element)
             if (
@@ -9553,3 +9581,8 @@ var innerWrap = function(el) {
 var removeWrap = function(el) {
     el.replaceWith(el.contents());
 };
+
+
+
+    
+      
