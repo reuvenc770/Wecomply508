@@ -335,45 +335,74 @@ wc.init = function(data, dataFilePath) {
         }
     }
 
+  
+
     // le whatev
     $(window).on("keydown", function(ev) {
+      var $this = $(ev.target);
+      var code = ev.charCode || ev.keyCode;
+      var role = $this.attr("role");
+
+
+
+      if (ev.ctrlKey && ev.shiftKey && ev.keyCode === 32) {
+        // show the chapters modal.
+        //console.log('calling TOC display');
         if (wc.interface.elements.tableOfContents.isOpened) return;
-        if (ev.ctrlKey && ev.shiftKey && ev.keyCode == 32) {
-            // show the chapters modal.
-            //console.log('calling TOC display');
-            wc.interface.elements.tableOfContents.display({ all: true });
-        }
+        wc.interface.elements.tableOfContents.display({ all: true });
+        return;
+      }
 
-           //Control Sift n go to next page 
-         if (ev.ctrlKey && ev.shiftKey && ev.keyCode == 78) {
-            wc.interface.actionHandler.nextButton();
-        }
+      //Control Sift n go to next page
+      if (ev.ctrlKey && ev.shiftKey && ev.keyCode === 78) {
+        wc.interface.actionHandler.nextButton();
+        return;
+      }
 
-        		
-  //Control Sift b go to last page 
-         if (ev.ctrlKey && ev.shiftKey && ev.keyCode == 66) {
-           wc.interface.actionHandler.previousButton();
+      //Control Sift b go to last page
+      if (ev.ctrlKey && ev.shiftKey && ev.keyCode === 66) {
+        wc.interface.actionHandler.previousButton();
+        return;
+      }
+
+      /*
+            // For some browsers, `attr` is undefined; for others,
+      // `attr` is false.  Check for both.
+      if (typeof role !== typeof undefined && role !== false) {
+        //console.log('role',role);
+        switch (role) {
+          case "checkbox":
+            if (code === 13 || code === 32) {
+                $this.focus();
+              $this.click();
+
+            }
+            //console.log('checkbox',role);
+            break;
+          case "button":
+            if (code === 13 || code === 32) {
+                   $this.focus();
+              $this.click();
+            }
+            //console.log('button',role);
+            break;
+  
+          default:
+            break;
         }
-        
+      }*/
     });
 
     if (wc.interface.options.is508) {
         wc.interface.doBullets = false;
     }
 
-     $("[role=listbox]").on("keydown", 'li', function (e) {            
- var $this = $(this);
-    if (e.keyCode === 40) {        
-        $this.next().focus();
-      return false;
-    } else if (e.keyCode === 38) {        
-        $this.prev().focus();
-        return false;
-    }
-                     
-       
-    });  
+		
+
+
+
 };
+
 
 wc.interface.getResource = function(key) {
     if (typeof wc.data.resources != "undefined" && wc.data.resources != null) {
@@ -4202,6 +4231,7 @@ wc.interface.displaySecondLayer = function(
             var clickFunction = "";
             var itemColor = "";
             var itemContentClass = "";
+             var itemAriaDisabled = "";
             if (
                 i <= wc.interface.currentElement.chapterIndex ||
                 (wc.interface.isAdmin && i <= 5) ||
@@ -4213,6 +4243,7 @@ wc.interface.displaySecondLayer = function(
                     "wc.interface.elements.tableOfContents.select(" + i + ");";
                 itemContentClass = "completed ";
                 itemColor = "black";
+                itemAriaDisabled ="false";
                 if (wc.interface.options.is508)
                     tmpItemTemplate = tmpItemTemplate.replaceTag(
                         "Content",
@@ -4222,6 +4253,7 @@ wc.interface.displaySecondLayer = function(
             } else {
                 clickFunction = "return false;";
                 itemColor = "#C4C4C4";
+                 itemAriaDisabled ="true";
                 if (wc.interface.options.is508)
                     tmpItemTemplate = tmpItemTemplate.replaceTag(
                         "Content",
@@ -4243,6 +4275,14 @@ wc.interface.displaySecondLayer = function(
                 "Item_ContentClass",
                 itemContentClass
             );
+
+            tmpItemTemplate = tmpItemTemplate.replaceTag(
+                "Content",
+                "Aria_Disabled",
+                itemAriaDisabled
+            );
+
+
             allItemsTemplate += tmpItemTemplate;
         }
         templateHtml = templateHtml.replaceTag(
@@ -4943,10 +4983,19 @@ wc.interface.elements = {
             var gotoChapterButton = document.getElementById("tableOfContentsDone");
             var name = gotoChapterButton.className;
             if (name.indexOf("continueButton") > -1)
-                gotoChapterButton.className = name.replace("disabled", "");
+                {
+                    gotoChapterButton.className = name.replace("disabled", "");
+                     gotoChapterButton.setAttribute("aria-disabled", false);
+                     
+                }
+                
             else
-                gotoChapterButton.style.backgroundImage =
+                {
+                       gotoChapterButton.style.backgroundImage =
                 "url('/wc2/images/training/iPadFrame/buletin_blue_button.png')";
+                 gotoChapterButton.setAttribute("aria-disabled", true);
+                }
+             
         },
         executeSelectedOption: function() {
             if (this.selectedOption != -1) {
@@ -9581,7 +9630,6 @@ var innerWrap = function(el) {
 var removeWrap = function(el) {
     el.replaceWith(el.contents());
 };
-
 
 
     

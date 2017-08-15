@@ -1182,5 +1182,11 @@ a:focus {
     box-shadow: none;
 }
 
+.onfocus {
+    position: absolute;
+    left: -100em;
+    top: -10em;
+    overflow: hidden;
+}
 
 /*END 508 addtions */
