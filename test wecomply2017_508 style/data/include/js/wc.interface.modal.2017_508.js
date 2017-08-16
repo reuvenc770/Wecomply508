@@ -4168,6 +4168,18 @@ wc.interface.displaySecondLayer = function(
         "SecondLayerElementContainer"
     );
 
+    	 
+	      if (wc.interface.options.is508) {
+            setTimeout(function() {
+                var element = $("#SecondLayerElementContainer")
+                    .find("*[tabindex]")
+                    .filter(":visible")
+                    .filter(":first");
+                if ($(element)) $(element).focus();
+            }, 600);
+        } /**/
+		
+
     var templateHtml = "";
     if (elementType == wc.interface.elementTypes.help) {
         // load the html for the help section. Apply all the customization

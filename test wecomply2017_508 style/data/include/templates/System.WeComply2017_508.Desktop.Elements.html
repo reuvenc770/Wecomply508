@@ -522,7 +522,7 @@
 <!--ELEMENT_START:QuizQuestion_MultipleChoiceOneAnswer-->
 <li style="" id="mediaBullet_{$Content:QuizQuestion_MultipleChoiceOneAnswer_Id}" 
 role="checkbox" 
-class="active hidden wc-popquiz-question-wrapper " onclick="wc.interface.elements.quiz.selectAnswer({$Content:QuizQuestion_MultipleChoiceOneAnswer_Id}, {$Content:elementType});"
+class="active hidden wc-popquiz-question-wrapper "   role="checkbox"  aria-checked="false"  aria-live="assertive"   onclick="wc.interface.elements.quiz.selectAnswer({$Content:QuizQuestion_MultipleChoiceOneAnswer_Id}, {$Content:elementType});"
                     onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
            wc.interface.elements.quiz.selectAnswer({$Content:QuizQuestion_MultipleChoiceOneAnswer_Id}, {$Content:elementType});" tabindex="0"
 >
@@ -639,10 +639,12 @@ class="active hidden wc-popquiz-question-wrapper " onclick="wc.interface.element
 <!--ELEMENT_END:TableOfContents-->
 
 <!--ELEMENT_START:TableOfContents_Item-->
-<li id="mediaBullet_toc_{$Content:Item_Id}" class="active hidden wc-toc-item-wrapper wc-toc-item-bullet " role="checkbox" aria-checked="false"  aria-live="assertive"   tabindex="0" onclick="{$Content:Click_Function}" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
-           {$Content:Click_Function}" >
+<li id="mediaBullet_toc_{$Content:Item_Id}" class="active hidden wc-toc-item-wrapper wc-toc-item-bullet " role="checkbox" aria-checked="false"  aria-live="assertive"  aria-disabled="{$Content:Aria_Disabled}" 
+  tabindex="0" onclick="{$Content:Click_Function}" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13){$Content:Click_Function}"
+   aria-label="{$Content:TableOfContents_Item_Text}"
+            >
     <p class="listVerticalAlign"></p>
-<label class="bulletContent wc-toc-item-content {$Content:Item_ContentClass}" id="labelmediaBullet_toc_{$Content:Item_Id}" for="default mediaBullet_select_{$Content:Item_Id}" 
+<label class="bulletContent wc-toc-item-content {$Content:Item_ContentClass}" id="labelmediaBullet_toc_{$Content:Item_Id}" for="mediaBullet_toc_{$Content:Item_Id}" 
 style="color:{$Content:Item_Color};">{$Content:TableOfContents_Item_Text}</label>
     <div id="default mediaBullet_select_{$Content:Item_Id}" class="default mediaBullet_select wc-media-bullet-select "></div>
 </li>
