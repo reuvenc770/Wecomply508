@@ -14,14 +14,14 @@
 					{$Content:Quiz_Illustration}
 				</div>
 				<div id="Quiz_Body_Content" class="questionBody courseContent"   tabindex="0">{$Content:Quiz_Body}</div>
-				<ul id="Quiz_Choices_Content" class="quizChoices"   tabindex="0">
+				<ul id="Quiz_Choices_Content" class="quizChoices"   >
 					{$Content:Quiz_Choices}
 				</ul>
 			</div>
         </div>
 		<div class="buttonsContainer">
 			<div id="Button_Continue"  tabindex="0" class="continueButton disabled"
-			 onclick="wc.interface.actionHandler.game_answerQuestion();"
+			 onclick="wc.interface.actionHandler.game_answerQuestion();"  role="button" 
 			    onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.game_answerQuestion();"
 			 >{$Content:ContinueResource}</div>	
 		</div>
@@ -34,7 +34,7 @@
 				<div id="Quiz_Body_Feedback_Text" class="courseContent" tabindex="0"></div>
                 
                 <div class="buttonsContainer">
-					<div id="Quiz_Body_Feedback_TryAgain"  class="continueButton"
+					<div id="Quiz_Body_Feedback_TryAgain"  class="continueButton"  role="button" 
 					 onclick="wc.interface.actionHandler.game_closeFeedbackElement();" tabindex="0" 
 				 onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.game_closeFeedbackElement();"	  
 					 >{$Resource:PleaseTryAgain}</div>
@@ -42,7 +42,7 @@
             </div>
 			<div id="Quiz_Body_Feedback_ContinueButton" class="buttonsContainer" >
 				<div id="continueBtn" class="continueButton"  tabindex="0"
-				onclick="wc.interface.actionHandler.game_gotoNextQuestion()"
+				onclick="wc.interface.actionHandler.game_gotoNextQuestion()"  role="button" 
 			onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.game_gotoNextQuestion();"	  	
 				>{$Content:ContinueResource}</div>				
 			</div>
@@ -52,13 +52,13 @@
 <!--ELEMENT_END:Quiz-->
 
 <!--ELEMENT_START:Quiz_ChoiceItem-->
-<li id="mediaBullet_{$Content:Quiz_ChoiceItem_Id}"  tabindex="0"  
+<li id="mediaBullet_{$Content:Quiz_ChoiceItem_Id}"  tabindex="0"      role="checkbox"  aria-checked="false"  aria-live="assertive"   
 class="mediaBullet active wc-popquiz-question-wrapper wc-popquiz-question-bullet hidden " 
 onclick="wc.interface.elements.quiz.selectAnswer({$Content:Quiz_ChoiceItem_Id}, {$Content:gameIndex});"
 onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.elements.quiz.selectAnswer({$Content:Quiz_ChoiceItem_Id}, {$Content:gameIndex});"
 > 
 	<p class="listVerticalAlign">
-		.</p>
+		</p>
 	<p class="bulletContent"  >{$Content:Quiz_ChoiceItem_Body}</p>
 	<span class="mediaBullet_select_left_border "></span>
 	<div class="default mediaBullet_select wc-media-bullet-select "></div>
@@ -69,7 +69,7 @@ onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 
 	<h3 class="gameTitle">{$Content:Game_Intro_Name}</h3>
 	<div class="gameIntroText courseContent" tabindex="0"  >{$Content:Game_Intro_WelcomeText}</div>			
 	<div class="buttonsContainer">
-		<div id="startQuizButton" tabindex="0"  
+		<div id="startQuizButton" tabindex="0"   role="button" 
 		 onclick="wc.interface.actionHandler.displayGame({$Content:gameIndex});"
 		   onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.displayGame({$Content:gameIndex});"
 		   class="continueButton">{$Content:Game_Intro_StartQuizText}</div>

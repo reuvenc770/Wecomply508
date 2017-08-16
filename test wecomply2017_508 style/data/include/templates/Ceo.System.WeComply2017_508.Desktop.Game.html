@@ -28,13 +28,13 @@
 		<div class="dummy-scroll-wrapper" style="height: 290px;overflow-y: auto;">
 			<div id="Quiz_Illustration_Content" class="quizIllustrationCeo" style="display: none;">{$Content:Quiz_Illustration}</div>
 			<div id="Quiz_Body_Content" class="questionBodyCeo" style="width: 511px;">{$Content:Quiz_Body}</div>
-				<ul class="quizChoices" id="Quiz_Choices_Content"  tabindex="0">
+				<ul class="quizChoices" id="Quiz_Choices_Content"  >
 					{$Content:Quiz_Choices}
 				</ul>	
         </div>
 		<div class="buttonsContainer">		
 			<div id="Button_Continue"  tabindex="0" class="closeButton continueButton disabled wc-rectangular-button "
-			 onclick="wc.interface.actionHandler.game_answerQuestion();"
+			 onclick="wc.interface.actionHandler.game_answerQuestion();"  role="button" 
 			    onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.game_answerQuestion();"
 			 >{$Content:ContinueResource}</div>	
         </div>
@@ -48,13 +48,13 @@
 			</div>	
 				<div class="buttonsContainer">	
 			<div id="Quiz_Body_Feedback_TryAgain"  tabindex="0" class="closeButton continueButton wc-rectangular-button" 
-			onclick="wc.interface.actionHandler.game_closeFeedbackElement();"
+			onclick="wc.interface.actionHandler.game_closeFeedbackElement();"  role="button" 
 			  onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.game_closeFeedbackElement();"
 			></div>	
 			<div id="Quiz_Body_Feedback_ContinueButton"  tabindex="0" class="continueButton_container buttonsContainer" id="Continue" 
 			style="display: none; ">
-				<div id="continueBtn"   tabindex="0"class="closeButton continueButton wc-rectangular-button"
-				 onclick="wc.interface.actionHandler.game_gotoNextQuestion()"
+				<div id="continueBtn"   tabindex="0" class="closeButton continueButton wc-rectangular-button"
+				 onclick="wc.interface.actionHandler.game_gotoNextQuestion()"  role="button" 
 				    onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.game_gotoNextQuestion();"
 				 name="continueBtn">{$Content:ContinueResource}</div>
 				</div>
@@ -66,7 +66,7 @@
 
 <!--ELEMENT_START:Quiz_ChoiceItem-->
 <li id="mediaBullet_{$Content:Quiz_ChoiceItem_Id}"
-	class="mediaBullet active wc-popquiz-question-wrapper hidden "  tabindex="0"
+	class="mediaBullet active wc-popquiz-question-wrapper hidden "  tabindex="0"     role="checkbox"  aria-checked="false"  aria-live="assertive"   
 	 onclick="wc.interface.elements.quiz.selectAnswer({$Content:Quiz_ChoiceItem_Id}, {$Content:gameIndex});"
 	  onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.elements.quiz.selectAnswer({$Content:Quiz_ChoiceItem_Id}, {$Content:gameIndex});"
 	 >
@@ -89,7 +89,7 @@
 		<div class="buttonsContainer">	
 			<div onclick="wc.interface.actionHandler.displayGame({$Content:gameIndex});" 
 			onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.displayGame({$Content:gameIndex});"
-			tabindex="0"
+			tabindex="0"  role="button" 
 			 class="closeButton continueButton wc-rectangular-button">{$Content:Game_Intro_StartQuizText}</div>
 		</div>
 	</div>

@@ -27,7 +27,7 @@
             <div id="Chapter_Header_Content" class="chapterHeading wc-page-title wc-left-horiz-top-bar ">
                 <h1 tabindex="0">{$Content:Chapter_Header}</h1>
             </div>
-            <div  role="button"  onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();">
+            <div  >
                 <a href="javascript:void(0);" style="text-decoration: none;" class="muteButton" id="muteButton"  role="button" 
                 onclick="wc.interface.actionHandler.toggleMuteAll();" tabindex="0"   aria-live="assertive"
                 onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();">{$Content:MuteButton}</a></div>
@@ -61,7 +61,7 @@
     <div class="smallFrame wc-bookmark-content-wrapper lightShadow ">
         <form name="LMSForm">
             <div id="bookmark_Container" class="container wc-bookmark-content ">
-                <div tabindex="0"  role="button" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();"><a href="javascript:void(0);" style="text-decoration: none;" class="muteButton" id="muteButton" role="button"  onclick="wc.interface.actionHandler.toggleMuteAll();" tabindex="0" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();">{$Content:MuteButton}</a></div>
+                <div ><a href="javascript:void(0);" style="text-decoration: none;" class="muteButton" id="muteButton" role="button"  onclick="wc.interface.actionHandler.toggleMuteAll();" tabindex="0" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();">{$Content:MuteButton}</a></div>
 
                 <p class="text" tabindex="0">
                     {$Content:Bookmark_Question}</p>
@@ -117,7 +117,7 @@
             <div id="Chapter_Header_Content" class="chapterHeading wc-page-title wc-left-horiz-top-bar ">
                 <h1 tabindex="0">{$Content:Chapter_Header}</h1>
             </div>
-            <div tabindex="0" role="button"  onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();"><a href="javascript:void(0);"  role="button" style="text-decoration: none;" class="muteButton" id="muteButton" onclick="wc.interface.actionHandler.toggleMuteAll();" tabindex="0" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();">{$Content:MuteButton}</a></div>
+            <div ><a href="javascript:void(0);"  role="button" style="text-decoration: none;" class="muteButton" id="muteButton" onclick="wc.interface.actionHandler.toggleMuteAll();" tabindex="0" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();">{$Content:MuteButton}</a></div>
 
             <div id="Chapter_Video_Container">
             </div>
@@ -153,7 +153,9 @@
             <div id="Chapter_Header_Content" class="chapterHeading wc-page-title wc-left-horiz-top-bar ">
                 <h1 tabindex="0">{$Content:Chapter_Header}</h1>
             </div>
-            <div tabindex="0"  role="button" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();"><a href="javascript:void(0);" style="text-decoration: none;"  role="button" class="muteButton" id="muteButton" onclick="wc.interface.actionHandler.toggleMuteAll();" tabindex="0" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();">{$Content:MuteButton}</a></div>
+            <div  ><a href="javascript:void(0);" style="text-decoration: none;"  role="button" class="muteButton" 
+                id="muteButton" onclick="wc.interface.actionHandler.toggleMuteAll();" tabindex="0" 
+                onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();">{$Content:MuteButton}</a></div>
             <div id="Chapter_Discussion_Content" class="chapterDiscussionText courseContent " tabindex="0">
                 <div class="dummy-scroll-wrapper">
                     {$Content:Chapter_Discussion} {$Content:Chapter_Survey}
@@ -436,7 +438,14 @@
                        
                     </div>
 
-                    <div id="Button_Continue" class="continueButton disabled wc-rectangular-button " onclick="wc.interface.actionHandler.quizQuestion_MultipleChoiceOneAnswerSelected();">{$Resource:Continue}</div>
+                    <div id="Button_Continue" class="continueButton disabled wc-rectangular-button " 
+                    
+                    onclick="wc.interface.actionHandler.quizQuestion_MultipleChoiceOneAnswerSelected();"
+                    role="button" 
+          onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+          wc.interface.actionHandler.quizQuestion_MultipleChoiceOneAnswerSelected();" tabindex="0
+                    
+                    >{$Resource:Continue}</div>
                 </div>
             </div>
 
@@ -480,10 +489,17 @@
 						 </a>         
                             
                         		<!-- 
-                        <div id="Button_Back" class="continueButton" onclick="wc.interface.actionHandler.redisplayQuizQuestion();">
+                        <div id="Button_Back" class="continueButton" role="button"
+                         onclick="wc.interface.actionHandler.redisplayQuizQuestion();"
+                         onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+           wc.interface.actionHandler.redisplayQuizQuestion();" tabindex="0"
+                         >
                             {$Resource:Back}</div>
                     </div>
-                    <div id="QuizQuestion_Body_Feedback_TryAgain" class="continueButton wc-rectangular-button " onclick="wc.interface.actionHandler.quizQuestion_closeFeedbackElement();">
+                    <div id="QuizQuestion_Body_Feedback_TryAgain" class="continueButton wc-rectangular-button " role="button"
+                               onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+           wc.interface.actionHandler.quizQuestion_closeFeedbackElement();" tabindex="0"
+                     onclick="wc.interface.actionHandler.quizQuestion_closeFeedbackElement();">
                         {$Resource:PleaseTryAgain}</div>-->
                     <div id="quizQuestionButtons" tabindex="0">
                         {$Content:QuizQuestion_Buttons}</div>
@@ -495,13 +511,21 @@
 <!--ELEMENT_END:QuizQuestion-->
 <!--ELEMENT_START:QuizQuestion_MultiChoice-->
 <div id="QuizQuestion_MultiChoice_Element">
-    <input type="checkbox" onclick="wc.interface.actionHandler.quizQuestion_MultiChoiceSelected({$Content:QuizQuestion_MultiChoice_Id}, {$Content:elementType});" name="{$Content:QuizQuestion_MultiChoice_Name}" id="QuizQuestion_MultiChoice_{$Content:QuizQuestion_MultiChoice_Id}" />
+    <input type="checkbox" onclick="wc.interface.actionHandler.quizQuestion_MultiChoiceSelected({$Content:QuizQuestion_MultiChoice_Id}, {$Content:elementType});"
+                        onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+           wc.interface.actionHandler.quizQuestion_MultiChoiceSelected({$Content:QuizQuestion_MultiChoice_Id}, {$Content:elementType});" tabindex="0"
+    name="{$Content:QuizQuestion_MultiChoice_Name}" id="QuizQuestion_MultiChoice_{$Content:QuizQuestion_MultiChoice_Id}" />
     <label for="{$Content:QuizQuestion_MultiChoice_id}">
 		{$Content:QuizQuestion_MultiChoice_Label}</label>
 </div>
 <!--ELEMENT_END:QuizQuestion_MultiChoice-->
 <!--ELEMENT_START:QuizQuestion_MultipleChoiceOneAnswer-->
-<li style="" id="mediaBullet_{$Content:QuizQuestion_MultipleChoiceOneAnswer_Id}" class="active hidden wc-popquiz-question-wrapper " onclick="wc.interface.elements.quiz.selectAnswer({$Content:QuizQuestion_MultipleChoiceOneAnswer_Id}, {$Content:elementType});">
+<li style="" id="mediaBullet_{$Content:QuizQuestion_MultipleChoiceOneAnswer_Id}" 
+role="checkbox" 
+class="active hidden wc-popquiz-question-wrapper " onclick="wc.interface.elements.quiz.selectAnswer({$Content:QuizQuestion_MultipleChoiceOneAnswer_Id}, {$Content:elementType});"
+                    onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+           wc.interface.elements.quiz.selectAnswer({$Content:QuizQuestion_MultipleChoiceOneAnswer_Id}, {$Content:elementType});" tabindex="0"
+>
     <p class="listVerticalAlign">
         .</p>
     <div class="default mediaBullet_select wc-media-bullet-select "></div>
@@ -521,13 +545,18 @@
 
 <!--ELEMENT_START:Certificate-->
 <div id="Certificate_Element" class="standardChapter wc-certificate-content-wrapper ">
-    <div id="SendCertificate" style="display:none;"><a onclick="" href="javascript:void(0)">Send Certificate</a></div>
+    <div id="SendCertificate" style="display:none;"><a onclick=""    tabindex="0"  href="javascript:void(0)">Send Certificate</a></div>
     <table align="center" class="tableContainer" width="100%">
         <tr>
             <td align="center">
                 <div id="idPrintCertificate" class=""  tabindex="0">
                     <a id="SurveyAnswers" href="{$Content:SurveyUrl}" target="_new" style="display: inline;">{$Resource:ShowSurveyAnswers}</a>
-                    <a href="javascript:;" onclick="wc.interface.actionHandler.printCertificate()">{$Resource:PrintThisCertificate}</a>
+                    <a href="javascript:;"  role="button" 
+                    
+                                           onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+           wc.interface.actionHandler.printCertificate()" tabindex="0"
+
+                    onclick="wc.interface.actionHandler.printCertificate()">{$Resource:PrintThisCertificate}</a>
                 </div>
                 <table cellpadding="0" id="" width="100%" align="center" class="">
                     <tbody>
@@ -694,9 +723,9 @@ style="color:{$Content:Item_Color};">{$Content:TableOfContents_Item_Text}</label
         <div class="chapterHeading wc-page-title wc-horiz-top-bar ">
             <h1 tabindex="0">{$Resource:Policy}</h1>
         </div>
-        <div id="policyContents" class="policyContents wc-policy-content " tabindex="0">
+        <div id="policyContents" class="policyContents wc-policy-content ">
             <div class="dummy-scroll-wrapper lightShadow">
-                <div id="policyContents_Text" class="">{$Content:Policy_Text}</div>
+                <div id="policyContents_Text" class=""  tabindex="0">{$Content:Policy_Text}</div>
             </div>
             <div class="buttonsContainer" >
                                <a href="javascript:void(0);" class="continueButton wc-rectangular-button" id="policyDone"
@@ -933,16 +962,21 @@ style="color:{$Content:Item_Color};">{$Content:TableOfContents_Item_Text}</label
     <!--ELEMENT_END:Survey_TextInput-->
 
     <!--ELEMENT_START:Survey_MultipleChoiceOneAnswer-->
-    <li id="mediaBullet_{$Content:Survey_MultipleChoiceOneAnswer_Id}_{$Content:questionIndex}" class="active hidden wc-popquiz-question-wrapper " onclick="document.getElementById('Survey_MultipleChoiceOneAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceOneAnswer_id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('mediaBullet_{$Content:Survey_MultipleChoiceOneAnswer_Id}_', {$Content:questionIndex});wc.interface.actionHandler.survey_MultipleChoiceOneAnswerSelected({$Content:Survey_MultipleChoiceOneAnswer_Id}, {$Content:questionIndex});">
-        <input type="radio" style="display:none;" name="{$Content:Survey_MultipleChoiceOneAnswer_Name}" id="Survey_MultipleChoiceOneAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceOneAnswer_id}" />
+    <li id="mediaBullet_{$Content:Survey_MultipleChoiceOneAnswer_Id}_{$Content:questionIndex}" class="active hidden wc-popquiz-question-wrapper " 
+    onclick="document.getElementById('Survey_MultipleChoiceOneAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceOneAnswer_id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('mediaBullet_{$Content:Survey_MultipleChoiceOneAnswer_Id}_', {$Content:questionIndex});wc.interface.actionHandler.survey_MultipleChoiceOneAnswerSelected({$Content:Survey_MultipleChoiceOneAnswer_Id}, {$Content:questionIndex});">
+        <input type="radio" style="display:none;" name="{$Content:Survey_MultipleChoiceOneAnswer_Name}" 
+        id="Survey_MultipleChoiceOneAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceOneAnswer_id}" />
         <p class="bulletContentSurveyPivot wc-popquiz-question-content ">{$Content:Survey_MultipleChoiceOneAnswer_Body}</p>
         <div class="default mediaBullet_select wc-media-bullet-select "></div>
     </li>
     <!--ELEMENT_END:Survey_MultipleChoiceOneAnswer-->
 
     <!--ELEMENT_START:Survey_MultipleChoiceMultipleAnswer-->
-    <li id="multiple_mediaBullet_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceMultipleAnswer_id}" class="mediaBullet active hidden wc-popquiz-question-wrapper " onclick="document.getElementById('Survey_MultipleChoiceMultipleAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceMultipleAnswer_id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('multiple_mediaBullet_{$Content:questionIndex}_', {$Content:Survey_MultipleChoiceMultipleAnswer_id}, true);wc.interface.actionHandler.survey_MultipleChoiceMultipleAnswerSelected({$Content:Survey_MultipleChoiceMultipleAnswer_Id}, {$Content:questionIndex});">
-        <input type="checkbox" style="display:none;" name="{$Content:Survey_MultipleChoiceMultipleAnswer_Name}" id="Survey_MultipleChoiceMultipleAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceMultipleAnswer_id}" />
+    <li id="multiple_mediaBullet_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceMultipleAnswer_id}" 
+    class="mediaBullet active hidden wc-popquiz-question-wrapper "
+     onclick="document.getElementById('Survey_MultipleChoiceMultipleAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceMultipleAnswer_id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('multiple_mediaBullet_{$Content:questionIndex}_', {$Content:Survey_MultipleChoiceMultipleAnswer_id}, true);wc.interface.actionHandler.survey_MultipleChoiceMultipleAnswerSelected({$Content:Survey_MultipleChoiceMultipleAnswer_Id}, {$Content:questionIndex});">
+        <input type="checkbox" style="display:none;" name="{$Content:Survey_MultipleChoiceMultipleAnswer_Name}"
+         id="Survey_MultipleChoiceMultipleAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceMultipleAnswer_id}" />
         <p class="bulletContentSurveyPivot wc-popquiz-question-content ">{$Content:Survey_MultipleChoiceMultipleAnswer_Body}</p>
         <div title="Check Box" class="default mediaBullet_select_multiple wc-media-bullet-select "></div>
     </li>

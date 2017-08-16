@@ -165,7 +165,15 @@
 		}
 
         //wc.interface.options.is508 = true;
-  wc.interface.options.games.showMatchGame=false;
+//  wc.interface.options.games.showMatchGame=false;
+
+   wc.interface.options.games.showMatchGame=false;
+      wc.interface.options.muteAll = true;
+
+      wc.interface.doBullets = false;
+	  wc.interface.options.is508 = true;
+	  
+	  
 		//wc.mediaPlayer.audio.flashPlayerSrc = '{$Value:StaticHtmlPath}player_mp3_js.swf';
 		wc.mediaPlayer.audio.flashPlayerSrc = '{$Value:StaticHtmlPath}flowplayer-3.2.10.swf';
 		wc.mediaPlayer.video.flashPlayerSrc = '{$Value:StaticHtmlPath}flvplayer.swf';
@@ -261,7 +269,7 @@
 
 		<!-- Navigation -->
 		<a name="mainControls" tabindex="-1" id="mainControlslink"> </a>
-		<div tabindex="0" class="mainControls" aria-label=">Navigation Menu">
+		<div class="mainControls" aria-label=">Navigation Menu">
             <a tabindex="0" id="Button_Index"  role="button" href="javascript:void(0);" title="{$Resource:index}" onclick="wc.interface.elements.tableOfContents.display();" class="navigationButton disabled wc-navigation-button "></a>
             <a tabindex="0" id="Button_ResizeFont"  role="button" href="javascript:void(0);" title="{$Resource:font}" onclick="wc.interface.elements.resizeFont.resize();" class="navigationButton disabled wc-navigation-button "></a>
             <a tabindex="0" id="Button_Policy"  role="button" href="javascript:void(0);" onclick="wc.interface.elements.policy.display();"  title="policy"  class="navigationButton disabled borderRight wc-navigation-button "></a>
