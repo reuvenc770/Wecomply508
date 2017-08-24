@@ -161,7 +161,8 @@ wc.init = function(data, dataFilePath) {
         wc.lms.window = parent.lmswin;
 
         $("body").addClass(getLanguageCode(wc.data.jsonData.language));
-          $("body").attr("lang",getLanguageCode(wc.data.jsonData.language).substring(0,2));
+       
+        $("html").attr("lang",getLanguageCode(wc.data.jsonData.language).substring(0,2));
         fitText(".pageHeader .courseTitle", 0, $(".pageHeader").height());
 
         if (
