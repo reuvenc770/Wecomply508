@@ -4186,44 +4186,89 @@ wc.interface.displaySecondLayer = function(
         templateHtml = wc.data.templateElements.help;
         var helpStrings = wc.data.resources.helptextjsengine.split("<br/>");
         if (helpStrings.length == 9) {
-            templateHtml = templateHtml.replaceTag(
-                "Content",
-                "Help_Index",
-                helpStrings[0].replace(/\\"/g, '"')
-            );
-            templateHtml = templateHtml.replaceTag(
-                "Content",
-                "Help_Resize",
-                helpStrings[1].replace(/\\"/g, '"')
-            );
-            templateHtml = templateHtml
-                .replaceTag("Content", "Help_Policy", helpStrings[2])
-                .replace(/\\"/g, '"');
-            templateHtml = templateHtml.replaceTag(
-                "Content",
-                "Help_Previous",
-                helpStrings[4].replace(/\\"/g, '"')
-            );
-            templateHtml = templateHtml.replaceTag(
-                "Content",
-                "Help_Next",
-                helpStrings[5].replace(/\\"/g, '"')
-            );
-            templateHtml = templateHtml.replaceTag(
-                "Content",
-                "Help_Play",
-                helpStrings[6].replace(/\\"/g, '"')
-            );
-            templateHtml = templateHtml.replaceTag(
-                "Content",
-                "Help_FullText",
-                helpStrings[7].replace(/\\"/g, '"')
-            );
-            templateHtml = templateHtml.replaceTag(
-                "Content",
-                "Help_Bullets",
-                helpStrings[8].replace(/\\"/g, '"')
-            );
+
+            if (wc.interface.options.is508) {
+                templateHtml = templateHtml.replaceTag(
+                    "Content",
+                    "Help_Index",
+                    helpStrings[0].replace(/\\"/g, '"').replace('this button','Index button')
+                );
+                templateHtml = templateHtml.replaceTag(
+                    "Content",
+                    "Help_Resize",
+                    helpStrings[1].replace(/\\"/g, '"').replace('this button','Font Resize button')
+                );
+                templateHtml = templateHtml
+                    .replaceTag("Content", "Help_Policy", helpStrings[2])
+                    .replace(/\\"/g, '"').replace('this button','Policy button');
+                templateHtml = templateHtml.replaceTag(
+                    "Content",
+                    "Help_Previous",
+                    helpStrings[4].replace(/\\"/g, '"').replace('this button','Previous button')
+                );
+                templateHtml = templateHtml.replaceTag(
+                    "Content",
+                    "Help_Next",
+                    helpStrings[5].replace(/\\"/g, '"').replace('this button','Next button')
+                );
+                templateHtml = templateHtml.replaceTag(
+                    "Content",
+                    "Help_Play",
+                    helpStrings[6].replace(/\\"/g, '"').replace('this button','Play button')
+                );
+                templateHtml = templateHtml.replaceTag(
+                    "Content",
+                    "Help_FullText",
+                    helpStrings[7].replace(/\\"/g, '"').replace('this button','Enable Bullets button')
+                );
+                templateHtml = templateHtml.replaceTag(
+                    "Content",
+                    "Help_Bullets",
+                    helpStrings[8].replace(/\\"/g, '"').replace('this button','Disable Bullets button')
+                );
+            }
+            else{
+
+                templateHtml = templateHtml.replaceTag(
+                    "Content",
+                    "Help_Index",
+                    helpStrings[0].replace(/\\"/g, '"')
+                );
+                templateHtml = templateHtml.replaceTag(
+                    "Content",
+                    "Help_Resize",
+                    helpStrings[1].replace(/\\"/g, '"')
+                );
+                templateHtml = templateHtml
+                    .replaceTag("Content", "Help_Policy", helpStrings[2])
+                    .replace(/\\"/g, '"');
+                templateHtml = templateHtml.replaceTag(
+                    "Content",
+                    "Help_Previous",
+                    helpStrings[4].replace(/\\"/g, '"')
+                );
+                templateHtml = templateHtml.replaceTag(
+                    "Content",
+                    "Help_Next",
+                    helpStrings[5].replace(/\\"/g, '"')
+                );
+                templateHtml = templateHtml.replaceTag(
+                    "Content",
+                    "Help_Play",
+                    helpStrings[6].replace(/\\"/g, '"')
+                );
+                templateHtml = templateHtml.replaceTag(
+                    "Content",
+                    "Help_FullText",
+                    helpStrings[7].replace(/\\"/g, '"')
+                );
+                templateHtml = templateHtml.replaceTag(
+                    "Content",
+                    "Help_Bullets",
+                    helpStrings[8].replace(/\\"/g, '"')
+                );
+            }
+
         }
         //console.log(templateHtml);
     } else if (elementType == wc.interface.elementTypes.tableOfContents) {
