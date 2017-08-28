@@ -227,21 +227,25 @@
                 <h2 tabindex="0" class=""><span><div id="popQuiz_AlternateHeading">{$Content:PopQuiz_AlternateHeading}</div></span></h2>
             </div>
             <div id="PopQuiz_Left_Container" class="chalkboard">
-                <div id="PopQuiz_Video_Container" class="popQuizVideoContainer">
-                </div>
-                <div class="buttonsContainer">
-                    <a href="javascript:void(0);"  role="button" id="PopQuiz_ContinueBtton" class="continueButton wc-rectangular-button " onclick="wc.interface.actionHandler.popQuiz_nextQuestion();"  tabindex="0">
-					{$Resource:Continue}</a>
-                </div>
-            </div>
-            <div id="PopQuiz_Video_Transcript" class="corkboard">
-                <div class="videoTranscript courseContent " tabindex="0">
-                    <div class="dummy-scroll-wrapper">
-                        <h3>Transcript</h3>
-                        {$Content:PopQuiz_Video_Transcript}
+                <div id="PopQuiz_Video_Transcript" class="corkboard">
+                    <div class="videoTranscript courseContent " tabindex="0">
+                        <div class="dummy-scroll-wrapper">
+                            <h3>Transcript</h3>
+                            {$Content:PopQuiz_Video_Transcript}
+                        </div>
                     </div>
                 </div>
             </div>
+            <div>
+                <div id="PopQuiz_Video_Container" class="popQuizVideoContainer">
+                </div>
+                <div class="buttonsContainer btncontleft">
+                    <a href="javascript:void(0);" role="button" id="PopQuiz_ContinueBtton" class="continueButton wc-rectangular-button " onclick="wc.interface.actionHandler.popQuiz_nextQuestion();" tabindex="0">
+                        {$Resource:Continue}</a>
+                </div>
+
+            </div>
+
         </div>
         <div id="PopQuiz_Question_Container_Body_Questions" class="standardChapter  wc-popquiz-content-wrapper wc-popquiz-content " style="display: none;">
             <div id="" class="chapterHeading wc-page-title wc-horiz-top-bar ">

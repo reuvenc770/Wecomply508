@@ -5258,6 +5258,8 @@ wc.interface.elements = {
             if (isDefined(continueButton)) {
                 //$(Button_Continue).style.backgroundImage = "url('/wc2/images/training/iPadFrame/buletin_blue_button.png')";
                 $(continueButton).removeClass("disabled");
+                continueButton.setAttribute("aria-disabled", false);
+                
                 wc.interface.actionHandler.helpers.restoreDefaultFunctionality(
                     continueButton
                 );
@@ -5274,6 +5276,7 @@ wc.interface.elements = {
         clearSelection: function() {
             wc.interface.elements.quiz.selectedChoiceIndex = -1;
             wc.interface.elements.quiz.selectedElementType = -1;
+            
         }
     },
     fullTextButton: {
@@ -6967,6 +6970,16 @@ wc.interface.actionHandler = {
       if (wc.interface.options.games.scrollToTopOnFeedback)
         wc.interface.actionHandler.scrollToTop();
       wc.interface.resizeScrolls();
+
+      if (wc.interface.options.is508) {
+        setTimeout(function() {
+            var element = $("#popQuiz_Body_Feedback_Container")
+                .find("*[tabindex]")
+                .filter(":visible")
+                .filter(":first");
+            if ($(element)) $(element).focus();
+        }, 600);
+    }
     }
 
     if (choice.isCorrect == "true") {
@@ -7001,15 +7014,7 @@ wc.interface.actionHandler = {
       wc.interface.resizeScrolls();
 
       wc.interface.elements.quiz.clearSelection();
-            if (wc.interface.options.is508) {
-            setTimeout(function() {
-                var element = $("#PopQuiz_Question_Container")
-                    .find("*[tabindex]")
-                    .filter(":visible")
-                    .filter(":first");
-                if ($(element)) $(element).focus();
-            }, 600);
-        }
+         
     }
 
     if (isDefined(feedbackContainerElement)) {
@@ -7141,6 +7146,7 @@ wc.interface.actionHandler = {
     var Button_Continue = document.getElementById("Button_Continue");
     if (isDefined(Button_Continue))
       Button_Continue.className = Button_Continue.className + " disabled";
+    Button_Continue.setAttribute("aria-disabled", true);
 
     var popQuiz_quizQuestionHeaderLayout = document.getElementById(
       "popQuiz_quizQuestionHeaderLayout"
@@ -7291,6 +7297,11 @@ wc.interface.actionHandler = {
         var PopQuiz_Content_Container = document.getElementById(
           "PopQuiz_Content_Container"
         );
+        var alternateHeading1 = document.getElementById(
+            "popQuiz_AlternateHeading"
+          );
+
+        if (alternateHeading1) alternateHeading1.focus();
         wc.interface.applyScroll("#PopQuiz_Content_Container");
         if (hasVideo) {
           var PopQuiz_Video_Container = document.getElementById(
@@ -7448,7 +7459,7 @@ wc.interface.actionHandler = {
     } catch (exception) {
       //console.log(exception);
     }
-
+ 
     //popQuiz_ContinueFromIntroduction
   },
   popQuiz_ContinueFromQuestion: function(hasVideo) {

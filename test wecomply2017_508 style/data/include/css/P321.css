@@ -1157,6 +1157,7 @@ ul.bulletsList li.mediaBullet.active {
     overflow: hidden;
 }
 
+
 a.skipnav {
     position: absolute;
     left: -10em;
@@ -1189,4 +1190,10 @@ a:focus {
     overflow: hidden;
 }
 
+
+.btncontleft {
+    padding-left: 27em
+    }
+
+    
 /*END 508 addtions */
