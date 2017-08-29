@@ -5255,6 +5255,10 @@ wc.interface.elements = {
             if (!isDefined(continueButton)) {
                 continueButton = document.getElementById("BookmarkBeginButton");
             }
+            if (!isDefined(continueButton)) {
+                continueButton = document.getElementById("ChooseGameButton");
+            }
+
             if (isDefined(continueButton)) {
                 //$(Button_Continue).style.backgroundImage = "url('/wc2/images/training/iPadFrame/buletin_blue_button.png')";
                 $(continueButton).removeClass("disabled");
@@ -7962,6 +7966,8 @@ wc.interface.actionHandler = {
     }
 
     if (wc.interface.options.is508) {
+        var continueBtn = document.getElementById("continueBtn");
+        continueBtn.setAttribute("tabindex", "0");
       if (
         isDefined(document.getElementById("finalQuizContainer")) &&
         wc.data.jsonData.showQuizAnswerHeader == "1"

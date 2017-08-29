@@ -27,14 +27,14 @@
 	<div id="quizLeftPage" class="quizLeftPage" style="">
 		<div class="dummy-scroll-wrapper" style="height: 290px;overflow-y: auto;">
 			<div id="Quiz_Illustration_Content" class="quizIllustrationCeo" style="display: none;">{$Content:Quiz_Illustration}</div>
-			<div id="Quiz_Body_Content" class="questionBodyCeo" style="width: 511px;">{$Content:Quiz_Body}</div>
+			<div id="Quiz_Body_Content" class="questionBodyCeo"   tabindex="0" style="width: 511px;">{$Content:Quiz_Body}</div>
 				<ul class="quizChoices" id="Quiz_Choices_Content"  >
 					{$Content:Quiz_Choices}
 				</ul>	
         </div>
 		<div class="buttonsContainer">		
 			<div id="Button_Continue"  tabindex="0" class="closeButton continueButton disabled wc-rectangular-button "
-			 onclick="wc.interface.actionHandler.game_answerQuestion();"  role="button" 
+			 onclick="wc.interface.actionHandler.game_answerQuestion();"  role="button"  aria-disabled="true" 
 			    onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.game_answerQuestion();"
 			 >{$Content:ContinueResource}</div>	
         </div>
@@ -81,10 +81,10 @@
 
 <!--ELEMENT_START:Quiz_Intro-->
 <div class="introWrapper">
-	<h3 class="gameTitle">{$Content:Game_Intro_Name}</h3>
-	<div class="gameDescription ">
+	<h3 class="gameTitle"   tabindex="0"  >{$Content:Game_Intro_Name}</h3>
+	<div class="gameDescription "  >
 		<div class="dummy-scroll-wrapper" style="height: 250px;overflow-y: auto;">
-			<div class="gameIntroText courseContent">{$Content:Game_Intro_WelcomeText}</div>			
+			<div class="gameIntroText courseContent"   tabindex="0" >{$Content:Game_Intro_WelcomeText}</div>			
 		</div>
 		<div class="buttonsContainer">	
 			<div onclick="wc.interface.actionHandler.displayGame({$Content:gameIndex});" 

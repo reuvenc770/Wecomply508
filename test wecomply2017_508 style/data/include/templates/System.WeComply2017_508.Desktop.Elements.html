@@ -571,7 +571,7 @@ class="active hidden wc-popquiz-question-wrapper "   role="checkbox"  aria-check
                                     <div class="certificateTextBlue" style="margin-top: 22px;">{$Content:Certificate_ProgramName}</div>][$3:<span id="CurDate"></span>]}</div>
                                 <p tabindex="0" class="certificateText">{$Resource:CustomCertificateClause}</p>
                                 <p tabindex="0" class="certificateText">{$Resource:Certifiedby}</p>
-                                <div id="certLogo" class="certificateLogo"><img class="logoImage roundedCorners8" src="{$Value:DataFiles}{$Value:CompanyLogo}" alt="{$Value:CompanyName} logo"></div>
+                                <div id="certLogo" class="certificateLogo"><img class="logoImage roundedCorners8" tabindex="0" src="{$Value:DataFiles}{$Value:CompanyLogo}" alt="{$Value:CompanyName} logo"></div>
                                 <p tabindex="0" id="certificateCompanyInfo">
                                     <!--<span id="certificateCompanyName">{$Value:CompanyName}</span><br>-->
                                     {$Value:CompanyAddress},{$Value:CompanyCity}
@@ -877,7 +877,7 @@ style="color:{$Content:Item_Color};">{$Content:TableOfContents_Item_Text}</label
             </div>
         </div>
         <div class="ChooseGameButtonWrapper">
-            <div id="ChooseGameButton"  tabindex="0" class="continueButton disabledButton wc-rectangular-button"   role="checkbox"  aria-checked="false"  aria-live="assertive" 
+            <div id="ChooseGameButton"  role="button"  aria-disabled="true"  tabindex="0" class="continueButton disabled wc-rectangular-button"   
              onclick="wc.interface.elements.quiz.executeSelectedOption();"  onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.elements.quiz.executeSelectedOption();">{$Resource:Continue}</div>
         </div>
     </div>
