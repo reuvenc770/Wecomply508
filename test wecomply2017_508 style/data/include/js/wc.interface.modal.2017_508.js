@@ -7143,6 +7143,8 @@ wc.interface.actionHandler = {
     if (isDefined(PopQuiz_Question_Container_Body_Questions)) {
       PopQuiz_Question_Container_Body_Questions.style.display = "";
       PopQuiz_Content_Container.style.display = "none";
+    
+
     }
 
     PopQuiz_Introduction.style.display = "none";
@@ -7249,16 +7251,17 @@ wc.interface.actionHandler = {
 
     // apply iScroll
     wc.interface.applyScroll("#PopQuiz_Question_Container_Body_Questions");
+    PopQuiz_Question_Body.focus();
 
-          if (wc.interface.options.is508) {
-            setTimeout(function() {
-                var element = $("#PopQuiz_Question_Container_Body_Questions")
-                    .find("*[tabindex]")
-                    .filter(":visible")
-                    .filter(":first");
-                if ($(element)) $(element).focus();
-            }, 600);
-        }
+        //  if (wc.interface.options.is508) {
+        //    setTimeout(function() {
+        //        var element = $("#PopQuiz_Question_Container_Body_Questions")
+        //            .find("*[tabindex]")
+        //            .filter(":visible")
+        //            .filter(":first");
+        //        if ($(element)) $(element).focus();
+        //    }, 600);
+        //}
   },
   popQuiz_ContinueFromIntroduction: function(hasVideo) {
     try {

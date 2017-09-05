@@ -61,7 +61,9 @@
     <div class="smallFrame wc-bookmark-content-wrapper lightShadow ">
         <form name="LMSForm">
             <div id="bookmark_Container" class="container wc-bookmark-content ">
-                <div ><a href="javascript:void(0);" style="text-decoration: none;" class="muteButton" id="muteButton" role="button"  onclick="wc.interface.actionHandler.toggleMuteAll();" tabindex="0" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();">{$Content:MuteButton}</a></div>
+                <div ><a href="javascript:void(0);" style="text-decoration: none;" class="muteButton" id="muteButton" role="button" 
+                     onclick="wc.interface.actionHandler.toggleMuteAll();" tabindex="0" 
+                     onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();">{$Content:MuteButton}</a></div>
 
                 <p class="text" tabindex="0">
                     {$Content:Bookmark_Question}</p>
@@ -117,7 +119,8 @@
             <div id="Chapter_Header_Content" class="chapterHeading wc-page-title wc-left-horiz-top-bar ">
                 <h1 tabindex="0">{$Content:Chapter_Header}</h1>
             </div>
-            <div ><a href="javascript:void(0);"  role="button" style="text-decoration: none;" class="muteButton" id="muteButton" onclick="wc.interface.actionHandler.toggleMuteAll();" tabindex="0" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();">{$Content:MuteButton}</a></div>
+            <div ><a href="javascript:void(0);"  role="button" style="text-decoration: none;" class="muteButton" id="muteButton" onclick="wc.interface.actionHandler.toggleMuteAll();" tabindex="0"
+                 onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();">{$Content:MuteButton}</a></div>
 
             <div id="Chapter_Video_Container">
             </div>
@@ -217,7 +220,11 @@
                 </div>
             </div>
             <div class="buttonsContainer" >
-                <a href="javascript:void(0);"  role="button" id="PopQuiz_ContinueFromIntroduction" onclick="wc.interface.actionHandler.popQuiz_ContinueFromIntroduction({$Content:quizHasVideo});"  class="continueButton wc-rectangular-button " tabindex="0">{$Resource:Continue}</a>
+                <a href="javascript:void(0);"  role="button" id="PopQuiz_ContinueFromIntroduction"
+                 onclick="wc.interface.actionHandler.popQuiz_ContinueFromIntroduction({$Content:quizHasVideo});" 
+                 onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+                 wc.interface.actionHandler.popQuiz_ContinueFromIntroduction({$Content:quizHasVideo});" 
+                 class="continueButton wc-rectangular-button " tabindex="0">{$Resource:Continue}</a>
             </div>
         </div>
         <div id="PopQuiz_Content_Container" class="standardChapter wc-popquiz-content-wrapper wc-popquiz-content " style="display: none">
@@ -240,7 +247,11 @@
                 <div id="PopQuiz_Video_Container" class="popQuizVideoContainer">
                 </div>
                 <div class="buttonsContainer btncontleft">
-                    <a href="javascript:void(0);" role="button" id="PopQuiz_ContinueBtton" class="continueButton wc-rectangular-button " onclick="wc.interface.actionHandler.popQuiz_nextQuestion();" tabindex="0">
+                    <a href="javascript:void(0);" role="button" id="PopQuiz_ContinueBtton" class="continueButton wc-rectangular-button " 
+                    onclick="wc.interface.actionHandler.popQuiz_nextQuestion();" 
+                    onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+                    wc.interface.actionHandler.popQuiz_nextQuestion();" 
+                    tabindex="0">
                         {$Resource:Continue}</a>
                 </div>
 
@@ -263,9 +274,17 @@
             </div>
 
             <div id="PopQuiz_Answer_Button" style="display: none;" class="buttonsContainer" >
-                <a href="javascript:void(0);" id="Button_Back"  role="button" onclick="wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);"  class="continueButton" tabindex="0">
+                <a href="javascript:void(0);" id="Button_Back"  role="button"
+                 onclick="wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);"  
+                 onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+                 wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);" 
+                 class="continueButton" tabindex="0">
                              {$Resource:Back}</a>
-                <a href="javascript:void(0);" id="Button_Continue" role="button"  onclick="wc.interface.actionHandler.popQuiz_answerSelected(wc.interface.elements.quiz.selectedChoiceIndex, wc.interface.elements.quiz.selectedElementType);"  class="continueButton" tabindex="0">
+                <a href="javascript:void(0);" id="Button_Continue" role="button" 
+                 onclick="wc.interface.actionHandler.popQuiz_answerSelected(wc.interface.elements.quiz.selectedChoiceIndex, wc.interface.elements.quiz.selectedElementType);" 
+                 onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+                 wc.interface.actionHandler.popQuiz_answerSelected(wc.interface.elements.quiz.selectedChoiceIndex, wc.interface.elements.quiz.selectedElementType);" 
+                 class="continueButton" tabindex="0">
 							{$Resource:Continue}</a>
                 <!-- <div id="Button_Back" class="continueButton" onclick="wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);">
                     {$Resource:Back}</div>
@@ -292,13 +311,25 @@
         </div>
     </div>
     <div class="buttonsContainer" >
-        <a href="javascript:void(0);" class="continueButton" id="feedbackButton_Back"  role="button" onclick="wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);"  tabindex="0">
+        <a href="javascript:void(0);" class="continueButton" id="feedbackButton_Back"  role="button" 
+        onclick="wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);" 
+        onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+        wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);" 
+        tabindex="0">
                             {$Resource:Back}</a>
 
-        <a href="javascript:void(0);" class="continueButton wc-rectangular-button"  role="button" id="popQuiz_Body_Feedback_TryAgain" onclick="wc.interface.actionHandler.popQuiz_closeFeedbackElement();"  tabindex="0">
+        <a href="javascript:void(0);" class="continueButton wc-rectangular-button"  role="button" id="popQuiz_Body_Feedback_TryAgain" 
+        onclick="wc.interface.actionHandler.popQuiz_closeFeedbackElement();"
+        onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+        wc.interface.actionHandler.popQuiz_closeFeedbackElement();" 
+        tabindex="0">
                             {$Resource:PleaseTryAgain}</a>
         <div id="popQuiz_Body_Feedback_ContinueButton" style="display: none;">
-            <a href="javascript:void(0);" class="continueButton wc-rectangular-button"  role="button" id="popQuizContinueBtn" onclick="wc.interface.actionHandler.popQuiz_nextQuestion(0);"  tabindex="0">
+            <a href="javascript:void(0);" class="continueButton wc-rectangular-button"  role="button" id="popQuizContinueBtn"
+             onclick="wc.interface.actionHandler.popQuiz_nextQuestion(0);"  
+             onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+             wc.interface.actionHandler.popQuiz_nextQuestion(0);" 
+             tabindex="0">
                             {$Content:ContinueResource}</a>
 
         </div>
@@ -395,11 +426,16 @@
 <!--ELEMENT_END:LinkBulletin-->
 <!--ELEMENT_START:LinkBulletin_Button-->
 <div class="LinkBulletinCode_Button_Element" class="linkBulletinLayout">
-    <a tabindex="0" href="javascript:void(0);" onclick="wc.interface.actionHandler.displayLinkBulletin(wc.interface.linkBulletinTypes.{$Content:LinkBulletin_Variety});" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.displayLinkBulletin(wc.interface.linkBulletinTypes.{$Content:LinkBulletin_Variety});"><img class="docLinkImage" id="LinkBulletin{$Content:LinkBulletin_Variety}_Button" src="{$Value:ImagePath}{$Content:LinkBulletin_Variety}.png" border="0" alt="LinkBulletin {$Content:LinkBulletin_Variety} Button" /></a>
+    <a tabindex="0" href="javascript:void(0);" onclick="wc.interface.actionHandler.displayLinkBulletin(wc.interface.linkBulletinTypes.{$Content:LinkBulletin_Variety});" 
+    onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.displayLinkBulletin(wc.interface.linkBulletinTypes.{$Content:LinkBulletin_Variety});"><img class="docLinkImage" id="LinkBulletin{$Content:LinkBulletin_Variety}_Button" src="{$Value:ImagePath}{$Content:LinkBulletin_Variety}.png" border="0" alt="LinkBulletin {$Content:LinkBulletin_Variety} Button" /></a>
 </div>
 <!--ELEMENT_END:LinkBulletin_Button-->
 <!--ELEMENT_START:LinkBulletin_MenuItem-->
-<li><img alt="" src="{$Value:ImagePath}whitearrow.png" height="12" /> <a href="javascript:void(0);" style="text-decoration: none;" onclick="wc.interface.actionHandler.displayLinkBulletin(wc.interface.linkBulletinTypes.{$Content:LinkBulletin_Variety});">{$Content:LinkBulletin_Name}</a>
+<li><img alt="" src="{$Value:ImagePath}whitearrow.png" height="12" /> <a href="javascript:void(0);" style="text-decoration: none;"
+     onclick="wc.interface.actionHandler.displayLinkBulletin(wc.interface.linkBulletinTypes.{$Content:LinkBulletin_Variety});"
+     onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+     wc.interface.actionHandler.displayLinkBulletin(wc.interface.linkBulletinTypes.{$Content:LinkBulletin_Variety});"  tabindex="0"  
+     >{$Content:LinkBulletin_Name}</a>
 </li>
 <!--ELEMENT_END:LinkBulletin_MenuItem-->
 <!--ELEMENT_START:QuizQuestion-->
@@ -589,14 +625,14 @@ class="active hidden wc-popquiz-question-wrapper "   role="checkbox"  aria-check
             <div class="certificateOfflineFormInstruction">{$Resource:TrackingInstruction}</div>
             <div class="certificateOfflineFormUsername">
                 Username:
-                <input id="idUser" type="text" name="idUser" size="24" focus="true" style="vertical-align: middle">
+                <input id="idUser" type="text" name="idUser" size="24"  tabindex="0"  focus="true" style="vertical-align: middle">
             </div>
             <div class="certificateOfflineFormPassword">
                 Password:
-                <input id="idPassword" type="password" name="idPassword" size="26" style="vertical-align: middle">
+                <input id="idPassword" type="password" name="idPassword" tabindex="0"   size="26" style="vertical-align: middle">
             </div>
             <div class="certificateOfflineFormLink">
-                <a id="idMailLink"  role="button" onclick="loadOfflineMailHref()" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) loadOfflineMailHref();" href="javascript:void(0)">Send Results</a>
+                <a id="idMailLink"  tabindex="0"   role="button" onclick="loadOfflineMailHref()" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) loadOfflineMailHref();" href="javascript:void(0)">Send Results</a>
             </div>
         </form>
     </div>
@@ -716,7 +752,10 @@ style="color:{$Content:Item_Color};">{$Content:TableOfContents_Item_Text}</label
 						 </a>
 	<!-- 
             <div id="helpDone" class="continueButton wc-rectangular-button "
-             onclick="wc.interface.elements.help.close();">{$Resource:Done}</div>
+             onclick="wc.interface.elements.help.close();"
+             onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+             wc.interface.elements.help.close();"  tabindex="0"  
+             >{$Resource:Done}</div>
         -->
         </div>
     </div>
@@ -742,7 +781,10 @@ style="color:{$Content:Item_Color};">{$Content:TableOfContents_Item_Text}</label
 						 </a>
 						 
                 	<!--
-                <div id="policyDone" class="continueButton wc-rectangular-button " onclick="wc.interface.elements.policy.close();">Close</div>
+                <div id="policyDone" class="continueButton wc-rectangular-button " onclick="wc.interface.elements.policy.close();"
+                onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+                wc.interface.elements.policy.close();" tabindex="0"  
+                >Close</div>
              -->
             </div>
         </div>
@@ -781,7 +823,8 @@ style="color:{$Content:Item_Color};">{$Content:TableOfContents_Item_Text}</label
             <div id="MatchGame_Outro_Heading" class="matchGame_OutroText courseContent" tabindex="0">
                 {$Content:MatchGame_Outro_Heading}</div>
             <div class="continueButtonContainer" style="margin-left:50px;width:164px;">
-                <a href="javascript:void(0);" id="MatchGame_Close"  role="button" class="continueButton wc-rectangular-button " onclick="wc.interface.navigateToElement(wc.interface.directions.next);" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.navigateToElement(wc.interface.directions.next);" tabindex="0">
+                <a href="javascript:void(0);" id="MatchGame_Close"  role="button" class="continueButton wc-rectangular-button " 
+                onclick="wc.interface.navigateToElement(wc.interface.directions.next);" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.navigateToElement(wc.interface.directions.next);" tabindex="0">
 					{$Resource:Continue}</a>
             </div>
         </div>
@@ -928,9 +971,14 @@ style="color:{$Content:Item_Color};">{$Content:TableOfContents_Item_Text}</label
     <!--ELEMENT_END:Survey-->
 
     <!--ELEMENT_START:Survey_PivotQuestion-->
-    <li id="survey_pivot_mediaBullet_{$Content:Survey_PivotQuestion_Id}" class="active hidden wc-popquiz-question-wrapper " onclick="document.getElementById('Survey_PivotQuestion_{$Content:Survey_PivotQuestion_Id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('survey_pivot_mediaBullet_', {$Content:Survey_PivotQuestion_Id});wc.interface.actionHandler.survey_PivotQuestionSelected({$Content:Survey_PivotQuestion_Id}, {$Content:elementType});">
+    <li id="survey_pivot_mediaBullet_{$Content:Survey_PivotQuestion_Id}" class="active hidden wc-popquiz-question-wrapper "  tabindex="0"  
+    onclick="document.getElementById('Survey_PivotQuestion_{$Content:Survey_PivotQuestion_Id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('survey_pivot_mediaBullet_', {$Content:Survey_PivotQuestion_Id});wc.interface.actionHandler.survey_PivotQuestionSelected({$Content:Survey_PivotQuestion_Id}, {$Content:elementType});"
+    onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+    document.getElementById('Survey_PivotQuestion_{$Content:Survey_PivotQuestion_Id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('survey_pivot_mediaBullet_', {$Content:Survey_PivotQuestion_Id});wc.interface.actionHandler.survey_PivotQuestionSelected({$Content:Survey_PivotQuestion_Id}, {$Content:elementType});"
+    
+    >
         <input type="radio" style="display:none;" id="Survey_PivotQuestion_{$Content:Survey_PivotQuestion_Id}" name="Survey_PivotQuestion_Name" />
-        <p class="bulletContentSurveyPivot wc-popquiz-question-content " tabindex="0">{$Content:Survey_PivotQuestion_Body}</p>
+        <p class="bulletContentSurveyPivot wc-popquiz-question-content " tabindex="0"  >{$Content:Survey_PivotQuestion_Body}</p>
 
         <div title="Check Box" class="default mediaBullet_select wc-media-bullet-select "></div>
     </li>
@@ -940,17 +988,29 @@ style="color:{$Content:Item_Color};">{$Content:TableOfContents_Item_Text}</label
     <div id="Survey_TextEssay_Element">
         <p>
             {$Content:Survey_TextEssay_Label}</p>
-        <textarea id="Survey_TextEssay_{$Content:questionIndex}" class="textAreaAnswerText" onkeyup="wc.interface.actionHandler.survey_TextInputKeyUp(this);" name="Survey_TextEssay" onclick="this.select();"></textarea>
+        <textarea id="Survey_TextEssay_{$Content:questionIndex}" class="textAreaAnswerText" onkeyup="wc.interface.actionHandler.survey_TextInputKeyUp(this);" name="Survey_TextEssay" onclick="this.select();" tabindex="0"  
+        onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+        this.select();"
+        ></textarea>
     </div>
     <!--ELEMENT_END:Survey_TextEssay-->
 
     <!--ELEMENT_START:Survey_Boolean-->
-    <li id="survery_boolean_mediaBullet_0" class="active hidden wc-popquiz-question-wrapper " onclick="document.getElementById('Survey_Boolean_Yes_{$Content:questionIndex}').checked=true;wc.interface.generalDisplayMethods.selectListItem('survery_boolean_mediaBullet_', 0);wc.interface.actionHandler.survey_BooleanSelected(true, {$Content:questionIndex});">
+    <li id="survery_boolean_mediaBullet_0" class="active hidden wc-popquiz-question-wrapper " tabindex="0"  
+     onclick="document.getElementById('Survey_Boolean_Yes_{$Content:questionIndex}').checked=true;wc.interface.generalDisplayMethods.selectListItem('survery_boolean_mediaBullet_', 0);wc.interface.actionHandler.survey_BooleanSelected(true, {$Content:questionIndex});"
+     onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+     document.getElementById('Survey_Boolean_Yes_{$Content:questionIndex}').checked=true;wc.interface.generalDisplayMethods.selectListItem('survery_boolean_mediaBullet_', 0);wc.interface.actionHandler.survey_BooleanSelected(true, {$Content:questionIndex});"
+    
+    >
         <input type="radio" style="display:none;" id="Survey_Boolean_Yes_{$Content:questionIndex}" name="Survey_Boolean_Name" />
         <p class="bulletContentSurveyPivot wc-popquiz-question-content ">{$Resource:Yes}</p>
         <div class="default mediaBullet_select wc-media-bullet-select "></div>
     </li>
-    <li id="survery_boolean_mediaBullet_1" class="active hidden wc-popquiz-question-wrapper " onclick="document.getElementById('Survey_Boolean_No_{$Content:questionIndex}').checked=true;wc.interface.generalDisplayMethods.selectListItem('survery_boolean_mediaBullet_', 1);wc.interface.actionHandler.survey_BooleanSelected(false, {$Content:questionIndex});">
+    <li id="survery_boolean_mediaBullet_1" class="active hidden wc-popquiz-question-wrapper "  tabindex="0"  
+    onclick="document.getElementById('Survey_Boolean_No_{$Content:questionIndex}').checked=true;wc.interface.generalDisplayMethods.selectListItem('survery_boolean_mediaBullet_', 1);wc.interface.actionHandler.survey_BooleanSelected(false, {$Content:questionIndex});"
+    onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+    document.getElementById('Survey_Boolean_No_{$Content:questionIndex}').checked=true;wc.interface.generalDisplayMethods.selectListItem('survery_boolean_mediaBullet_', 1);wc.interface.actionHandler.survey_BooleanSelected(false, {$Content:questionIndex});"
+    >
         <input type="radio" style="display:none;" id="Survey_Boolean_No_{$Content:questionIndex}" name="Survey_Boolean_Name" />
         <p class="bulletContentSurveyPivot wc-popquiz-question-content ">{$Resource:No}</p>
         <div class="default mediaBullet_select wc-media-bullet-select "></div>
@@ -963,13 +1023,20 @@ style="color:{$Content:Item_Color};">{$Content:TableOfContents_Item_Text}</label
             <label for="Survey_TextInput_{$Content:questionIndex}_{$Content:Survey_TextInput_Id}">
 			{$Content:Survey_TextInput_Label}</label>
         </div>
-        <input id="Survey_TextInput_{$Content:questionIndex}_{$Content:Survey_TextInput_Id}" type="text" style="width: {$Content:Survey_TextInput_width}px;" onkeyup="wc.interface.actionHandler.survey_TextInputKeyUp(this);" name="Survey_TextInput" onclick="this.select();" />
+        <input id="Survey_TextInput_{$Content:questionIndex}_{$Content:Survey_TextInput_Id}"  tabindex="0"  type="text" style="width: {$Content:Survey_TextInput_width}px;" onkeyup="wc.interface.actionHandler.survey_TextInputKeyUp(this);" name="Survey_TextInput" onclick="this.select();"
+        onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+        this.select();"
+        />
     </div>
     <!--ELEMENT_END:Survey_TextInput-->
 
     <!--ELEMENT_START:Survey_MultipleChoiceOneAnswer-->
-    <li id="mediaBullet_{$Content:Survey_MultipleChoiceOneAnswer_Id}_{$Content:questionIndex}" class="active hidden wc-popquiz-question-wrapper " 
-    onclick="document.getElementById('Survey_MultipleChoiceOneAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceOneAnswer_id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('mediaBullet_{$Content:Survey_MultipleChoiceOneAnswer_Id}_', {$Content:questionIndex});wc.interface.actionHandler.survey_MultipleChoiceOneAnswerSelected({$Content:Survey_MultipleChoiceOneAnswer_Id}, {$Content:questionIndex});">
+    <li id="mediaBullet_{$Content:Survey_MultipleChoiceOneAnswer_Id}_{$Content:questionIndex}" class="active hidden wc-popquiz-question-wrapper "  tabindex="0"  
+    onclick="document.getElementById('Survey_MultipleChoiceOneAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceOneAnswer_id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('mediaBullet_{$Content:Survey_MultipleChoiceOneAnswer_Id}_', {$Content:questionIndex});wc.interface.actionHandler.survey_MultipleChoiceOneAnswerSelected({$Content:Survey_MultipleChoiceOneAnswer_Id}, {$Content:questionIndex});"
+    onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+    document.getElementById('Survey_MultipleChoiceOneAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceOneAnswer_id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('mediaBullet_{$Content:Survey_MultipleChoiceOneAnswer_Id}_', {$Content:questionIndex});wc.interface.actionHandler.survey_MultipleChoiceOneAnswerSelected({$Content:Survey_MultipleChoiceOneAnswer_Id}, {$Content:questionIndex});"
+    
+    >
         <input type="radio" style="display:none;" name="{$Content:Survey_MultipleChoiceOneAnswer_Name}" 
         id="Survey_MultipleChoiceOneAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceOneAnswer_id}" />
         <p class="bulletContentSurveyPivot wc-popquiz-question-content ">{$Content:Survey_MultipleChoiceOneAnswer_Body}</p>
@@ -979,8 +1046,12 @@ style="color:{$Content:Item_Color};">{$Content:TableOfContents_Item_Text}</label
 
     <!--ELEMENT_START:Survey_MultipleChoiceMultipleAnswer-->
     <li id="multiple_mediaBullet_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceMultipleAnswer_id}" 
-    class="mediaBullet active hidden wc-popquiz-question-wrapper "
-     onclick="document.getElementById('Survey_MultipleChoiceMultipleAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceMultipleAnswer_id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('multiple_mediaBullet_{$Content:questionIndex}_', {$Content:Survey_MultipleChoiceMultipleAnswer_id}, true);wc.interface.actionHandler.survey_MultipleChoiceMultipleAnswerSelected({$Content:Survey_MultipleChoiceMultipleAnswer_Id}, {$Content:questionIndex});">
+    class="mediaBullet active hidden wc-popquiz-question-wrapper " tabindex="0"  
+     onclick="document.getElementById('Survey_MultipleChoiceMultipleAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceMultipleAnswer_id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('multiple_mediaBullet_{$Content:questionIndex}_', {$Content:Survey_MultipleChoiceMultipleAnswer_id}, true);wc.interface.actionHandler.survey_MultipleChoiceMultipleAnswerSelected({$Content:Survey_MultipleChoiceMultipleAnswer_Id}, {$Content:questionIndex});"
+     
+     onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
+     document.getElementById('Survey_MultipleChoiceMultipleAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceMultipleAnswer_id}').checked=true;wc.interface.generalDisplayMethods.selectListItem('multiple_mediaBullet_{$Content:questionIndex}_', {$Content:Survey_MultipleChoiceMultipleAnswer_id}, true);wc.interface.actionHandler.survey_MultipleChoiceMultipleAnswerSelected({$Content:Survey_MultipleChoiceMultipleAnswer_Id}, {$Content:questionIndex});"
+     >
         <input type="checkbox" style="display:none;" name="{$Content:Survey_MultipleChoiceMultipleAnswer_Name}"
          id="Survey_MultipleChoiceMultipleAnswer_{$Content:questionIndex}_{$Content:Survey_MultipleChoiceMultipleAnswer_id}" />
         <p class="bulletContentSurveyPivot wc-popquiz-question-content ">{$Content:Survey_MultipleChoiceMultipleAnswer_Body}</p>
