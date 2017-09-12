@@ -220,11 +220,7 @@
                 </div>
             </div>
             <div class="buttonsContainer" >
-                <a href="javascript:void(0);"  role="button" id="PopQuiz_ContinueFromIntroduction"
-                 onclick="wc.interface.actionHandler.popQuiz_ContinueFromIntroduction({$Content:quizHasVideo});" 
-                 onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
-                 wc.interface.actionHandler.popQuiz_ContinueFromIntroduction({$Content:quizHasVideo});" 
-                 class="continueButton wc-rectangular-button " tabindex="0">{$Resource:Continue}</a>
+                <a href="javascript:void(0);"  role="button" id="PopQuiz_ContinueFromIntroduction" onclick="wc.interface.actionHandler.popQuiz_ContinueFromIntroduction({$Content:quizHasVideo});"  class="continueButton wc-rectangular-button " tabindex="0">{$Resource:Continue}</a>
             </div>
         </div>
         <div id="PopQuiz_Content_Container" class="standardChapter wc-popquiz-content-wrapper wc-popquiz-content " style="display: none">
@@ -247,11 +243,7 @@
                 <div id="PopQuiz_Video_Container" class="popQuizVideoContainer">
                 </div>
                 <div class="buttonsContainer btncontleft">
-                    <a href="javascript:void(0);" role="button" id="PopQuiz_ContinueBtton" class="continueButton wc-rectangular-button " 
-                    onclick="wc.interface.actionHandler.popQuiz_nextQuestion();" 
-                    onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
-                    wc.interface.actionHandler.popQuiz_nextQuestion();" 
-                    tabindex="0">
+                    <a href="javascript:void(0);" role="button" id="PopQuiz_ContinueBtton" class="continueButton wc-rectangular-button " onclick="wc.interface.actionHandler.popQuiz_nextQuestion();" tabindex="0">
                         {$Resource:Continue}</a>
                 </div>
 
@@ -274,17 +266,9 @@
             </div>
 
             <div id="PopQuiz_Answer_Button" style="display: none;" class="buttonsContainer" >
-                <a href="javascript:void(0);" id="Button_Back"  role="button"
-                 onclick="wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);"  
-                 onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
-                 wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);" 
-                 class="continueButton" tabindex="0">
+                <a href="javascript:void(0);" id="Button_Back"  role="button" onclick="wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);"  class="continueButton" tabindex="0">
                              {$Resource:Back}</a>
-                <a href="javascript:void(0);" id="Button_Continue" role="button" 
-                 onclick="wc.interface.actionHandler.popQuiz_answerSelected(wc.interface.elements.quiz.selectedChoiceIndex, wc.interface.elements.quiz.selectedElementType);" 
-                 onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
-                 wc.interface.actionHandler.popQuiz_answerSelected(wc.interface.elements.quiz.selectedChoiceIndex, wc.interface.elements.quiz.selectedElementType);" 
-                 class="continueButton" tabindex="0">
+                             <a href="javascript:void(0);" id="Button_Continue" role="button"  onclick="wc.interface.actionHandler.popQuiz_answerSelected(wc.interface.elements.quiz.selectedChoiceIndex, wc.interface.elements.quiz.selectedElementType);"  class="continueButton" tabindex="0">
 							{$Resource:Continue}</a>
                 <!-- <div id="Button_Back" class="continueButton" onclick="wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);">
                     {$Resource:Back}</div>
@@ -311,25 +295,13 @@
         </div>
     </div>
     <div class="buttonsContainer" >
-        <a href="javascript:void(0);" class="continueButton" id="feedbackButton_Back"  role="button" 
-        onclick="wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);" 
-        onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
-        wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);" 
-        tabindex="0">
+        <a href="javascript:void(0);" class="continueButton" id="feedbackButton_Back"  role="button" onclick="wc.interface.actionHandler.popQuiz_ContinueFromQuestion(true);"  tabindex="0">
                             {$Resource:Back}</a>
 
-        <a href="javascript:void(0);" class="continueButton wc-rectangular-button"  role="button" id="popQuiz_Body_Feedback_TryAgain" 
-        onclick="wc.interface.actionHandler.popQuiz_closeFeedbackElement();"
-        onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
-        wc.interface.actionHandler.popQuiz_closeFeedbackElement();" 
-        tabindex="0">
+                            <a href="javascript:void(0);" class="continueButton wc-rectangular-button"  role="button" id="popQuiz_Body_Feedback_TryAgain" onclick="wc.interface.actionHandler.popQuiz_closeFeedbackElement();"  tabindex="0">
                             {$Resource:PleaseTryAgain}</a>
         <div id="popQuiz_Body_Feedback_ContinueButton" style="display: none;">
-            <a href="javascript:void(0);" class="continueButton wc-rectangular-button"  role="button" id="popQuizContinueBtn"
-             onclick="wc.interface.actionHandler.popQuiz_nextQuestion(0);"  
-             onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13)
-             wc.interface.actionHandler.popQuiz_nextQuestion(0);" 
-             tabindex="0">
+            <a href="javascript:void(0);" class="continueButton wc-rectangular-button"  role="button" id="popQuizContinueBtn" onclick="wc.interface.actionHandler.popQuiz_nextQuestion(0);"  tabindex="0">
                             {$Content:ContinueResource}</a>
 
         </div>
@@ -391,7 +363,7 @@
 
 <!--ELEMENT_START:LinkBulletin-->
 <div id="LinkBulletin_Element" class="popupContainer wc-link-bulletin-wrapper ">
-    <div id="whiteboardContainer" class="whiteboardContainer wc-link-bulletin-content-wrapper " style="width: {$Content:PopupWidth}px;">
+    <div id="whiteboardContainer" class="whiteboardContainer wc-link-bulletin-content-wrapper " style="width: {$Content:PopupWidth}px;height: {$Content:PopupHeight}px;">
         <div class="whiteboard wc-link-bulletin-content ">
             <div class="chalkboard">
                 <div id="LinkBulletin_Header">

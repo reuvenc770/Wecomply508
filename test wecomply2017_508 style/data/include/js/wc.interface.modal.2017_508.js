@@ -365,7 +365,7 @@ wc.init = function(data, dataFilePath) {
         wc.interface.actionHandler.previousButton();
         return;
       }
-
+  
       /*
             // For some browsers, `attr` is undefined; for others,
       // `attr` is false.  Check for both.
@@ -3517,6 +3517,7 @@ wc.interface.displayLayer = function(elementType, data, onDoneCallback) {
             linkBulletinTypeName || ""
         );
         templateHtml = templateHtml.replaceTag("Content", "PopupWidth", data.width);
+        templateHtml = templateHtml.replaceTag("Content", "PopupHeight", data.height);
 
         //AdiA - hack for IpdaFrame for do's and dont's - MS needed to add this back in because of ipadframe styles
         if (wc.interface.linkBulletinTypes.News.varietyCode != data.variety) {
@@ -9673,6 +9674,7 @@ function getLanguageCode(id) {
 
 function fitText(element, width, height) {
     var obj = $(element);
+  
     var fs = parseInt(obj.css("font-size"), 10);
 
     if (width > 0) {
@@ -9689,10 +9691,30 @@ function fitText(element, width, height) {
     var i = innerWrap(obj);
 
     // Keep reducing the font size of the target element until the inner div fits
+   /* while (i.height() > height-7) {
+        obj.css("font-size", --fs + "px");
+    }
+
+    obj.css("line-height", fs + 12 + "px");
+    obj.css("margin-bottom", "15px");
+
+
     while (i.height() > height) {
         obj.css("font-size", --fs + "px");
     }
+
     obj.css("line-height", fs + 4 + "px");
+
+    */
+    while (i.height() > height-7) {
+        obj.css("font-size", --fs + "px");
+    }
+
+    obj.css("line-height", fs + 12 + "px");
+    obj.css("margin-bottom", "15px");
+  
+
+   
     removeWrap(i);
     return obj;
 }
