@@ -1199,4 +1199,11 @@ a:focus {
     margin-bottom: 4px !important; 
     }
     
+.menufocus:focus {
+        outline: 1;
+        box-shadow: 0 0 30px #c601c6;
+        border-color: #c601c6;
+        background-color: #c601c6 !important;
+    }
+    
 /*END 508 addtions */
