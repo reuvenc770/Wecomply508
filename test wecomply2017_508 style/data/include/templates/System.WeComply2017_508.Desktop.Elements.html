@@ -31,10 +31,10 @@
             onclick="wc.interface.actionHandler.toggleMuteAll();" tabindex="0"   
             onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13) wc.interface.actionHandler.toggleMuteAll();" >
                 <a href="javascript:void(0);" style="text-decoration: none;" tabindex="-1"  title="{$Content:MuteButton}" aria-live="assertive"  class="muteButton" id="muteButton" >{$Content:MuteButton}</a></div>
-            <ul class="studentDetails chapterLeftPadding">
-                <li tabindex="0"><span class="label">{$Resource:To}</span><span class="fieldContent">{$Content:firstName} {$Content:lastName}</span></li>
-                <li tabindex="0"><span class="label">{$Resource:Date}</span><span class="fieldContent">{$Content:currentDate}</span></li>
-                <li tabindex="0"><span class="label">{$Resource:Re}</span><span class="fieldContent">{$Value:CourseName}</span></li>
+            <ul class="studentDetails chapterLeftPadding introstudentdetails">
+                <li tabindex="0" class="introstudentdetails"><span class="label">{$Resource:To}</span><span class="fieldContent">{$Content:firstName} {$Content:lastName}</span></li>
+                <li tabindex="0" class="introstudentdetails"><span class="label">{$Resource:Date}</span><span class="fieldContent">{$Content:currentDate}</span></li>
+                <li tabindex="0" class="introstudentdetails"><span class="label">{$Resource:Re}</span><span class="fieldContent">{$Value:CourseName}</span></li>
             </ul>
             <div id="Chapter_Video_Container" class="memorandumVideoContainer chapterLeftPadding">
             </div>
@@ -253,7 +253,7 @@
             </div>
 
         </div>
-        <div id="PopQuiz_Question_Container_Body_Questions" class="standardChapter  wc-popquiz-content-wrapper wc-popquiz-content " style="display: none;">
+        <div id="PopQuiz_Question_Container_Body_Questions" class="standardChapter  wc-popquiz-content-wrapper wc-popquiz-content " style="display: none;height:430px;">
             <div id="" class="chapterHeading wc-page-title wc-horiz-top-bar ">
                 <h2 tabindex="0" class=""><span id="">{$Resource:PopQuiz}</span></h2>
             </div>
@@ -772,7 +772,7 @@ style="color:{$Content:Item_Color};">{$Content:TableOfContents_Item_Text}</label
     <div id="finalQuizContainer" class="standardChapter wc-finalquiz-content-wrapper wc-finalquiz-content ">
         <div class="quizHeader chapterHeading wc-horiz-top-bar ">
             <div id="popHeadingQuiz" class="wc-page-title ">
-                <h1><span tabindex="0" id="popHeadingQuiz_Text">Final Quiz</span><span tabindex="0" id="popHeadingQuiz_SecondText" style="display:none;"></span></h1>
+                <h2><span tabindex="0" id="popHeadingQuiz_Text">Final Quiz</span><span tabindex="0" id="popHeadingQuiz_SecondText" style="display:none;"></span></h2>
             </div>
         </div>
         {$Content:LayerContent}

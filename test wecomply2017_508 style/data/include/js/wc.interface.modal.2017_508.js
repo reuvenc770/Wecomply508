@@ -3517,7 +3517,16 @@ wc.interface.displayLayer = function(elementType, data, onDoneCallback) {
             linkBulletinTypeName || ""
         );
         templateHtml = templateHtml.replaceTag("Content", "PopupWidth", data.width);
-        templateHtml = templateHtml.replaceTag("Content", "PopupHeight", data.height);
+        if(data.height>=460)
+        {
+            templateHtml = templateHtml.replaceTag("Content", "PopupHeight", data.height);
+        }
+        else
+        {
+            templateHtml = templateHtml.replaceTag("Content", "PopupHeight", "460");
+
+        }
+        
 
         //AdiA - hack for IpdaFrame for do's and dont's - MS needed to add this back in because of ipadframe styles
         if (wc.interface.linkBulletinTypes.News.varietyCode != data.variety) {
@@ -9711,7 +9720,7 @@ function fitText(element, width, height) {
     }
 
     obj.css("line-height", fs + 12 + "px");
-    obj.css("margin-bottom", "15px");
+    obj.css("margin-bottom", "10px");
   
 
    
