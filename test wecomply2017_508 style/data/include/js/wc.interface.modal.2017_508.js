@@ -4312,7 +4312,7 @@ wc.interface.displaySecondLayer = function(
                 itemContentClass = "completed ";
                 itemColor = "black";
                 itemAriaDisabled ="false";
-                if (wc.interface.options.is508)
+               // if (wc.interface.options.is508)
                     tmpItemTemplate = tmpItemTemplate.replaceTag(
                         "Content",
                         "Item_TabIndex",
@@ -4322,7 +4322,7 @@ wc.interface.displaySecondLayer = function(
                 clickFunction = "return false;";
                 itemColor = "#C4C4C4";
                  itemAriaDisabled ="true";
-                if (wc.interface.options.is508)
+               // if (wc.interface.options.is508)
                     tmpItemTemplate = tmpItemTemplate.replaceTag(
                         "Content",
                         "Item_TabIndex", -1
@@ -4358,6 +4358,15 @@ wc.interface.displaySecondLayer = function(
             "TableOfContents_Items",
             allItemsTemplate
         );
+
+        setTimeout(function() {
+            var element = $("#tableheader")
+                .find("*[tabindex]")
+                .filter(":visible")
+                .filter(":first");
+            if ($(element)) $(element).focus();
+        }, 600);
+        
     } else if (elementType == wc.interface.elementTypes.note) {
         templateHtml = wc.data.templateElements.note;
         var notes = "";

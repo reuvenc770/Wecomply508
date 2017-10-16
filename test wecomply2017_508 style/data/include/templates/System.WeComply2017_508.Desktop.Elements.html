@@ -655,7 +655,7 @@ class="active hidden wc-popquiz-question-wrapper "   role="checkbox"  aria-check
 
 <!--ELEMENT_START:TableOfContents_Item-->
 <li id="mediaBullet_toc_{$Content:Item_Id}" class="active hidden wc-toc-item-wrapper wc-toc-item-bullet " role="checkbox" aria-checked="false"  aria-live="assertive"  aria-disabled="{$Content:Aria_Disabled}" 
-  tabindex="0" onclick="{$Content:Click_Function}" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13){$Content:Click_Function}"
+  tabindex="{$Content:Item_TabIndex}" onclick="{$Content:Click_Function}" onkeydown="if (event.which === 13 || event.charCode === 13 || event.keyCode === 13){$Content:Click_Function}"
    aria-label="{$Content:TableOfContents_Item_Text}"
             >
     <p class="listVerticalAlign"></p>
